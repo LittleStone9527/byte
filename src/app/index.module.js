@@ -13,11 +13,14 @@ import {MainController} from './main/main.controller';
 import {TradeController} from './trade/trade.controller';
 import {FinancesController} from '././finances/finances.controller';
 import {SaveController} from '././safe/safe.controller';
+import {AuthController} from '././auth/auth.controller';
 
 // components
 import {HeaderComponent} from './components/header/header.component'
 import {FooterComponent} from './components/footer/footer.component';
 import {TradeItemsComponent} from './components/trade-items/trade-items';
+import {LoginFormComponent} from './components/login-form/login-form';
+import {RegisterFormComponent} from './components/register-form/register-form';
 
 // directive
 
@@ -46,6 +49,9 @@ angular.module('lwTrade', [
   .controller('TradeController', TradeController)
   .controller('FinancesController', FinancesController)
   .controller('SaveController', SaveController)
+  .controller('AuthController', AuthController)
   .component('header', HeaderComponent)
   .component('footer', FooterComponent)
-  .component('tradeItems', TradeItemsComponent);
+  .component('tradeItems', TradeItemsComponent)
+  .component('loginForm', LoginFormComponent)
+  .component('registerForm', RegisterFormComponent);

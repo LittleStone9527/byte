@@ -4,8 +4,7 @@ let router = {
     views: {
       main: {
         templateUrl: 'app/main/main.html',
-        controller: 'MainController',
-        controllerAs: 'Main'
+        controller: 'MainController as Main'
       }
     }
   },
@@ -14,16 +13,15 @@ let router = {
     views: {
       main: {
         templateUrl: 'app/trade/trade.html',
-        controller: 'TradeController',
-        controllerAs: 'Trade'
+        controller: 'TradeController as Trade'
       }
     },
-    child: {
+    $$child: {
       'trade.items': {
         url: '/:partial',
         views: {
           trade_items: {
-            templateUrl: 'app/components/trade-items/trade-items.html'
+            template: '<trade-items></trade-items>'
           }
         }
       }
@@ -34,8 +32,7 @@ let router = {
     views: {
       main: {
         templateUrl: 'app/finances/finances.html',
-        controller: 'FinancesController',
-        controllerAs: 'Fina'
+        controller: 'FinancesController as Fina'
       }
     }
   },
@@ -44,8 +41,65 @@ let router = {
     views: {
       main: {
         templateUrl: 'app/safe/safe.html',
-        controller: 'SaveController',
-        controllerAs: 'Save'
+        controller: 'SaveController as Save'
+      }
+    }
+  },
+  auth: {
+    url: '/auth',
+    abstract: true,
+    views: {
+      main: {
+        templateUrl: 'app/auth/auth.html',
+        controller: 'AuthController as Auth'
+      }
+    },
+    $$child: {
+      'auth.register': {
+        url: '/register?:from?',
+        views: {
+          auth_items: {
+            template: '<register-form></register-form>'
+          }
+        }
+      },
+      'auth.login': {
+        url: '/login',
+        views: {
+          auth_items: {
+            template: '<login-form></login-form>'
+          }
+        }
+      },
+      'auth.forget': {
+        url: '/forget',
+        views: {
+          auth_items: {
+            template: '<forget-pwd-form></forget-pwd-form>'
+          }
+        }
+      },
+      'auth.active': {
+        url: '/active',
+        views: {
+          auth_items: {
+            template: '<active-form></active-form>'
+          }
+        }
+      }
+    }
+  },
+  404: {
+    views: {
+      main: {
+        templateUrl: '404.html'
+      }
+    }
+  },
+  error: {
+    views: {
+      main: {
+        templateUrl: 'error.html'
       }
     }
   }
@@ -64,7 +118,7 @@ export function routerConfig($locationProvider, $stateProvider, $urlRouterProvid
   (function endLessRouter(route) {
     angular.forEach(route, function (config, stateName) {
       $stateProvider.state(stateName, config);
-      config.child && endLessRouter(config.child);
+      config.$$child && endLessRouter(config.$$child);
     });
   })(router);
 
@@ -75,7 +129,8 @@ export function routerConfig($locationProvider, $stateProvider, $urlRouterProvid
      * http://www.xxx.com/#!/
      */
     let $state = $injector.get('$state');
-    let target = !$location.path() || $state.current.name === "home" ? 'home' : '404';
+    let target = !$location.path() || $state.current.name === 'home' ? 'home' : '404';
+    console.log(target);
     $state.go(target);
   });
 
