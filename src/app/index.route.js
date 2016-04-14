@@ -21,7 +21,7 @@ let router = {
         url: '/:partial',
         views: {
           trade_items: {
-            templateUrl: 'app/components/trade-items/trade-items.html'
+            template: '<trade-items></trade-items>'
           }
         }
       }
