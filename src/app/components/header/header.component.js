@@ -1,9 +1,7 @@
 let HeaderComponent = {
   templateUrl: 'app/components/header/header.html',
-  controller: function ($window,SETTINGS) {
+  controller: function () {
     'ngInject';
-    // console.log(window);
-    console.log(SETTINGS);
   }
 };
 

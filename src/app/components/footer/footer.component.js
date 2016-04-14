@@ -1,12 +1,8 @@
 let FooterComponent = {
   templateUrl: 'app/components/footer/footer.html',
-  controller: function ($window, SETTINGS) {
+  controller: function () {
     'ngInject';
-    // console.log(window);
-    console.log('footer');
   }
 };
 
-export {
-  FooterComponent
-};
+export {FooterComponent};

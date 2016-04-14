@@ -1,5 +1,5 @@
 export class SaveController {
-  constructor ($timeout, webDevTec, toastr) {
+  constructor ($timeout, toastr) {
     'ngInject';
     
     console.log('trade controller');

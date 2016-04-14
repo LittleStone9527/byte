@@ -5,7 +5,7 @@ let router = {
       main: {
         templateUrl: 'app/main/main.html',
         controller: 'MainController',
-        controllerAs: 'main'
+        controllerAs: 'Main'
       }
     }
   },
@@ -15,7 +15,7 @@ let router = {
       main: {
         templateUrl: 'app/trade/trade.html',
         controller: 'TradeController',
-        controllerAs: 'trade'
+        controllerAs: 'Trade'
       }
     }
   },
@@ -25,7 +25,17 @@ let router = {
       main: {
         templateUrl: 'app/finances/finances.html',
         controller: 'FinancesController',
-        controllerAs: 'fin'
+        controllerAs: 'Fina'
+      }
+    }
+  },
+  safe: {
+    url: '/safe',
+    views: {
+      main: {
+        templateUrl: 'app/safe/safe.html',
+        controller: 'SaveController',
+        controllerAs: 'Save'
       }
     }
   }

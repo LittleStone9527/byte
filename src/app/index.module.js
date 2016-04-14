@@ -12,6 +12,7 @@ import {runBlock} from './index.run';
 import {MainController} from './main/main.controller';
 import {TradeController} from './trade/trade.controller';
 import {FinancesController} from '././finances/finances.controller';
+import {SaveController} from '././safe/safe.controller';
 
 // components
 import {HeaderComponent} from './components/header/header.component'
@@ -35,10 +36,9 @@ angular.module('lwTrade', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'n
   .config(config)
   .config(routerConfig)
   .run(runBlock)
-  // .service('githubContributor', GithubContributorService)
-  // .service('webDevTec', WebDevTecService)
   .controller('MainController', MainController)
   .controller('TradeController', TradeController)
   .controller('FinancesController', FinancesController)
+  .controller('SaveController', SaveController)
   .component('header', HeaderComponent)
   .component('footer', FooterComponent);
