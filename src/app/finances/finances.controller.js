@@ -1,5 +1,5 @@
 export class FinancesController {
-  constructor ($timeout, webDevTec, toastr) {
+  constructor ($timeout, toastr) {
     'ngInject';
 
     this.awesomeThings = [];

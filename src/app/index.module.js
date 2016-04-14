@@ -15,13 +15,14 @@ import {FinancesController} from '././finances/finances.controller';
 
 // components
 import {HeaderComponent} from './components/header/header.component'
+import {FooterComponent} from './components/footer/footer.component';
 
 // directive
 
 // service
 
-import {GithubContributorService} from '../app/components/githubContributor/githubContributor.service';
-import {WebDevTecService} from '../app/components/webDevTec/webDevTec.service';
+// import {GithubContributorService} from '../app/components/githubContributor/githubContributor.service';
+// import {WebDevTecService} from '../app/components/webDevTec/webDevTec.service';
 
 
 
@@ -34,9 +35,10 @@ angular.module('lwTrade', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'n
   .config(config)
   .config(routerConfig)
   .run(runBlock)
-  .service('githubContributor', GithubContributorService)
-  .service('webDevTec', WebDevTecService)
+  // .service('githubContributor', GithubContributorService)
+  // .service('webDevTec', WebDevTecService)
   .controller('MainController', MainController)
   .controller('TradeController', TradeController)
   .controller('FinancesController', FinancesController)
-  .component('header', HeaderComponent);
+  .component('header', HeaderComponent)
+  .component('footer', FooterComponent);
