@@ -1,11 +1,6 @@
 export class MainController {
-  constructor ($timeout, toastr) {
+  constructor($state, $timeout,$log) {
     'ngInject';
-
-    this.awesomeThings = [];
-    this.classAnimation = '';
-    this.creationDate = 1460597481256;
-    this.toastr = toastr;
-
+    console.log($state);
   }
 }
