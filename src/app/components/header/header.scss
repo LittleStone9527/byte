@@ -9,3 +9,27 @@
     }
   }
 }
+.navbar-default{
+  background-color: #fff;
+  border: 0;
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  .navbar-nav{
+    font-size: 16px;
+    li{
+      a{
+        padding: 30px;
+        &:hover{
+          color: #f39c12;
+        }
+      }
+    }
+    .active{
+      a, a:hover{
+        background-color: transparent;
+        color: #f39c12;
+        font-weight: bold;
+      }
+    }
+  }
+}
