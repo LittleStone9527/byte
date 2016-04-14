@@ -30,8 +30,12 @@ let router = {
     }
   }
 };
-export function routerConfig($stateProvider, $urlRouterProvider) {
+
+export function routerConfig($locationProvider, $stateProvider, $urlRouterProvider, SETTINGS) {
   'ngInject';
+
+  // html5支持
+  $locationProvider.html5Mode(SETTINGS.html5Mode).hashPrefix('!');
 
   /**
    * 递归算法，无限层路由
@@ -40,9 +44,20 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
   (function endLessRouter(route) {
     angular.forEach(route, function (config, stateName) {
       $stateProvider.state(stateName, config);
-      if (config.subState) endLessRouter(config.subState);
+      config.subState && endLessRouter(config.subState);
     });
   })(router);
+
+  $urlRouterProvider.otherwise(function ($injector, $location) {
+    /**
+     * http://www.xxx.com
+     * 跳转到
+     * http://www.xxx.com/#!/
+     */
+    let $state = $injector.get('$state');
+    let target = !$location.path() || $state.current.name === "home" ? 'home' : '404';
+    $state.go(target);
+  });
 
   $urlRouterProvider.otherwise('/');
 }
