@@ -17,6 +17,16 @@ let router = {
         controller: 'TradeController',
         controllerAs: 'Trade'
       }
+    },
+    child: {
+      'trade.items': {
+        url: '/:partial',
+        views: {
+          trade_items: {
+            templateUrl: 'app/components/trade-items/trade-items.html'
+          }
+        }
+      }
     }
   },
   finances: {
@@ -54,7 +64,7 @@ export function routerConfig($locationProvider, $stateProvider, $urlRouterProvid
   (function endLessRouter(route) {
     angular.forEach(route, function (config, stateName) {
       $stateProvider.state(stateName, config);
-      config.subState && endLessRouter(config.subState);
+      config.child && endLessRouter(config.child);
     });
   })(router);
 
@@ -69,5 +79,4 @@ export function routerConfig($locationProvider, $stateProvider, $urlRouterProvid
     $state.go(target);
   });
 
-  $urlRouterProvider.otherwise('/');
 }

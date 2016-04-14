@@ -17,6 +17,7 @@ import {SaveController} from '././safe/safe.controller';
 // components
 import {HeaderComponent} from './components/header/header.component'
 import {FooterComponent} from './components/footer/footer.component';
+import {TradeItemsComponent} from './components/trade-items/trade-items';
 
 // directive
 
@@ -26,12 +27,17 @@ import {FooterComponent} from './components/footer/footer.component';
 // import {WebDevTecService} from '../app/components/webDevTec/webDevTec.service';
 
 
-
-
-
-
-
-angular.module('lwTrade', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'toastr'])
+angular.module('lwTrade', [
+    'ngAnimate',
+    'ngCookies',
+    'ngTouch',
+    'ngSanitize',
+    'ngMessages',
+    'ngAria',
+    'ngResource',
+    'ui.router',
+    'toastr'
+  ])
   .constant('SETTINGS', SETTINGS)
   .config(config)
   .config(routerConfig)
@@ -41,4 +47,5 @@ angular.module('lwTrade', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'n
   .controller('FinancesController', FinancesController)
   .controller('SaveController', SaveController)
   .component('header', HeaderComponent)
-  .component('footer', FooterComponent);
+  .component('footer', FooterComponent)
+  .component('tradeItems', TradeItemsComponent);

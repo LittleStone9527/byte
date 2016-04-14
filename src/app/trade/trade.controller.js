@@ -1,8 +1,6 @@
 export class TradeController {
-  constructor ($timeout, toastr) {
+  constructor($stateParams) {
     'ngInject';
-    
-    console.log('trade controller');
-    
+
   }
 }
