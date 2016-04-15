@@ -34,6 +34,23 @@ let router = {
         templateUrl: 'app/finances/finances.html',
         controller: 'FinancesController as Fina'
       }
+    },
+    $$child: {
+      'finances.home': {
+        views: {
+          fin_items: {
+            template: 'hello world'
+          }
+        }
+      },
+      'finances.items': {
+        url: '/:partial',
+        views: {
+          fin_items: {
+            template: '<finances-items></finances-items>'
+          }
+        }
+      }
     }
   },
   safe: {

@@ -21,6 +21,7 @@ import {FooterComponent} from './components/footer/footer.component';
 import {TradeItemsComponent} from './components/trade-items/trade-items';
 import {LoginFormComponent} from './components/login-form/login-form';
 import {RegisterFormComponent} from './components/register-form/register-form';
+import {FinancesItemsComponent} from './components/finances-items/finances-items';
 
 // directive
 
@@ -60,4 +61,5 @@ angular.module('lwTrade', [
   .component('footer', FooterComponent)
   .component('tradeItems', TradeItemsComponent)
   .component('loginForm', LoginFormComponent)
-  .component('registerForm', RegisterFormComponent);
+  .component('registerForm', RegisterFormComponent)
+  .component('financesItems', FinancesItemsComponent);

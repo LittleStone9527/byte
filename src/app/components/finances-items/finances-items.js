@@ -1,7 +1,7 @@
-let TradeItemsComponent = {
+let FinancesItemsComponent = {
   templateUrl: ($stateParams)=> {
     'ngInject';
-    return `app/components/trade-items/trade-${$stateParams.partial}.html`;
+    return `app/components/finances-items/finances-${$stateParams.partial}.html`;
   },
   controller: function () {
     'ngInject';
@@ -10,5 +10,5 @@ let TradeItemsComponent = {
 };
 
 export {
-  TradeItemsComponent
+  FinancesItemsComponent
 };

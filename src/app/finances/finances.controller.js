@@ -1,13 +1,16 @@
 export class FinancesController {
-  constructor ($timeout, toastr) {
+  constructor($scope, $state) {
     'ngInject';
 
-    this.awesomeThings = [];
-    this.classAnimation = '';
-    this.creationDate = 1460597481256;
-    this.toastr = toastr;
+    if ($state.current.name === 'finances') return $state.go('finances.home');
 
-    console.log('init the finances');
-    
+    $scope.$on('$stateChangeStart', (event, toState, toParams, fromState, fromParams) => {
+      if (toState.name === 'finances') {
+        event.preventDefault();
+        $state.go('finances.home');
+      }
+    });
+
+
   }
 }
