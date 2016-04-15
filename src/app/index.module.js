@@ -25,9 +25,10 @@ import {RegisterFormComponent} from './components/register-form/register-form';
 // directive
 
 // service
-
-// import {GithubContributorService} from '../app/components/githubContributor/githubContributor.service';
-// import {WebDevTecService} from '../app/components/webDevTec/webDevTec.service';
+import {LwResourceService} from './components/lw-resource/lw-resource.service';
+import {LwUserService} from './components/lw-user/lw-user.service';
+import {LwApiService} from './components/lw-api/lw-api.service';
+import {LwUtilService} from './components/lw-util/lw-util.service';
 
 
 angular.module('lwTrade', [
@@ -39,11 +40,16 @@ angular.module('lwTrade', [
     'ngAria',
     'ngResource',
     'ui.router',
-    'toastr'
+    'toastr',
+    'ngStore'
   ])
   .constant('SETTINGS', SETTINGS)
   .config(config)
   .config(routerConfig)
+  .provider('lwResource', LwResourceService)
+  .provider('lwApi', LwApiService)
+  .provider('lwUser', LwUserService)
+  .provider('lwUtil', LwUtilService)
   .run(runBlock)
   .controller('MainController', MainController)
   .controller('TradeController', TradeController)

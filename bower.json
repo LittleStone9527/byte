@@ -17,7 +17,8 @@
     "normalize-css": "^4.1.1",
     "bootstrap-sass": "^3.3.6",
     "ex-ui": "https://git.yichui.net/open/ex-ui.git",
-    "Ionicons": "ionicons#~2.0.1"
+    "Ionicons": "ionicons#~2.0.1",
+    "ng-store": "^1.0.3"
   },
   "devDependencies": {
     "angular-mocks": "~1.5.3"
