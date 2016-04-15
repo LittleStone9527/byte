@@ -3,7 +3,7 @@
  */
 
 class ctrl {
-  constructor($log, SETTINGS, lwUser) {
+  constructor($log, SETTINGS, lwUser, lwDialog, toastr) {
     'ngInject';
 
     let $ctrl = this;
@@ -11,9 +11,11 @@ class ctrl {
     $ctrl.form = {};
 
     $ctrl.way = 'email';
-    
+
     $ctrl.emailReg = SETTINGS.reg.email;
     $ctrl.telReg = SETTINGS.reg.tel;
+
+    lwDialog.success('这是content', '这是title');
 
     $ctrl.register = (registerForm)=> {
       console.log($ctrl.form);

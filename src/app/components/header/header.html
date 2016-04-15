@@ -27,7 +27,7 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        
+
         <li ng-repeat="d in navData track by $index" ng-class="{active:$state.includes(d.state)}">
           <a ui-state="d.state">{{::d.title}}</a>
         </li>

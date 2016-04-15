@@ -1,31 +1,40 @@
-export class LwUtilService {
+export class LwDialogService {
   constructor() {
 
   }
 
-  $get($state, $stateParams, $window) {
+  $get(toastr) {
     'ngInject';
 
-    let util = {};
-
-    // 初始化meta信息
-    util.initMeta = function () {
+    let dialog = function (dialogID) {
 
     };
 
-    // 翻页触发
-    util.pageTrigger = function (page, skip, meta) {
-      if (!meta || page < 0) return;
-      meta.page = page;
-      $state.go($state.current.name, {page: page * 1 === 0 ? null : page});
+    dialog.success = function () {
+      return toastr.success(...arguments)
     };
 
-    // 更改每页显示数量
-    util.changeLimit = function (meta) {
-      if (!meta) return;
-      meta.page = 0;
-      $state.go($state.current.name, {limit: meta.limit * 1 === 10 ? null : meta.limit, page: null});
+    dialog.error = function () {
+      return toastr.error(...arguments)
     };
+
+    dialog.warning = function () {
+      return toastr.warning(...arguments);
+    };
+
+    dialog.info = function () {
+      return toastr.info(...arguments);
+    };
+
+    dialog.clear = function () {
+      return toastr.clear();
+    };
+
+    dialog.register = function () {
+
+    };
+
+    return dialog;
 
   }
 }

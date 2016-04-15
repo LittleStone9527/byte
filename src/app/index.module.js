@@ -24,7 +24,7 @@ import {LoginFormComponent} from './components/login-form/login-form';
 import {RegisterFormComponent} from './components/register-form/register-form';
 import {FinancesItemsComponent} from './components/finances-items/finances-items';
 import {AdminItemsComponent} from './components/admin-items/admin-items';
-console.log(RegisterFormComponent);
+
 // directive
 
 // service
@@ -32,6 +32,7 @@ import {LwResourceService} from './components/lw-resource/lw-resource.service';
 import {LwUserService} from './components/lw-user/lw-user.service';
 import {LwApiService} from './components/lw-api/lw-api.service';
 import {LwUtilService} from './components/lw-util/lw-util.service';
+import {LwDialogService} from './components/lw-dialog/lw-dialog.service';
 
 
 angular.module('lwTrade', [
@@ -54,6 +55,7 @@ angular.module('lwTrade', [
   .provider('lwApi', LwApiService)
   .provider('lwUser', LwUserService)
   .provider('lwUtil', LwUtilService)
+  .provider('lwDialog', LwDialogService)
   .run(runBlock)
   .controller('MainController', MainController)
   .controller('TradeController', TradeController)
