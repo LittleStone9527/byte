@@ -1,5 +1,5 @@
 export class TradeController {
-  constructor($stateParams) {
+  constructor() {
     'ngInject';
 
   }

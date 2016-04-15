@@ -1,0 +1,18 @@
+<div class="row">
+
+  <div class="col-sm-3">
+    <ul>
+      <li><a ui-sref="admin.items({partial:'dash'})">仪表盘</a></li>
+      <li><a ui-sref="admin.items({partial:'user'})">用户管理</a></li>
+      <li><a ui-sref="admin.items({partial:'deal'})">交易管理</a></li>
+      <li><a ui-sref="admin.items({partial:'finances'})">财务管理</a></li>
+      <li><a ui-sref="admin.items({partial:'message'})">信息中心</a></li>
+      <li><a ui-sref="admin.items({partial:'settings'})">系统管理</a></li>
+    </ul>
+  </div>
+
+  <div class="col-sm-9">
+    <div ui-view="admin_items"></div>
+  </div>
+
+</div>

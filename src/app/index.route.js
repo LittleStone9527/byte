@@ -58,7 +58,7 @@ let router = {
     views: {
       main: {
         templateUrl: 'app/safe/safe.html',
-        controller: 'SaveController as Save'
+        controller: 'SafeController as Safe'
       }
     }
   },
@@ -106,6 +106,25 @@ let router = {
       }
     }
   },
+  admin: {
+    url: '/admin',
+    views: {
+      main: {
+        templateUrl: 'app/admin/admin.html',
+        controller: 'AdminController as Admin'
+      }
+    },
+    $$child: {
+      'admin.items': {
+        url: '/:partial',
+        views: {
+          admin_items: {
+            template: '<admin-items></admin-items>'
+          }
+        }
+      }
+    }
+  },
   404: {
     views: {
       main: {
@@ -147,7 +166,6 @@ export function routerConfig($locationProvider, $stateProvider, $urlRouterProvid
      */
     let $state = $injector.get('$state');
     let target = !$location.path() || $state.current.name === 'home' ? 'home' : '404';
-    console.log(target);
     $state.go(target);
   });
 

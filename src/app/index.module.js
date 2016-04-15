@@ -12,8 +12,9 @@ import {runBlock} from './index.run';
 import {MainController} from './main/main.controller';
 import {TradeController} from './trade/trade.controller';
 import {FinancesController} from '././finances/finances.controller';
-import {SaveController} from '././safe/safe.controller';
+import {SafeController} from '././safe/safe.controller';
 import {AuthController} from '././auth/auth.controller';
+import {AdminController} from '././admin/admin.controller';
 
 // components
 import {HeaderComponent} from './components/header/header.component'
@@ -22,6 +23,7 @@ import {TradeItemsComponent} from './components/trade-items/trade-items';
 import {LoginFormComponent} from './components/login-form/login-form';
 import {RegisterFormComponent} from './components/register-form/register-form';
 import {FinancesItemsComponent} from './components/finances-items/finances-items';
+import {AdminItemsComponent} from './components/admin-items/admin-items';
 
 // directive
 
@@ -55,11 +57,13 @@ angular.module('lwTrade', [
   .controller('MainController', MainController)
   .controller('TradeController', TradeController)
   .controller('FinancesController', FinancesController)
-  .controller('SaveController', SaveController)
+  .controller('SafeController', SafeController)
   .controller('AuthController', AuthController)
+  .controller('AdminController', AdminController)
   .component('header', HeaderComponent)
   .component('footer', FooterComponent)
   .component('tradeItems', TradeItemsComponent)
   .component('loginForm', LoginFormComponent)
   .component('registerForm', RegisterFormComponent)
-  .component('financesItems', FinancesItemsComponent);
+  .component('financesItems', FinancesItemsComponent)
+  .component('adminItems', AdminItemsComponent);

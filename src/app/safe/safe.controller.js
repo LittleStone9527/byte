@@ -1,4 +1,4 @@
-export class SaveController {
+export class SafeController {
   constructor ($timeout, toastr) {
     'ngInject';
     
