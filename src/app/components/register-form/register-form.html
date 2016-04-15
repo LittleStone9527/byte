@@ -1,54 +1,46 @@
 <!-- 登录 -->
-<div class="bg-glor">
-  <div class="login-box">
-    <div class="login-box-body">
-      <form name="loginForm" ng-submit="$ctrl.login(form)">
-        <div class="form-group" ng-class="{
+<div class="row">
+    <div>
+      <input type="button" class="btn btn-primary" value="手机注册">
+      <input type="button" class="btn" value="邮箱注册">
+    </div>
+    <form name="loginForm" ng-submit="$ctrl.login(form)">
+      <div class="form-group" ng-class="{
           'has-error':loginForm.username.$invalid && loginForm.username.$dirty,
           'has-success':loginForm.username.$valid
         }">
-          <label>邮箱</label>
-          <input type="text" name="username" class="form-control" placeholder="请输入邮箱/手机号"
-                 ng-model="form.username" ng-required="true">
-        </div>
-        <div class="form-group" ng-class="{
+        <label>邮箱</label>
+        <input type="text" name="username" class="form-control" placeholder="请输入邮箱/手机号"
+               ng-model="form.username" ng-required="true">
+      </div>
+      <div class="form-group" ng-class="{
           'has-error':loginForm.password.$invalid && loginForm.password.$dirty,
           'has-success':loginForm.password.$valid
         }">
-          <label>密码</label>
-          <input type="password" name="password" class="form-control" placeholder="输入密码"
-                 ng-model="form.password" ng-required="true">
-        </div>
-        <div class="form-group" ng-class="{
+        <label>密码</label>
+        <input type="password" name="password" class="form-control" placeholder="输入密码"
+               ng-model="form.password" ng-required="true">
+      </div>
+      <div class="form-group" ng-class="{
           'has-error':loginForm.confirmPassword.$invalid && loginForm.confirmPassword.$dirty,
           'has-success':loginForm.confirmPassword.$valid
         }">
-          <label>确认密码</label>
-          <input type="password" name="confirmPassword" class="form-control" placeholder="输入密码"
-                 ng-model="form.confirmPassword" ng-required="true">
-        </div>
-        <div class="form-group">
-          <label>验证码</label>
-          <input type="text" name="captcha" class="form-control login-code" placeholder="输入验证码"
-                 ng-model="form.$$captcha"  ng-required="true" autocomplete="off">
-          <div class="login-code-img" ng-clock ng-if="$ctrl.$$captchaShow">
-            <img class="img-responsive" style="max-height: 34px;display: inline-block" alt="刷新重试" ng-src="{{$ctrl.imageCaptchaUrl}}">
-            <a href="javascript:void(0);" ng-click="$ctrl.refreshCaptcha()">换一张?</a>
-          </div>
-        </div>
-        <div class="login-submit">
-          <button type="submit" class="btn btn-block" ng-disabled="loginForm.$invalid">提交</button>
-        </div>
-      </form>
-      <div class="login-other">
-        <div class="lang-box">
-          <a ng-class="{active:$ctrl.i18n.lang=='zh'}" href="javascript:void(0);" ng-click="$ctrl.i18n.lang='zh'">中文</a>/
-          <a ng-class="{active:$ctrl.i18n.lang=='en'}" href="javascript:void(0);" ng-click="$ctrl.i18n.lang='en'">ENG</a>
-        </div>
-        <a ui-sref="auth.forget">忘记密码？</a>
-        <br>还没有账号？ <a ui-sref="auth.register">立即注册</a>
+        <label>确认密码</label>
+        <input type="password" name="confirmPassword" class="form-control" placeholder="输入密码"
+               ng-model="form.confirmPassword" ng-required="true">
       </div>
-      <div class="login-h1">登陆</div>
-    </div>
-  </div>
+      <div class="form-group">
+        <label>验证码</label>
+        <input type="text" name="captcha" class="form-control login-code" placeholder="输入验证码"
+               ng-model="form.$$captcha" ng-required="true" autocomplete="off">
+        <div class="login-code-img" ng-clock ng-if="$ctrl.$$captchaShow">
+          <img class="img-responsive" style="max-height: 34px;display: inline-block" alt="刷新重试"
+               ng-src="{{$ctrl.imageCaptchaUrl}}">
+          <a href="javascript:void(0);" ng-click="$ctrl.refreshCaptcha()">换一张?</a>
+        </div>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-block" ng-disabled="loginForm.$invalid">提交</button>
+      </div>
+    </form>
 </div>
