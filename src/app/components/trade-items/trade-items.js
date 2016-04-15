@@ -1,7 +1,9 @@
 let TradeItemsComponent = {
-  templateUrl: 'app/components/trade-items/trade-items.html',
-  controller: function () {
+  templateUrl: ($stateParams, $templateCache, SETTINGS)=> {
     'ngInject';
+    return `app/components/trade-items/trade-${$stateParams.partial}.html`;
+  },
+  controller: function () {
     'ngInject';
     console.log('trade items init');
   }
