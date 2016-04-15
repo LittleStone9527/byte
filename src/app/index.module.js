@@ -24,7 +24,7 @@ import {LoginFormComponent} from './components/login-form/login-form';
 import {RegisterFormComponent} from './components/register-form/register-form';
 import {FinancesItemsComponent} from './components/finances-items/finances-items';
 import {AdminItemsComponent} from './components/admin-items/admin-items';
-
+console.log(RegisterFormComponent);
 // directive
 
 // service
@@ -44,7 +44,8 @@ angular.module('lwTrade', [
     'ngResource',
     'ui.router',
     'toastr',
-    'ngStore'
+    'ngStore',
+    'atCompare'
   ])
   .constant('SETTINGS', SETTINGS)
   .config(config)
