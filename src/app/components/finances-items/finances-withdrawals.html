@@ -1,5 +1,102 @@
-
-
-<div class="row">
-  <h4 class="text-warning">美元提现</h4>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">美元提现</h3>
+  </div>
+  <div class="panel-body">
+    <div class="alert alert-warning" role="alert">
+      <strong>重要提示：</strong> 为了您的帐户安全，每次人民币提现的最高限额为￥50000.0、提现的最低限额为￥100.0，如果您有更高的需求，请与网站客服联系，银行卡提现不同的银行，实际到帐时间可能会有所延时。
+      <br>人民币提现到账时间: 1.上午9点-下午5点期间，您提款后，我们会在2小内给您处理转账，到账时间取决于银行间的处理速度，一般为2-24小时。 2.如果您是在下午5点以后提款，我们会在次日上班后给您处理汇款。
+      3.周末、节假日提款由于部分银行网点无人上班，到账速度会慢于预期，请您耐心等待。
+    </div>
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label class="col-sm-2 control-label">提现方式</label>
+        <div class="col-sm-3">
+          <p class="form-control-static">银行卡</p>
+        </div>
+        <div class="col-sm-3">
+          <button type="button" class="btn btn-default">修改银行卡信息</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">银行</label>
+        <div class="col-sm-3">
+          <p class="form-control-static">工商银行</p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">支行</label>
+        <div class="col-sm-3">
+          <p class="form-control-static"></p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">姓名</label>
+        <div class="col-sm-3">
+          <p class="form-control-static">李保存</p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">卡号</label>
+        <div class="col-sm-3">
+          <p class="form-control-static">6222 0840 0000 2808 486</p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">提现金额</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" placeholder="Price">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">交易密码</label>
+        <div class="col-sm-3">
+          <input type="password" class="form-control" placeholder="Password">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">短信验证码</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" placeholder="Code">
+        </div>
+        <div class="col-sm-3">
+          <button type="button" class="btn btn-default">发送验证码</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-warning">确定提现</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">最近二十笔提现记录</div>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>流水号</th>
+      <th>提现时间</th>
+      <th>提现方式</th>
+      <th>提现账户</th>
+      <th>提交金额</th>
+      <th>手续费</th>
+      <th>状态</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th>113455</th>
+      <td>2016-03-20 12:41:39</td>
+      <td>银行卡</td>
+      <td>银行: 工商银行
+        <br>姓名: 李保存
+        <br>卡号: 6222 0840 0000 2808 486</td>
+      <td>$4135.23</td>
+      <td>$41.77</td>
+      <td>成功/待发放/否决</td>
+    </tr>
+    </tbody>
+  </table>
 </div>
