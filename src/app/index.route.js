@@ -17,6 +17,13 @@ let router = {
       }
     },
     $$child: {
+      'trade.home': {
+        views: {
+          trade_items: {
+            templateUrl: 'app/components/trade-items/trade-home.html'
+          }
+        }
+      },
       'trade.items': {
         url: '/:partial',
         views: {
@@ -39,7 +46,7 @@ let router = {
       'finances.home': {
         views: {
           fin_items: {
-            template: 'hello world'
+            templateUrl: 'app/components/finances-items/finances-home.html'
           }
         }
       },

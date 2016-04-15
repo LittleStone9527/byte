@@ -44,6 +44,7 @@ angular.module('lwTrade', [
     'ngAria',
     'ngResource',
     'ui.router',
+    'ngDialog',
     'toastr',
     'ngStore',
     'atCompare'

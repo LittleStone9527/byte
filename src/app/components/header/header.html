@@ -29,7 +29,7 @@
       <ul class="nav navbar-nav navbar-right">
 
         <li ng-repeat="d in navData track by $index" ng-class="{active:$state.includes(d.state)}">
-          <a ui-state="d.state">{{::d.title}}</a>
+          <a ui-state="d.state" ui-state-params="d.params" ui-state-opts="d.opts">{{::d.title}}</a>
         </li>
 
       </ul>
