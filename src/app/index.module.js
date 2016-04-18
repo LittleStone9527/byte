@@ -1,7 +1,6 @@
 /* global malarkey:false, moment:false */
 
 import "babel-polyfill";
-import './libs/echarts';
 
 import {SETTINGS} from './settings';
 import {config} from './index.config';
@@ -25,6 +24,7 @@ import {LoginFormComponent} from './components/login-form/login-form';
 import {RegisterFormComponent} from './components/register-form/register-form';
 import {FinancesItemsComponent} from './components/finances-items/finances-items';
 import {AdminItemsComponent} from './components/admin-items/admin-items';
+import {LineChartComponent} from './components/line-chart/chart.component';
 
 // directive
 
@@ -71,4 +71,5 @@ angular.module('lwTrade', [
   .component('loginForm', LoginFormComponent)
   .component('registerForm', RegisterFormComponent)
   .component('financesItems', FinancesItemsComponent)
-  .component('adminItems', AdminItemsComponent);
+  .component('adminItems', AdminItemsComponent)
+  .component('lineChart', LineChartComponent);
