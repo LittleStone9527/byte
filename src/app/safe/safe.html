@@ -1,25 +1,24 @@
 <div>
-
   <header></header>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-2">
 
-  <div class="jumbotron">
-    <h1>'Allo, 'Allo!</h1>
-    <p class="lead">
-      <img src="assets/images/yeoman.png" alt="I'm Yeoman"><br>
-      Always a pleasure scaffolding your apps.
-    </p>
-    <p class="animated infinite" ng-class="main.classAnimation">
-      <a class="btn btn-lg btn-success" ng-click="main.showToastr()">Splendid Toastr</a>
-    </p>
-    <p>
-      With ♥ thanks to the contributions of<acme-malarkey extra-values="['Yeoman', 'Gulp', 'Angular']"></acme-malarkey>
-    </p>
+        <div class="list-group">
+
+          <a ng-repeat="d in vm.sideBarData track by d.partial"
+             ui-sref-active="active"
+             ui-sref="safe.items({partial:d.partial})" class="list-group-item">
+            {{::d.title}}
+          </a>
+
+        </div>
+
+      </div>
+      <div class="col-sm-10">
+          <div ui-view="safe_items"></div>
+      </div>
+    </div>
   </div>
-
-  <div>
-    <h4 class="text-danger">安全中心</h4>
-  </div>
-
   <footer></footer>
-
 </div>

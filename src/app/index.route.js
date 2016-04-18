@@ -67,6 +67,19 @@ let router = {
         templateUrl: 'app/safe/safe.html',
         controller: 'SafeController as vm'
       }
+    },
+    $$child: {
+      'safe.home': {
+        views: {
+          safe_items: {templateUrl: 'app/components/safe-items/safe-home.html'}
+        }
+      },
+      'safe.items': {
+        url: '/:partial',
+        views: {
+          safe_items: {template: '<safe-items></safe-items>'}
+        }
+      }
     }
   },
   auth: {

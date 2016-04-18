@@ -6,7 +6,7 @@ export class TradeController {
 
     if ($state.current.name === 'trade') $state.go('trade.home');
 
-    $scope.$on('$stateChangeStart', (event, toState, toStateParams) => {
+    $scope.$on('$stateChangeStart', (event, toState) => {
       if (toState.name === 'trade') {
         event.preventDefault();
         $state.go('trade.home');
