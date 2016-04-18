@@ -1,6 +1,7 @@
 /* global malarkey:false, moment:false */
 
 import "babel-polyfill";
+import './libs/echarts';
 
 import {SETTINGS} from './settings';
 import {config} from './index.config';
