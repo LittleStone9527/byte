@@ -8,12 +8,28 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a ui-sref="auth.login">登陆</a></li>
         <li><a ui-sref="auth.register">注册</a></li>
-        <li><a>网站导航 <i class="ion-navicon-round"></i></a></li>
+        <li style="position: relative">
+          <a href="javascript:void(0);" ng-click="vm.$$navMenu=!vm.$$navMenu">网站导航 <i class="ion-navicon-round"></i></a>
+          <div ng-show="vm.$$navMenu" style="position: absolute;top:100%;right: 0;width: 500px;height: 200px;background: #303030;z-index: 999;color: #fff;">
+           <ul>
+             <li>1item</li>
+             <li>2item</li>
+             <li>3item</li>
+             <li>4item</li>
+             <li>5item</li>
+             <li>6item</li>
+             <li>7item</li>
+             <li>8item</li>
+             <li>9item</li>
+             <li>10item</li>
+           </ul>
+          </div>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
-<nav class="navbar navbar-default navbar-static-top">
+<nav class="navbar navbar-default navbar-static-top" style="z-index: 10;">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
