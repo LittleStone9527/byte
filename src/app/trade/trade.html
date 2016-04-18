@@ -3,11 +3,17 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-2">
+
         <div class="list-group">
-          <a ui-sref="trade.items({partial:'deal'})" class="list-group-item">卖出买入</a>
-          <a ui-sref="trade.items({partial:'proxy'})" class="list-group-item">委托管理</a>
-          <a ui-sref="trade.items({partial:'record'})" class="list-group-item">交易记录</a>
+
+          <a ng-repeat="d in vm.sideBarData track by d.partial"
+             ui-sref-active="active"
+             ui-sref="trade.items({partial:d.partial})" class="list-group-item">
+            {{::d.title}}
+          </a>
+
         </div>
+
       </div>
       <div class="col-sm-10">
         <div ui-view="trade_items"></div>

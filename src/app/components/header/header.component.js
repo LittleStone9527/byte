@@ -4,8 +4,7 @@ let HeaderComponent = {
     'ngInject';
 
     $scope.$state = $state;
-    console.log($state.includes('trade'));
-
+    
     $scope.navData = [
       {title: '首页', state: 'home'},
       {title: '交易中心', state: 'trade'},

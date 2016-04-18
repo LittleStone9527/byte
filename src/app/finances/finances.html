@@ -5,11 +5,13 @@
     <div class="row">
       <div class="col-sm-2">
         <div class="list-group">
-          <a ui-sref="finances.items({partial:'recharge'})" class="list-group-item">美元充值</a>
-          <a ui-sref="finances.items({partial:'withdrawals'})" class="list-group-item">美元提现</a>
-          <a ui-sref="finances.items({partial:'my'})" class="list-group-item">个人财务</a>
-          <a ui-sref="finances.items({partial:'proxy'})" class="list-group-item">委托管理</a>
-          <a ui-sref="finances.items({partial:'transfer'})" class="list-group-item">会员转账</a>
+
+          <a ng-repeat="d in vm.sideBarData track by d.partial"
+             ui-sref-active="active"
+             ui-sref="finances.items({partial:d.partial})" class="list-group-item">
+            {{::d.title}}
+          </a>
+
         </div>
       </div>
       <div class="col-sm-10">

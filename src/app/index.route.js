@@ -4,7 +4,7 @@ let router = {
     views: {
       main: {
         templateUrl: 'app/main/main.html',
-        controller: 'MainController as Main'
+        controller: 'MainController as vm'
       }
     }
   },
@@ -13,7 +13,7 @@ let router = {
     views: {
       main: {
         templateUrl: 'app/trade/trade.html',
-        controller: 'TradeController as Trade'
+        controller: 'TradeController as vm'
       }
     },
     $$child: {
@@ -39,7 +39,7 @@ let router = {
     views: {
       main: {
         templateUrl: 'app/finances/finances.html',
-        controller: 'FinancesController as Fina'
+        controller: 'FinancesController as vm'
       }
     },
     $$child: {
@@ -65,7 +65,7 @@ let router = {
     views: {
       main: {
         templateUrl: 'app/safe/safe.html',
-        controller: 'SafeController as Safe'
+        controller: 'SafeController as vm'
       }
     }
   },
@@ -75,7 +75,7 @@ let router = {
     views: {
       main: {
         templateUrl: 'app/auth/auth.html',
-        controller: 'AuthController as Auth'
+        controller: 'AuthController as vm'
       }
     },
     $$child: {
@@ -118,7 +118,7 @@ let router = {
     views: {
       main: {
         templateUrl: 'app/admin/admin.html',
-        controller: 'AdminController as Admin'
+        controller: 'AdminController as vm'
       }
     },
     $$child: {

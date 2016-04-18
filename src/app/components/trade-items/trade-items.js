@@ -5,7 +5,6 @@ let TradeItemsComponent = {
   },
   controller: function () {
     'ngInject';
-    console.log('trade items init');
   }
 };
 
