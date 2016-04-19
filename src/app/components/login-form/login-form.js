@@ -4,24 +4,26 @@
 
 
 let LoginFormComponent = {
-  templateUrl: function ($element, $attrs) {
-    'ngInject';
-    return 'app/components/login-form/login-form.html';
-  },
-  controller: ctrl
-};
-
-class ctrl {
-  constructor($q, $state, $timeout) {
+  templateUrl: 'app/components/login-form/login-form.html',
+  controller: function ($scope, lwUser, $log) {
     'ngInject';
 
     let $ctrl = this;
 
     $ctrl.form = {};
 
-    console.log('login init');
+    $ctrl.login = (loginForm)=> {
+      lwUser.register($ctrl.form)
+        .then(function (resp) {
+          $log.log(resp);
+        }, function (error) {
+          $log.error(error);
+        });
+    };
+
+    $scope.title = 'hello alert';
 
   }
-}
+};
 
-export {LoginFormComponent};
+export default LoginFormComponent;

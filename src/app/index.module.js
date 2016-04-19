@@ -20,7 +20,7 @@ import {AdminController} from '././admin/admin.controller';
 import {HeaderComponent} from './components/header/header.component'
 import {FooterComponent} from './components/footer/footer.component';
 import {TradeItemsComponent} from './components/trade-items/trade-items';
-import {LoginFormComponent} from './components/login-form/login-form';
+import LoginFormComponent from './components/login-form/login-form';
 import {RegisterFormComponent} from './components/register-form/register-form';
 import {FinancesItemsComponent} from './components/finances-items/finances-items';
 import {AdminItemsComponent} from './components/admin-items/admin-items';

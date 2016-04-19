@@ -16,15 +16,19 @@ export class LwUserService {
     user.loginActions = [];       // 登陆操作
     user.logoutActions = [];      // 登出操作
 
-    user.register = ()=> {
+    user.register = ({username='', password='', captcha=''})=> {
       let deferred = $q.defer();
-      lwApi.user.register.post().$promise
-        .then(resp => {
-          deferred.resolve(resp);
-          logoutTrigger();
-        }, error=> {
-          deferred.reject(error);
-        });
+      if (!username || !password) {
+        deferred.reject();
+      } else {
+        lwApi.user.register.post({username, password, captcha}).$promise
+          .then(resp => {
+            deferred.resolve(resp);
+            logoutTrigger();
+          }, error=> {
+            deferred.reject(error);
+          });
+      }
       return deferred.promise;
     };
 
@@ -45,15 +49,19 @@ export class LwUserService {
 
     }
 
-    user.login = ()=> {
+    user.login = ({username='', password='', captcha=''})=> {
       let deferred = $q.defer();
-      lwApi.user.login.post().$promise
-        .then(resp => {
-          deferred.resolve(resp);
-          logoutTrigger();
-        }, error=> {
-          deferred.reject(error);
-        });
+      if (!username || !password) {
+        deferred.reject();
+      } else {
+        lwApi.user.login.post({username, password, captcha}).$promise
+          .then(resp => {
+            deferred.resolve(resp);
+            logoutTrigger();
+          }, error=> {
+            deferred.reject(error);
+          });
+      }
       return deferred.promise;
     };
 
@@ -81,9 +89,11 @@ export class LwUserService {
       lwApi.user.logou.post().$promise
         .then(resp => {
           deferred.resolve(resp);
-          logoutTrigger();
         }, error=> {
           deferred.reject(error);
+        })
+        .finally(()=> {
+          logoutTrigger();
         });
       return deferred.promise;
     };
@@ -93,8 +103,9 @@ export class LwUserService {
       lwApi.user.info.get().$promise
         .then(resp => {
           deferred.resolve(resp);
-          logoutTrigger();
+          loginTrigger(resp)
         }, error=> {
+          logoutTrigger(error);
           deferred.reject(error);
         });
       return deferred.promise;

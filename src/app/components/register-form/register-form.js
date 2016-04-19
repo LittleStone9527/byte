@@ -3,7 +3,7 @@
  */
 
 class ctrl {
-  constructor($log, SETTINGS, lwUser, lwDialog, toastr) {
+  constructor($log, SETTINGS, lwUser) {
     'ngInject';
 
     let $ctrl = this;
@@ -15,28 +15,23 @@ class ctrl {
     $ctrl.emailReg = SETTINGS.reg.email;
     $ctrl.telReg = SETTINGS.reg.tel;
 
-    lwDialog.success('这是content', '这是title');
-
     $ctrl.register = (registerForm)=> {
       console.log($ctrl.form);
       console.log(registerForm);
-      // lwUser.register()
-      //   .then(function (resp) {
-      //     $log.log(resp);
-      //     $log.log(registerForm);
-      //   }, function (error) {
-      //     $log.error(error);
-      //   });
+      lwUser.register($ctrl.form)
+        .then(function (resp) {
+          $log.log(resp);
+          $log.log(registerForm);
+        }, function (error) {
+          $log.error(error);
+        });
     };
 
   }
 }
 
 let RegisterFormComponent = {
-  templateUrl: function ($element, $attrs) {
-    'ngInject';
-    return 'app/components/register-form/register-form.html';
-  },
+  templateUrl: 'app/components/register-form/register-form.html',
   controller: ctrl
 };
 
