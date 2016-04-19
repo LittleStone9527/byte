@@ -29,6 +29,7 @@ import {LineChartComponent} from './components/line-chart/chart.component';
 
 // directive
 import {DragPickDirective} from './components/drag-pick/drag-pick.directive';
+import {ToggleDirective} from './components/animate-toggle/toggle.directive';
 
 // service
 import {LwResourceService} from './components/lw-resource/lw-resource.service';
@@ -76,4 +77,5 @@ angular.module('lwTrade', [
   .component('adminItems', AdminItemsComponent)
   .component('safeItems', SafeItemsComponent)
   .component('lineChart', LineChartComponent)
-  .directive('dragPick', DragPickDirective);
+  .directive('dragPick', DragPickDirective)
+  .directive('menuToggle', ToggleDirective);

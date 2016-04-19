@@ -39,10 +39,16 @@ export function DragPickDirective($log, $parse) {
           $element.unbind('mousemove');
         });
 
+        return false;
+
       });
 
-      $scope.$watch('percent', function (newVal) {
+      let watcher = $scope.$watch('percent', function (newVal) {
         $scope.$width = newVal + '%';
+      });
+
+      $scope.$on('$destroy', function () {
+        watcher && angular.isFunction(watcher) && watcher();
       });
 
     }
