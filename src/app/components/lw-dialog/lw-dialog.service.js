@@ -3,7 +3,7 @@ export class LwDialogService {
 
   }
 
-  $get($q, ngDialog, toastr, $rootScope, $templateCache, $log) {
+  $get($q, ngDialog, toastr, $rootScope) {
     'ngInject';
 
     const CONFIRM = Symbol('confirm str Symbol');
@@ -27,7 +27,7 @@ export class LwDialogService {
       };
     };
 
-    dialog.open = ()=> {
+    dialog.open = function () {
       ngDialog.open(...arguments);
     };
 
@@ -52,7 +52,7 @@ export class LwDialogService {
         template: 'app/components/dialog/alert.html',
         scope: $scope
       });
-      
+
       return deferred.promise;
     };
 

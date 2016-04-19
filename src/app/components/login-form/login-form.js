@@ -5,7 +5,7 @@
 
 let LoginFormComponent = {
   templateUrl: 'app/components/login-form/login-form.html',
-  controller: function ($scope, lwUser, $log) {
+  controller: function (lwUser, $log) {
     'ngInject';
 
     let $ctrl = this;
@@ -20,8 +20,6 @@ let LoginFormComponent = {
           $log.error(error);
         });
     };
-
-    $scope.title = 'hello alert';
 
   }
 };
