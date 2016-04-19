@@ -25,7 +25,8 @@
           </div>
           <div class="form-group">
             <label class="col-sm-3 control-label">买入比例</label>
-            <div class="col-sm-8">
+            <div class="col-sm-8" ng-init="test=30">
+              <drag-pick data-percent-model="test"></drag-pick>
               <p class="form-control-static"></p>
             </div>
           </div>
@@ -77,6 +78,7 @@
           <div class="form-group">
             <label class="col-sm-3 control-label">卖出比例</label>
             <div class="col-sm-8">
+              <drag-pick data-percent-model="test"></drag-pick>
               <p class="form-control-static"></p>
             </div>
           </div>

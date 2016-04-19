@@ -51,13 +51,16 @@ let LineChartComponent = {
           text: '动态数据 + 时间坐标轴'
         },
         tooltip: {
+          show: true,
           trigger: 'axis',
           formatter: function (params) {
             params = params[0];
             var date = new Date(params.name);
-            return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + ' : ' + params.value[1];
+            // return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + ' : ' + params.value[1];
+            return 'loading'
           },
           axisPointer: {
+            show: true,
             animation: false
           }
         },
@@ -77,8 +80,28 @@ let LineChartComponent = {
         series: [{
           name: '模拟数据',
           type: 'line',
+          symbolSize: 2,
+          symbolRotate: 45,
           showSymbol: false,
-          hoverAnimation: false,
+          showAllSymbol: true,
+          hoverAnimation: true,
+          legendHoverLink: true,
+          markLine: {
+            clickable: true,
+            symbol: 'circle',
+            symbolSize: 2,
+            smooth: true,
+            smoothness: true
+          },
+          markPoint: {
+            clickable: true,
+            symbol: 'pin',
+            symbolSize: 10,
+            data: [
+              {name: '标注1', value: 100, x: 50, y: 20},
+              {name: '标注2', value: 200, x: 150, y: 120},
+            ]
+          },
           data: data
         }]
       };

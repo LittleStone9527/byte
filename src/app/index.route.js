@@ -188,5 +188,4 @@ export function routerConfig($locationProvider, $stateProvider, $urlRouterProvid
     let target = !$location.path() || $state.current.name === 'home' ? 'home' : '404';
     $state.go(target);
   });
-
 }
