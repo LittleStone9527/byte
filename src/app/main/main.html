@@ -2,21 +2,32 @@
 
   <header></header>
 
-  <div class="jumbotron">
-    <h1>'Allo, 'Allo!</h1>
-    <p class="lead">
-      <img src="assets/images/yeoman.png" alt="I'm Yeoman"><br>
-      Always a pleasure scaffolding your apps.
-    </p>
-    <p class="animated infinite" ng-class="main.classAnimation">
-      <a class="btn btn-lg btn-success" ng-click="main.showToastr()">Splendid Toastr</a>
-    </p>
-    <p>
-      With ♥ thanks to the contributions of<acme-malarkey extra-values="['Yeoman', 'Gulp', 'Angular']"></acme-malarkey>
-    </p>
-  </div>
+  <section id="fbc-banner" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#fbc-banner" data-slide-to="0" class="active"></li>
+      <li data-target="#fbc-banner" data-slide-to="1"></li>
+    </ol>
 
-  <line-chart></line-chart>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item item1 active"></div>
+      <div class="item item2"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <login-form></login-form>
+      </div>
+    </div>
+
+  </section>
+
+
+  <div class="container">
+
+    <line-chart></line-chart>
+  </div>
 
   <div>
     <h4 class="text-danger">首页</h4>
