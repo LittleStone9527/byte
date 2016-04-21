@@ -1,13 +1,33 @@
-#fbc-banner{
+.main-banner{
   margin-top: -20px;
-  .item{
-    height: 400px;
+  position: relative;
+  .container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    .login-main{
+      height: 300px;
+      width: 300px;
+      background: rgba(255,255,255,0.9);
+      padding: 20px;
+      -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+      margin: 50px 0;
+    }
   }
-  .item1{
-    background: url('../assets/images/banner1.png') center top ;
-  }
-  .item2{
-    background: url('../assets/images/banner2.png') center top ;
+  #fbc-banner{
+    .item{
+      height: 400px;
+    }
+    .item1{
+      background: url('../assets/images/banner1.png') center top ;
+    }
+    .item2{
+      background: url('../assets/images/banner2.png') center top ;
+    }
   }
 }
+
 

@@ -29,3 +29,87 @@ body{
    all your sass files automatically */
 // injector
 // endinjector
+
+.mb15{
+  margin-bottom: 15px;
+}
+.mb20{
+  margin-bottom: 20px;
+}
+a {
+  color: #f39c12;
+}
+.panel{
+  border-radius: 0;
+}
+.panel-default {
+  border-color: #eee;
+  border-top: 3px solid #f39c12;
+}
+.panel-default > .panel-heading {
+  color: #333333;
+  background-color: #fff;
+  border-color: #eee;
+}
+.panel-heading {
+  padding: 12px 15px;
+}
+.list-group-item{
+  border-color: #eee;
+}
+.list-group-item:first-child {
+  border-radius: 0;
+}
+.list-group-item:last-child {
+  border-radius: 0;
+}
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+  background-color: #f39c12;
+  border-color: #f39c12;
+}
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+  background-color: #f39c12;
+}
+.input-group{
+  .form-control:first-child, .form-control:last-child{
+    border-radius: 0;
+  }
+  .input-group-addon {
+    min-width: 40px;
+    font-size: 20px;
+    background-color: #fff;
+    border-radius: 0;
+  }
+}
+.btn{
+  padding: 8px 12px;
+  border-radius: 0;
+}
+.form-control {
+  height: 37px;
+}
+.table > thead > tr > th, .table > thead > tr > td, .table > tbody > tr > th, .table > tbody > tr > td, .table > tfoot > tr > th, .table > tfoot > tr > td {
+  vertical-align: middle;
+}
+//筛选搜索
+.search-tag{
+  .search-tag-li{
+    margin: 10px 0;
+    color: #777;
+    .tag{
+      font-size: 13px;
+      color: #333;
+      padding: 5px 10px;
+      margin-right: 10px;
+      cursor: pointer;
+      &:hover{
+        text-decoration: none;
+        background: #f8f8f8;
+      }
+      &.active{
+        background: #f39c12;
+        color: #fff;
+      }
+    }
+  }
+}

@@ -2,35 +2,83 @@
 
   <header></header>
 
-  <section id="fbc-banner" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#fbc-banner" data-slide-to="0" class="active"></li>
-      <li data-target="#fbc-banner" data-slide-to="1"></li>
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-      <div class="item item1 active"></div>
-      <div class="item item2"></div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-4">
+  <section class="main-banner mb20">
+    <div class="container">
+      <div class="login-main">
         <login-form></login-form>
       </div>
     </div>
-
+    <div id="fbc-banner" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#fbc-banner" data-slide-to="0" class="active"></li>
+        <li data-target="#fbc-banner" data-slide-to="1"></li>
+      </ol>
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item item1 active"></div>
+        <div class="item item2"></div>
+      </div>
+    </div>
   </section>
 
-
   <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-9"><line-chart></line-chart></div>
+          <div class="col-md-3">
+            <h4>实时成交</h4>
+            <table class="table table-hover">
+              <tbody>
+              <tr>
+                <td>14:12:14</td>
+                <td>$0.124</td>
+                <td>卖出</td>
+              </tr>
+              <tr>
+                <td>14:12:14</td>
+                <td>$0.124</td>
+                <td>买入</td>
+              </tr>
+              <tr>
+                <td>14:12:14</td>
+                <td>$0.124</td>
+                <td>买入</td>
+              </tr>
+              <tr>
+                <td>14:12:14</td>
+                <td>$0.124</td>
+                <td>卖出</td>
+              </tr>
+              <tr>
+                <td>14:12:14</td>
+                <td>$0.124</td>
+                <td>买入</td>
+              </tr>
+              <tr>
+                <td>14:12:14</td>
+                <td>$0.124</td>
+                <td>卖出</td>
+              </tr>
+              <tr>
+                <td>14:12:14</td>
+                <td>$0.124</td>
+                <td>买入</td>
+              </tr>
+              <tr>
+                <td>14:12:14</td>
+                <td>$0.124</td>
+                <td>买入</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
 
-    <line-chart></line-chart>
-  </div>
+      </div>
+    </div>
 
-  <div>
-    <h4 class="text-danger">首页</h4>
   </div>
 
   <footer></footer>
