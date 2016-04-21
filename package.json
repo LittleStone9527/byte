@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "dependencies": {
     "babel-polyfill": "^6.7.4",
-    "echarts": "^3.1.6"
+    "echarts": "^3.1.6",
+    "resource": "git+https://github.com/suboat/-resouce.git#0.1.0"
   },
   "scripts": {
     "test": "gulp test"

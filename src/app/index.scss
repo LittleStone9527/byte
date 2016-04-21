@@ -10,6 +10,21 @@ body{
   background-color: #f8f8f8;
 }
 
+.view-page.ng-enter{
+  transition: transform .5s;
+  transform: translateX(100%);
+}
+.view-page.ng-enter.ng-enter-active{
+  transform: translateX(0);
+  transition: transform .5s;
+}
+.view-page.ng-leave{
+  transition: transform .5s;
+}
+.view-page.ng-leave.ng-leave-active{
+  transform: translateX(-100%);
+}
+
 /* Do not remove the comments below. It's the markers used by gulp-inject to inject
    all your sass files automatically */
 // injector

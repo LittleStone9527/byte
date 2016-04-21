@@ -16,7 +16,6 @@ export class LwDialogService {
       let config = {template: DIALOGS[dialogID].template};
       config = Object.assign(config, DIALOGS[dialogID].options);
 
-      console.log(config);
       return ngDialog.open(config);
     };
 
@@ -56,25 +55,23 @@ export class LwDialogService {
       return deferred.promise;
     };
 
-    dialog.success = function () {
-      return toastr.success(...arguments)
+    dialog.success = function (content = 'Permission Success', title = 'Success') {
+      return toastr.success(content, title)
     };
 
-    dialog.error = function () {
-      return toastr.error(...arguments)
+    dialog.error = function (content = 'Permission Error', title = 'Error') {
+      return toastr.error(content, title)
     };
 
-    dialog.warning = function () {
-      return toastr.warning(...arguments);
+    dialog.warning = function (content = 'This could be dangerous', title = 'Danger') {
+      return toastr.warning(content, title);
     };
 
-    dialog.info = function () {
-      return toastr.info(...arguments);
+    dialog.info = function (content = '', title = 'Notice That') {
+      return toastr.info(content, title);
     };
 
-    dialog.clear = function () {
-      return toastr.clear(...arguments);
-    };
+    dialog.clear = () => toastr.clear();
 
     dialog.register(CONFIRM, 'app/components/dialog/confirm.html');
     dialog.register(ALERT, 'app/components/dialog/alert.html');

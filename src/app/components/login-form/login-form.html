@@ -6,7 +6,7 @@
         }">
     <label>用户名</label>
     <input type="text" name="username" class="form-control" placeholder="输入邮箱"
-           ng-model="form.username" ng-required="true">
+           ng-model="$ctrl.form.username" ng-required="true">
   </div>
   <div class="form-group" ng-class="{
           'has-error':loginForm.password.$invalid && loginForm.password.$dirty,
@@ -14,12 +14,12 @@
         }">
     <label>密码</label>
     <input type="password" name="password" class="form-control" placeholder="输入密码"
-           ng-model="form.password" ng-required="true">
+           ng-model="$ctrl.form.password" ng-required="true">
   </div>
   <div class="form-group">
     <label>验证码</label>
     <input type="text" name="captcha" class="form-control login-code" placeholder="输入验证码"
-           ng-model="form.$$captcha" ng-required="true" autocomplete="off">
+           ng-model="$ctrl.form.$$captcha" ng-required="true" autocomplete="off">
     <div class="login-code-img" ng-clock ng-if="$ctrl.$$captchaShow">
       <img class="img-responsive" style="max-height: 34px;display: inline-block" alt="刷新重试"
            ng-src="{{$ctrl.imageCaptchaUrl}}">

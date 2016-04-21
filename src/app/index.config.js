@@ -7,9 +7,8 @@ export function config($logProvider, toastrConfig, ngStoreProvider, SETTINGS) {
   toastrConfig.allowHtml = true;
   toastrConfig.timeOut = 3000;
   toastrConfig.positionClass = 'toast-top-right';
-  toastrConfig.preventDuplicates = true;
+  // toastrConfig.preventDuplicates = true;
   toastrConfig.progressBar = true;
 
-  ngStoreProvider.prefix('lw').exp(3600 * 24 * 7);
-
+  ngStoreProvider.prefix('lw').exp(1000 * 3600 * 24 * 7);
 }

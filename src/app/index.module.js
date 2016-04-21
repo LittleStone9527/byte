@@ -1,6 +1,7 @@
 /* global malarkey:false, moment:false */
 
-import "babel-polyfill";
+import 'babel-polyfill';
+import 'resource';
 
 import {SETTINGS} from './settings';
 import {config} from './index.config';
@@ -51,6 +52,7 @@ angular.module('lwTrade', [
     'ngDialog',
     'toastr',
     'ngStore',
+    '$resource',
     'atCompare'
   ])
   .constant('SETTINGS', SETTINGS)

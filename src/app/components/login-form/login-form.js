@@ -5,7 +5,7 @@
 
 let LoginFormComponent = {
   templateUrl: 'app/components/login-form/login-form.html',
-  controller: function (lwUser, $log) {
+  controller: function (lwUser, lwDialog, $state) {
     'ngInject';
 
     let $ctrl = this;
@@ -13,11 +13,12 @@ let LoginFormComponent = {
     $ctrl.form = {};
 
     $ctrl.login = (loginForm)=> {
-      lwUser.register($ctrl.form)
+      lwUser.login($ctrl.form)
         .then(function (resp) {
-          $log.log(resp);
+          lwDialog.success();
+          return $state.go('home');
         }, function (error) {
-          $log.error(error);
+          lwDialog.error();
         });
     };
 

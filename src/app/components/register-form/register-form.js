@@ -3,7 +3,7 @@
  */
 
 class ctrl {
-  constructor($log, SETTINGS, lwUser) {
+  constructor($log, SETTINGS, lwUser, lwDialog) {
     'ngInject';
 
     let $ctrl = this;
@@ -16,14 +16,12 @@ class ctrl {
     $ctrl.telReg = SETTINGS.reg.tel;
 
     $ctrl.register = (registerForm)=> {
-      console.log($ctrl.form);
-      console.log(registerForm);
       lwUser.register($ctrl.form)
-        .then(function (resp) {
-          $log.log(resp);
-          $log.log(registerForm);
-        }, function (error) {
-          $log.error(error);
+        .then(function () {
+          lwDialog.success();
+        }, function () {
+          // lwDialog.error('error','title');
+          lwDialog.error();
         });
     };
 

@@ -11,6 +11,7 @@ export function ToggleDirective() {
     link: function ($scope, $element) {
 
       $scope.width = $scope._width ? $scope._width : 500;
+
       $scope.height = $scope._height ? $scope._height : 200;
 
       let $extend = $element.find('.child-menu');

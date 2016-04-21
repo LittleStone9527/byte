@@ -13,7 +13,7 @@ const SETTINGS = {
   isMobile: false,                            // 当前是否为移动端
   serverCanProxy: true,                       // 服务器是否能访问外部网络
   host: window.location.host,                 // 当前host
-  hostApi: 'http://192.168.199.219:9088',     // api host
+  hostApi: 'http://192.168.199.219:1005',     // api host
   hostImgLis: [                               // 图片服务器 阿里云
     ''
   ],
