@@ -1,6 +1,7 @@
 export class MainController {
-  constructor() {
+  constructor(lwUser) {
     'ngInject';
-
+    
+    this.lwUser = lwUser;
   }
 }

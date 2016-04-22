@@ -5,7 +5,8 @@
   <section class="main-banner mb20">
     <div class="container">
       <div class="login-main">
-        <login-form></login-form>
+        <login-form ng-clock ng-if="vm.lwUser.isAuth===false"></login-form>
+        <profile ng-clock ng-if="vm.lwUser.isAuth===true"></profile>
       </div>
     </div>
     <div id="fbc-banner" class="carousel slide" data-ride="carousel">
@@ -26,7 +27,9 @@
     <div class="panel panel-default">
       <div class="panel-body">
         <div class="row">
-          <div class="col-md-9"><line-chart></line-chart></div>
+          <div class="col-md-9">
+            <line-chart></line-chart>
+          </div>
           <div class="col-md-3">
             <h4>实时成交</h4>
             <table class="table table-hover">
