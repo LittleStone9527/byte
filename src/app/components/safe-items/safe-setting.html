@@ -16,23 +16,35 @@
       <tr>
         <td class="text-center"><i class="ion ion-ios-email-outline safe-ion active"></i></td>
         <td>绑定邮箱</td>
-        <td><span class="safe-p active">已绑定</span></td>
+        <td>
+          <span class="safe-p" ng-class="{active:$ctrl.profile.emailCheck}">
+            {{$ctrl.profile.emailCheck ? '已绑定' : '未绑定'}}
+          </span>
+        </td>
         <td>您绑定的邮箱为liz****@126.com</td>
         <td class="text-right"></td>
       </tr>
       <tr>
         <td class="text-center"><i class="ion ion-ios-telephone-outline safe-ion"></i></td>
         <td>绑定手机</td>
-        <td><span class="safe-p">未绑定</span></td>
+        <td>
+          <span class="safe-p" ng-class="{active:$ctrl.profile.telCheck}">
+            {{$ctrl.profile.telCheck ? '已绑定' : '未绑定'}}
+          </span>
+        </td>
         <td>绑定手机号作为登录名</td>
-        <td class="text-right"><a class="btn btn-warning">绑定</a></td>
+        <td ng-clock ng-if="!$ctrl.profile.telCheck" ng-click="$ctrl.telBinding()" class="text-right"><a class="btn btn-warning">绑定</a></td>
       </tr>
       <tr>
         <td class="text-center"><i class="ion ion-social-google-outline safe-ion"></i></td>
         <td>绑定谷歌验证码</td>
-        <td><span class="safe-p">未绑定</span></td>
+        <td>
+          <span class="safe-p" ng-class="{active:$ctrl.profile.googleCheck}">
+            {{$ctrl.profile.googleCheck ? '已绑定' : '未绑定'}}
+          </span>
+        </td>
         <td>经常不能收到短信验证码，建议绑定谷歌验证码</td>
-        <td class="text-right"><a class="btn btn-warning">绑定</a></td>
+        <td ng-clock ng-if="!$ctrl.profile.googleCheck" class="text-right"><a class="btn btn-warning">绑定</a></td>
       </tr>
       <tr>
         <td class="text-center"><i class="ion ion-ios-locked-outline safe-ion active"></i></td>
