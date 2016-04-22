@@ -22,15 +22,15 @@
       </div>
     </div>
 
-    <div ng-cloak ng-if="$ctrl.way==='phone'" class="form-group" ng-class="{
-          'has-error':registerForm.phone.$invalid && registerForm.phone.$dirty,
-          'has-success':registerForm.phone.$valid
+    <div ng-cloak ng-if="$ctrl.way==='tel'" class="form-group" ng-class="{
+          'has-error':registerForm.tel.$invalid && registerForm.tel.$dirty,
+          'has-success':registerForm.tel.$valid
         }">
       <label>手机号码</label>
-      <input type="text" name="phone" class="form-control" placeholder="手机号"
-             ng-model="$ctrl.form.phone" ng-required="true" ng-pattern="$ctrl.telReg">
-      <div ng-cloak ng-if="registerForm.phone.$invalid && registerForm.phone.$dirty">
-        <p class="help-block" ng-cloak ng-if="registerForm.phone.$error.pattern">
+      <input type="text" name="tel" class="form-control" placeholder="手机号"
+             ng-model="$ctrl.form.tel" ng-required="true" ng-pattern="$ctrl.telReg">
+      <div ng-cloak ng-if="registerForm.tel.$invalid && registerForm.tel.$dirty">
+        <p class="help-block" ng-cloak ng-if="registerForm.tel.$error.pattern">
           请输入11位的手机号
         </p>
       </div>

@@ -40,6 +40,9 @@ export class LwUserService {
         })
         .catch((error)=> {
           deferred.reject(error);
+        })
+        .finally(function () {
+          $state.reload();
         });
       return deferred.promise;
     };
@@ -81,6 +84,9 @@ export class LwUserService {
             $rootScope.$broadcast('login');
           }, error=> {
             deferred.reject(error);
+          })
+          .finally(function () {
+            $state.reload();
           });
       }
       return deferred.promise;
@@ -116,7 +122,7 @@ export class LwUserService {
         .finally(()=> {
           logoutTrigger();
           $rootScope.$broadcast('logout');
-          $state.go('home');
+          $state.reload();
         });
       return deferred.promise;
     };
@@ -131,13 +137,17 @@ export class LwUserService {
       user.getSession()
         .then(function () {
           return lwApi.user.detail.get().$promise;
+        }, function (error) {
+          return $q.reject(error);
         })
         .then(function (resp) {
           deferred.resolve(resp);
           loginTrigger(resp)
+        }, function (error) {
+          return $q.reject(error);
         })
         .catch(function (error) {
-          console.error('get detail fail');
+          console.info('fail get detail');
           logoutTrigger(error);
           deferred.reject(error);
         });
