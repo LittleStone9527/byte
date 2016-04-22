@@ -1,8 +1,8 @@
 let TradeItemsComponent = {
   templateUrl: ($stateParams, $attrs)=> {
     'ngInject';
-    console.log($attrs);
-    return `app/components/trade-items/trade-${$stateParams.partial}.html`;
+    let tpl = $attrs.template || $stateParams.partial;
+    return `app/components/trade-items/trade-${tpl}.html`;
   },
   controller: function () {
     'ngInject';

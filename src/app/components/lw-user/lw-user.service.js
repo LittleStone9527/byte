@@ -137,6 +137,7 @@ export class LwUserService {
           loginTrigger(resp)
         })
         .catch(function (error) {
+          console.error('get detail fail');
           logoutTrigger(error);
           deferred.reject(error);
         });
