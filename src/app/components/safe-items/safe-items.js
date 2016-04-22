@@ -14,16 +14,12 @@ let SafeItemsComponent = {
 
     // 绑定电话
     $ctrl.telBinding = ()=> {
-      console.log();
-      lwDialog.open({
-        template: '<tel-bind></tel-bind>',
-        plain: true,
-        // controller: ($scope)=> {
-        //   'ngInject';
-        //   console.log($scope);
-        // }
-      });
-      // lwDialog('telBinding');
+      lwDialog('telBinding');
+    };
+
+    // 绑定谷歌验证码
+    $ctrl.googleCaptchaBinding = ()=> {
+      lwDialog('googleCaptchaBind');
     };
 
   }

@@ -1,0 +1,31 @@
+<div>
+  <h4 class="text-center text-info">
+    绑定谷歌验证码
+  </h4>
+  <form name="telBindingForm">
+
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon">$</span>
+        <input type="text" class="form-control" placeholder="电话号码"/>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon">$</span>
+        <input type="text" class="form-control" placeholder="验证码"/>
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default">发送验证码</button>
+        </span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-primary" type="submit" ng-click="closeThisDialog()">提交</button>
+      <button class="btn btn-default" type="button" ng-click="closeThisDialog()">关闭</button>
+    </div>
+
+  </form>
+
+</div>

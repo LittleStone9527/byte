@@ -76,11 +76,8 @@ export class LwDialogService {
     dialog.register(CONFIRM, 'app/components/dialog/confirm.html');
     dialog.register(ALERT, 'app/components/dialog/alert.html');
 
-    dialog.register('telBinding', 'app/components/tel-binding-dialog/tel-binding-dialog.html', {
-      data: {
-        hello: 'world'
-      }
-    });
+    dialog.register('telBinding', '<tel-bind/>', {plain: true});
+    dialog.register('googleCaptchaBind', '<google-captcha-bind/>', {plain: true});
 
     return dialog;
 

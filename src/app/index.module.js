@@ -30,6 +30,7 @@ import {LineChartComponent} from './components/line-chart/chart.component';
 import ProfileComponent from './components/profile/profile';
 import AuthForgetComponent from './components/auth-forget/auth-forget';
 import telBindingDialogComponent from './components/tel-binding-dialog/tel-binding-dialog';
+import googleCaptchaBindingDialogComponent from './components/google-captcha-binding-dialog/google-captcha-binding-dialog';
 
 // directive
 import {DragPickDirective} from './components/drag-pick/drag-pick.directive';
@@ -68,16 +69,16 @@ angular.module('lwTrade', [
   .provider('lwUtil', LwUtilService)
   .provider('lwDialog', LwDialogService)
   .provider('lwPermission', LwPermissionService)
-  
+
   .run(runBlock)
-  
+
   .controller('MainController', MainController)
   .controller('TradeController', TradeController)
   .controller('FinancesController', FinancesController)
   .controller('SafeController', SafeController)
   .controller('AuthController', AuthController)
   .controller('AdminController', AdminController)
-  
+
   .component('header', HeaderComponent)
   .component('footer', FooterComponent)
   .component('tradeItems', TradeItemsComponent)
@@ -90,6 +91,7 @@ angular.module('lwTrade', [
   .component('profile', ProfileComponent)
   .component('authForget', AuthForgetComponent)
   .component('telBind', telBindingDialogComponent)
-  
+  .component('googleCaptchaBind', googleCaptchaBindingDialogComponent)
+
   .directive('dragPick', DragPickDirective)
   .directive('menuToggle', ToggleDirective);
