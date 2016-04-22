@@ -57,6 +57,10 @@ a {
 .panel-heading {
   padding: 12px 15px;
 }
+.list-group {
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
 .list-group-item{
   border-color: #eee;
 }
@@ -94,6 +98,13 @@ a {
 .table > thead > tr > th, .table > thead > tr > td, .table > tbody > tr > th, .table > tbody > tr > td, .table > tfoot > tr > th, .table > tfoot > tr > td {
   vertical-align: middle;
 }
+//表格内的
+.table .checkbox{
+  margin: 0;
+}
+.table p{
+  margin-bottom: 0;
+}
 //筛选搜索
 .search-tag{
   .search-tag-li{
@@ -118,4 +129,9 @@ a {
       }
     }
   }
+}
+//验证码
+.login-code-img{
+  padding: 0;
+  width: 107px;
 }
