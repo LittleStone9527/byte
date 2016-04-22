@@ -26,10 +26,10 @@ let LoginFormComponent = {
         .then(function () {
           lwDialog.success();
           return $state.go('home');
-        }, function () {
-          lwDialog.error();
-          ngStore.remove('captchaID');
-        });
+        }, function (resp) {
+          lwDialog.error(resp.data.error);
+        })
+        .finally(()=>ngStore.remove('captchaID'));
     };
 
     /**
