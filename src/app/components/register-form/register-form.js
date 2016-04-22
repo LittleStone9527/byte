@@ -2,8 +2,9 @@
  * Created by axetroy on 16-4-2.
  */
 
-class ctrl {
-  constructor($log, SETTINGS, lwUser, lwDialog) {
+let RegisterFormComponent = {
+  templateUrl: 'app/components/register-form/register-form.html',
+  controller: function (SETTINGS, lwUser, lwDialog) {
     'ngInject';
 
     let $ctrl = this;
@@ -17,21 +18,17 @@ class ctrl {
 
     $ctrl.register = (registerForm)=> {
       lwUser.register($ctrl.form)
-        .then(function () {
+        .then(function (resp) {
+          console.log(resp);
           lwDialog.success();
+          registerForm.$setPristine();
         }, function () {
-          // lwDialog.error('error','title');
           lwDialog.error();
         });
     };
 
   }
-}
-
-let RegisterFormComponent = {
-  templateUrl: 'app/components/register-form/register-form.html',
-  controller: ctrl
 };
 
 
-export {RegisterFormComponent};
+export default RegisterFormComponent;

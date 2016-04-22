@@ -1,4 +1,4 @@
-export function runBlock($rootScope, $log, lwUser) {
+export function runBlock($rootScope, $log, lwUser, lwApi, $resource) {
   'ngInject';
 
   lwUser.init();

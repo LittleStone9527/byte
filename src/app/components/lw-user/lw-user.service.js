@@ -3,7 +3,7 @@ export class LwUserService {
 
   }
 
-  $get($q, SETTINGS, ngStore, lwApi, lwResource, $resource) {
+  $get($rootScope, $q, $state, SETTINGS, ngStore, lwApi) {
     'ngInject';
 
     let user = {};
@@ -15,6 +15,7 @@ export class LwUserService {
     user.trade = {};              // 交易信息
     user.loginActions = [];       // 登陆操作
     user.logoutActions = [];      // 登出操作
+    user.tag = SETTINGS.sessionTag;
 
     /**
      * 用户注册
@@ -30,7 +31,14 @@ export class LwUserService {
       lwApi.user.signup.post({email, tel, nickname, password, captcha}).$promise
         .then(function (resp) {
           deferred.resolve(resp);
-        }, function (error) {
+          ngStore.set(user.tag, resp.headers[user.tag]);
+          lwApi.init();
+          return user.getDetail();
+        })
+        .then(function () {
+          $rootScope.$broadcast('signup');
+        })
+        .catch((error)=> {
           deferred.reject(error);
         });
       return deferred.promise;
@@ -41,10 +49,12 @@ export class LwUserService {
      */
     function loginTrigger(resp) {
 
+      lwApi.init();
+
       let data = resp;
       // 如果是登陆，会带headers
       if (resp.headers) {
-        let session_key = SETTINGS.sessionTag;
+        let session_key = user.tag;
         let session_value = resp.headers[session_key];
         ngStore.set(session_key, session_value);
         data = resp.data;
@@ -68,6 +78,7 @@ export class LwUserService {
           .then(resp => {
             deferred.resolve(resp);
             loginTrigger(resp);
+            $rootScope.$broadcast('login');
           }, error=> {
             deferred.reject(error);
           });
@@ -80,15 +91,18 @@ export class LwUserService {
      */
     function logoutTrigger() {
 
+      lwApi.init();
+
       user.isAuth = false;
       user.isAdmin = false;
       user.isUser = !user.isAdmin;
 
       user.profile = {};
 
-      ngStore.remove(SETTINGS.sessionTag);
+      ngStore.remove(user.tag);
 
       angular.forEach(user.logoutActions, func=>angular.isFunction(func) && func());
+
     }
 
     user.logout = ()=> {
@@ -101,12 +115,14 @@ export class LwUserService {
         })
         .finally(()=> {
           logoutTrigger();
+          $rootScope.$broadcast('logout');
+          $state.go('home');
         });
       return deferred.promise;
     };
 
     user.getSession = ()=> {
-      let session = ngStore.get(SETTINGS.sessionTag);
+      let session = ngStore.get(user.tag);
       return !!session ? $q.resolve(session) : $q.reject();
     };
 
@@ -129,7 +145,18 @@ export class LwUserService {
     };
 
     user.init = ()=> {
-      return user.getDetail();
+      user.getDetail();
+      // 跨窗口
+      ngStore.$watch(user.tag, function (newVal, oldVal) {
+        // 登陆
+        if (newVal && !oldVal) {
+          user.getDetail();
+        }
+        // 登出
+        else if (!newVal && oldVal) {
+          user.logout();
+        }
+      });
     };
 
     return user;

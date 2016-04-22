@@ -4,38 +4,40 @@ export class LwApiService {
 
   $get(lwResource, $resource, SETTINGS, $q, ngStore) {
     'ngInject';
-    console.log('api init');
-
-    // set host api;
-    $resource.hosts = SETTINGS.hostApi;
-
-    // cros
-    $resource.withCredentials = true;
-
-    // 拦截器
-    $resource.interceptor = function (response) {
-      if (!response || response.status >= 400 || response.data.error || !response.data.success || !response.data || !response.data.data) {
-        return $q.reject(response);
-      } else {
-        // 登陆，拿session
-        if (response.headers[SETTINGS.sessionTag]) {
-          return $q.resolve(response);
-        } else {
-          return $q.resolve(response.data);
-        }
-      }
-    };
-
-    $resource.headers = {
-      get [SETTINGS.sessionTag]() {
-        return ngStore.get(SETTINGS.sessionTag) || null;
-      }
-    };
-
 
     let $$ = $resource.register;
 
+    let init = function () {
+      // set host api;
+      $resource.hosts = SETTINGS.hostApi;
+
+      // cros
+      $resource.withCredentials = true;
+      
+      // 拦截器
+      $resource.interceptor = function (response) {
+        if (!response || response.status >= 400 || response.data.error || !response.data.success || !response.data) {
+          return $q.reject(response);
+        } else {
+          // 登陆，拿session
+          if (response.headers[SETTINGS.sessionTag]) {
+            return $q.resolve(response);
+          } else {
+            return $q.resolve(response.data);
+          }
+        }
+      };
+
+      $resource.headers = {
+        [SETTINGS.sessionTag]: ngStore.get(SETTINGS.sessionTag) || null
+      };
+    };
+
+    init();
+
     return {
+      // 初始化
+      init,
       user: {
         /**
          * 注册
@@ -65,7 +67,7 @@ export class LwApiService {
          */
         id: $$('captcha-id', '/api/v1/captcha/id')
       }
-    }
+    };
 
   }
 }
