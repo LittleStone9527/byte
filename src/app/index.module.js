@@ -28,6 +28,7 @@ import {AdminItemsComponent} from './components/admin-items/admin-items';
 import {SafeItemsComponent} from './components/safe-items/safe-items';
 import {LineChartComponent} from './components/line-chart/chart.component';
 import ProfileComponent from './components/profile/profile';
+import AuthForgetComponent from './components/auth-forget/auth-forget';
 
 // directive
 import {DragPickDirective} from './components/drag-pick/drag-pick.directive';
@@ -83,5 +84,6 @@ angular.module('lwTrade', [
   .component('safeItems', SafeItemsComponent)
   .component('lineChart', LineChartComponent)
   .component('profile', ProfileComponent)
+  .component('authForget', AuthForgetComponent)
   .directive('dragPick', DragPickDirective)
   .directive('menuToggle', ToggleDirective);

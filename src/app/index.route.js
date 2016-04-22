@@ -120,7 +120,7 @@ let router = {
         url: '/register?:from?',
         views: {
           auth_items: {
-            template: '<register-form></register-form>'
+            template: '<register-form/>'
           }
         }
       },
@@ -128,7 +128,7 @@ let router = {
         url: '/login',
         views: {
           auth_items: {
-            template: '<login-form></login-form>'
+            template: '<login-form/>'
           }
         }
       },
@@ -136,7 +136,7 @@ let router = {
         url: '/forget',
         views: {
           auth_items: {
-            template: '<forget-pwd-form></forget-pwd-form>'
+            template: '<auth-forget/>'
           }
         }
       },
@@ -144,7 +144,7 @@ let router = {
         url: '/active',
         views: {
           auth_items: {
-            template: '<active-form></active-form>'
+            template: '<active-form/>'
           }
         }
       }
