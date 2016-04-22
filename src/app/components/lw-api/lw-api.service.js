@@ -63,7 +63,36 @@ export class LwApiService {
          * 验证
          */
         check: {
-          email: $$('send-email', '/api/v1/user/check/send/email?method=:method&username=:username')
+          // 发送验证码
+          send: {
+            /**
+             method:
+
+             signup
+             signin login
+             password
+             info profile
+             auth
+             */
+            email: $$('send-email', '/api/v1/user/check/send/email?method=:method&username=:username'),
+            tel: $$('send-msg', '/api/v1/user/check/send/tel?method=:method&username=:username')
+          },
+          /**
+           * 验证邮箱
+           * method:[post]
+           *
+           * *email
+           * *captcha
+           */
+          email: $$('check-email', '/api/v1/user/check/email'),
+          /**
+           * 验证手机
+           * method:[post]
+           *
+           * *tel
+           * *captcha
+           */
+          tel: $$('check-tel', '/api/v1/user/check/tel')
         }
       },
       captcha: {
