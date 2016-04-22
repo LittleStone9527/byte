@@ -1,28 +1,16 @@
 <!-- 登录 -->
 <div class="row">
+
   <div>
     <input type="button" class="btn" value="手机注册"
-           ng-click="$ctrl.way='phone'" ng-class="{'btn-primary':$ctrl.way==='phone'}" >
+           ng-click="$ctrl.way=1" ng-class="{'btn-primary':$ctrl.way===1}">
     <input type="button" class="btn" value="邮箱注册"
-           ng-click="$ctrl.way='email'" ng-class="{'btn-primary':$ctrl.way==='email'}">
+           ng-click="$ctrl.way=2" ng-class="{'btn-primary':$ctrl.way===2}">
   </div>
   <form name="registerForm" ng-submit="$ctrl.register(registerForm)">
 
-    <div ng-cloak ng-if="$ctrl.way==='email'" class="form-group" ng-class="{
-          'has-error':registerForm.email.$invalid && registerForm.email.$dirty,
-          'has-success':registerForm.email.$valid
-        }">
-      <label>邮箱</label>
-      <input type="email" name="email" class="form-control" placeholder="请输入邮箱"
-             ng-model="$ctrl.form.email" ng-required="true" ng-pattern="$ctrl.emailReg">
-      <div ng-cloak ng-if="registerForm.email.$invalid && registerForm.email.$dirty">
-        <p class="help-block" ng-cloak ng-if="registerForm.email.$error.pattern">
-          请输入正确的邮箱
-        </p>
-      </div>
-    </div>
-
-    <div ng-cloak ng-if="$ctrl.way==='tel'" class="form-group" ng-class="{
+    <!--手机注册-->
+    <div ng-cloak ng-if="$ctrl.way===1" class="form-group" ng-class="{
           'has-error':registerForm.tel.$invalid && registerForm.tel.$dirty,
           'has-success':registerForm.tel.$valid
         }">
@@ -32,6 +20,21 @@
       <div ng-cloak ng-if="registerForm.tel.$invalid && registerForm.tel.$dirty">
         <p class="help-block" ng-cloak ng-if="registerForm.tel.$error.pattern">
           请输入11位的手机号
+        </p>
+      </div>
+    </div>
+
+    <!--邮箱注册-->
+    <div ng-cloak ng-if="$ctrl.way===2" class="form-group" ng-class="{
+          'has-error':registerForm.email.$invalid && registerForm.email.$dirty,
+          'has-success':registerForm.email.$valid
+        }">
+      <label>邮箱</label>
+      <input type="email" name="email" class="form-control" placeholder="请输入邮箱"
+             ng-model="$ctrl.form.email" ng-required="true" ng-pattern="$ctrl.emailReg">
+      <div ng-cloak ng-if="registerForm.email.$invalid && registerForm.email.$dirty">
+        <p class="help-block" ng-cloak ng-if="registerForm.email.$error.pattern">
+          请输入正确的邮箱
         </p>
       </div>
     </div>

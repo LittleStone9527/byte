@@ -16,6 +16,12 @@ let router = {
         controller: 'TradeController as vm'
       }
     },
+    resolve: {
+      login: ($q, $state, lwPermission)=> {
+        'ngInject';
+        return lwPermission.login().then(()=>$q.resolve(), ()=>$q.reject()).catch(()=>$state.go('auth.login'));
+      }
+    },
     $$child: {
       'trade.home': {
         views: {
@@ -40,6 +46,12 @@ let router = {
       main: {
         templateUrl: 'app/finances/finances.html',
         controller: 'FinancesController as vm'
+      }
+    },
+    resolve: {
+      login: ($q, $state, lwPermission)=> {
+        'ngInject';
+        return lwPermission.login().then(()=>$q.resolve(), ()=>$q.reject()).catch(()=>$state.go('auth.login'));
       }
     },
     $$child: {
@@ -68,6 +80,12 @@ let router = {
         controller: 'SafeController as vm'
       }
     },
+    resolve: {
+      login: ($q, $state, lwPermission)=> {
+        'ngInject';
+        return lwPermission.login().then(()=>$q.resolve(), ()=>$q.reject()).catch(()=>$state.go('auth.login'));
+      }
+    },
     $$child: {
       'safe.home': {
         views: {
@@ -89,6 +107,12 @@ let router = {
       main: {
         templateUrl: 'app/auth/auth.html',
         controller: 'AuthController as vm'
+      }
+    },
+    resolve: {
+      unLogin: ($q, lwPermission)=> {
+        'ngInject';
+        return lwPermission.login().then(()=> $q.reject(), ()=>$q.resolve());
       }
     },
     $$child: {

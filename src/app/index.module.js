@@ -20,7 +20,7 @@ import {AdminController} from '././admin/admin.controller';
 // components
 import {HeaderComponent} from './components/header/header.component'
 import {FooterComponent} from './components/footer/footer.component';
-import {TradeItemsComponent} from './components/trade-items/trade-items';
+import TradeItemsComponent from './components/trade-items/trade-items';
 import LoginFormComponent from './components/login-form/login-form';
 import RegisterFormComponent from './components/register-form/register-form';
 import {FinancesItemsComponent} from './components/finances-items/finances-items';
@@ -39,6 +39,7 @@ import {LwUserService} from './components/lw-user/lw-user.service';
 import {LwApiService} from './components/lw-api/lw-api.service';
 import {LwUtilService} from './components/lw-util/lw-util.service';
 import {LwDialogService} from './components/lw-dialog/lw-dialog.service';
+import LwPermissionService from './components/lw-permission/lw-permission.service';
 
 
 angular.module('lwTrade', [
@@ -64,6 +65,7 @@ angular.module('lwTrade', [
   .provider('lwUser', LwUserService)
   .provider('lwUtil', LwUtilService)
   .provider('lwDialog', LwDialogService)
+  .provider('lwPermission', LwPermissionService)
   .run(runBlock)
   .controller('MainController', MainController)
   .controller('TradeController', TradeController)

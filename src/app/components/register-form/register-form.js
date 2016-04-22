@@ -11,7 +11,7 @@ let RegisterFormComponent = {
 
     $ctrl.form = {};
 
-    $ctrl.way = 'email';
+    $ctrl.way = 2;
 
     $ctrl.emailReg = SETTINGS.reg.email;
     $ctrl.telReg = SETTINGS.reg.tel;

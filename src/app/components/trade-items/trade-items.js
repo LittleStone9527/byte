@@ -9,6 +9,4 @@ let TradeItemsComponent = {
   }
 };
 
-export {
-  TradeItemsComponent
-};
+export default TradeItemsComponent;

@@ -30,9 +30,9 @@ export class LwUserService {
       let deferred = $q.defer();
       lwApi.user.signup.post({email, tel, nickname, password, captcha}).$promise
         .then(function (resp) {
-          deferred.resolve(resp);
           ngStore.set(user.tag, resp.headers[user.tag]);
           lwApi.init();
+          deferred.resolve(resp);
           return user.getDetail();
         })
         .then(function () {
@@ -42,7 +42,7 @@ export class LwUserService {
           deferred.reject(error);
         })
         .finally(function () {
-          $state.reload();
+          $state.includes($state.current.name) ? $state.go('home') : $state.reload();
         });
       return deferred.promise;
     };
