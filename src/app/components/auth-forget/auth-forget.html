@@ -1,27 +1,16 @@
 <!-- 登录 -->
 
-<form name="forgetForm" ng-submit="$ctrl.login(form)" class="mb15">
+<form name="forgetForm" ng-submit="$ctrl.submit(forgetForm)" class="mb15">
   <h3 class="text-center">忘记密码</h3>
 
-  <div ng-cloak ng-if="$ctrl.way===1" class="form-group" ng-class="{
-          'has-error':forgetForm.tel.$invalid && forgetForm.tel.$dirty,
-          'has-success':forgetForm.tel.$valid
-        }">
-    <div class="input-group">
-      <span class="input-group-addon"><i class="ion ion-android-person"></i></span>
-      <input type="text" name="tel" class="form-control" placeholder="手机"
-             ng-model="$ctrl.form.tel" ng-required="true">
-    </div>
-  </div>
-
   <div ng-cloak ng-if="$ctrl.way===2" class="form-group" ng-class="{
-          'has-error':forgetForm.email.$invalid && forgetForm.email.$dirty,
-          'has-success':forgetForm.email.$valid
+          'has-error':forgetForm.username.$invalid && forgetForm.username.$dirty,
+          'has-success':forgetForm.username.$valid
         }">
     <div class="input-group">
       <span class="input-group-addon"><i class="ion ion-android-person"></i></span>
-      <input type="text" name="email" class="form-control" placeholder="邮箱"
-             ng-model="$ctrl.form.email" ng-required="true">
+      <input type="text" name="username" class="form-control" placeholder="用户名/邮箱/手机号码"
+             ng-model="$ctrl.form.username" ng-required="true">
     </div>
   </div>
 
@@ -34,7 +23,9 @@
       <input type="text" name="captcha" class="form-control" placeholder="验证码"
              ng-model="$ctrl.form.captcha" ng-required="true" autocomplete="off" ng-minlength="4" ng-maxlength="10">
       <span class="input-group-btn">
-        <button class="btn btn-default" ng-disabled="forgetForm.captcha.$invalid">发送验证码</button>
+        <button type="button" class="btn btn-default"
+                ng-disabled="$ctrl.isSending"
+                ng-click="$ctrl.sendCaptcha()">{{$ctrl.sendCodeBtnText}}</button>
       </span>
     </div>
   </div>

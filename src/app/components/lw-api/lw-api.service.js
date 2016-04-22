@@ -93,6 +93,23 @@ export class LwApiService {
            * *captcha
            */
           tel: $$('check-tel', '/api/v1/user/check/tel')
+        },
+        security: {
+          /**
+           * 修改密码
+           * method:[put]
+           * 
+           * *oldPassword
+           * *newPassword
+           */
+          password: $$('pwd-reset', '/api/v1/user/security/password'),
+          /**
+           * method:[post]
+           * *username
+           * *captcha
+           * *password
+           */
+          forget: $$('pwd-forget', '/api/v1/user/security/forget')
         }
       },
       captcha: {
