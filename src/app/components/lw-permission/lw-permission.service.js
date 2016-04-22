@@ -1,6 +1,5 @@
 export default class LwPermissionService {
   constructor() {
-    console.log('permission load...');
   }
 
   $get($q, lwUser) {

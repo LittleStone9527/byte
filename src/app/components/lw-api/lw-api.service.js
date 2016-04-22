@@ -13,7 +13,7 @@ export class LwApiService {
 
       // cros
       $resource.withCredentials = true;
-      
+
       // 拦截器
       $resource.interceptor = function (response) {
         if (!response || response.status >= 400 || response.data.error || !response.data.success || !response.data) {
@@ -58,7 +58,13 @@ export class LwApiService {
          * 获取用户信息
          * method:[get]
          */
-        detail: $$('user-detail', '/api/v1/user/detail')
+        detail: $$('user-detail', '/api/v1/user/detail'),
+        /**
+         * 验证
+         */
+        check: {
+          email: $$('send-email', '/api/v1/user/check/send/email?method=:method&username=:username')
+        }
       },
       captcha: {
         /**

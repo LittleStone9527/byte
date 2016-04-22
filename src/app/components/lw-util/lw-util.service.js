@@ -1,9 +1,9 @@
-export class LwUtilService {
+export default class LwUtilService {
   constructor() {
 
   }
 
-  $get($state, $stateParams, $window) {
+  $get($state, SETTINGS) {
     'ngInject';
 
     let util = {};
@@ -26,6 +26,16 @@ export class LwUtilService {
       meta.page = 0;
       $state.go($state.current.name, {limit: meta.limit * 1 === 10 ? null : meta.limit, page: null});
     };
+
+    // 解析验证码图片
+    util.parseCaptchaImg = (captchaID = '')=> {
+      if (!captchaID) return captchaID;
+      let host = SETTINGS.hostApi;
+      let path = '/api/v1/captcha/file/dynamic/';
+      return host + path + captchaID + '.png';
+    };
+
+    return util;
 
   }
 }

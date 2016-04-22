@@ -37,7 +37,7 @@ import {ToggleDirective} from './components/animate-toggle/toggle.directive';
 import {LwResourceService} from './components/lw-resource/lw-resource.service';
 import {LwUserService} from './components/lw-user/lw-user.service';
 import {LwApiService} from './components/lw-api/lw-api.service';
-import {LwUtilService} from './components/lw-util/lw-util.service';
+import LwUtilService from './components/lw-util/lw-util.service';
 import {LwDialogService} from './components/lw-dialog/lw-dialog.service';
 import LwPermissionService from './components/lw-permission/lw-permission.service';
 
