@@ -17,7 +17,7 @@ export function config($logProvider, toastrConfig, ngStoreProvider, SETTINGS, $r
     .setResponseType('json')
     .setHosts(SETTINGS.hostApi)
     .setInterceptor((response, $q)=> {
-      if (!response || response.status >= 400 || response.data.error || !response.data.success || !response.data) {
+      if (!response || response.status >= 400 || !response.data || response.data.error || !response.data.success) {
         return $q.reject(response);
       } else {
         // 登陆，拿session
