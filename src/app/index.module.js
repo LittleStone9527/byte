@@ -1,7 +1,7 @@
-/* global malarkey:false, moment:false */
 
 import 'babel-polyfill';
-import 'resource/dist/$resource';
+// import 'resource/dist/$resource.js';
+import 'resource';
 
 import {SETTINGS} from './settings';
 import {config} from './index.config';
@@ -16,6 +16,7 @@ import {FinancesController} from '././finances/finances.controller';
 import {SafeController} from '././safe/safe.controller';
 import {AuthController} from '././auth/auth.controller';
 import {AdminController} from '././admin/admin.controller';
+
 
 // components
 import {HeaderComponent} from './components/header/header.component'
