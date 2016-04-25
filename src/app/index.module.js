@@ -1,6 +1,5 @@
-
 import 'babel-polyfill';
- import 'resource/dist/$resource.js';
+import 'resource/dist/$resource.js';
 //import 'resource';
 
 import {SETTINGS} from './settings';
@@ -9,13 +8,14 @@ import {routerConfig} from './index.route';
 import {runBlock} from './index.run';
 
 // controller
-
 import {MainController} from './main/main.controller';
 import {TradeController} from './trade/trade.controller';
-import {FinancesController} from '././finances/finances.controller';
-import {SafeController} from '././safe/safe.controller';
-import {AuthController} from '././auth/auth.controller';
-import {AdminController} from '././admin/admin.controller';
+import {FinancesController} from './finances/finances.controller';
+import {SafeController} from './safe/safe.controller';
+import {AuthController} from './auth/auth.controller';
+import {AdminController} from './admin/admin.controller';
+import NewsController from './news/news.controller';
+import GuideController from './guide/guide.controller';
 
 
 // components
@@ -79,6 +79,8 @@ angular.module('lwTrade', [
   .controller('SafeController', SafeController)
   .controller('AuthController', AuthController)
   .controller('AdminController', AdminController)
+  .controller('NewsController', NewsController)
+  .controller('GuideController', GuideController)
 
   .component('header', HeaderComponent)
   .component('footer', FooterComponent)
