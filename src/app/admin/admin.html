@@ -1,11 +1,11 @@
-<div class="hold-transition skin-blue-light sidebar-mini">
+<div class="hold-transition skin-blue-light sidebar-mini" ng-class="{'sidebar-collapse':vm.$$sidebarExtend}">
   <div class="wrapper">
 
     <!-- Main Header -->
     <div class="main-header">
 
       <!-- Logo -->
-      <a ui-sref="admin.items({partial:'dash'})" class="logo">
+      <a ui-sref="admin.items({partial:'dash'})" ng-click="vm.openTab(d)" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>FBC</b></span>
         <!-- logo for regular state and mobile devices -->
@@ -15,7 +15,7 @@
       <!-- Header Navbar -->
       <nav class="navbar navbar-static-top" role="navigation">
         <!-- Sidebar toggle button-->
-        <a href="javascript:void(0);" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <a href="javascript:void(0);" ng-click="vm.$$sidebarExtend=!vm.$$sidebarExtend" class="sidebar-toggle" data-toggle="offcanvas" role="button">
           <span class="sr-only">Toggle navigation</span>
         </a>
         <!-- Navbar Right Menu -->
