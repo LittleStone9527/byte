@@ -10,6 +10,8 @@ let SafeItemsComponent = {
 
     $scope.ngDialogData = {};
 
+    console.log($scope.ngDialogData);
+
     $ctrl.profile = lwUser.profile;
 
     // 绑定电话

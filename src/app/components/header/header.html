@@ -10,6 +10,7 @@
         <li ng-clock ng-if="!lwUser.isAuth"><a ui-sref="auth.register">注册</a></li>
         <li ng-click ng-if="lwUser.isAuth"><a ui-sref="auth.register">欢迎您{{::lwUser.profile.nickname}}</a></li>
         <li ng-click ng-if="lwUser.isAuth"><a href="javascript:void(0);" ng-click="lwUser.logout()">登出</a></li>
+        <li ng-click ng-if="lwUser.isAuth"><a ui-sref="admin.items({partial:'dash'})">后台管理</a></li>
 
         <!--全站导航-->
         <!--<menu-toggle data-$height="240"></menu-toggle>-->
