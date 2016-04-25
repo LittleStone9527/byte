@@ -150,6 +150,24 @@ let router = {
       }
     }
   },
+  news: {
+    url: '/news',
+    views: {
+      main: {
+        templateUrl: 'app/news/news.html',
+        controller: 'NewsController as vm'
+      }
+    }
+  },
+  guide: {
+    url: '/guide',
+    views: {
+      main: {
+        templateUrl: 'app/guide/guide.html',
+        controller: 'GuideController as vm'
+      }
+    }
+  },
   admin: {
     url: '/admin',
     views: {

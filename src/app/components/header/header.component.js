@@ -14,7 +14,7 @@ let HeaderComponent = {
       //{title: '安全中心', state: 'safe'},
       {title: '安全中心', state: 'safe.items', params: {partial: 'setting'}},
       {title: '资讯', state: 'news'},
-      {title: '新手指南', state: 'help'}
+      {title: '新手指南', state: 'guide'}
     ];
 
     $scope.lwUser = lwUser;
