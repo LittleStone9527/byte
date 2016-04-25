@@ -63,7 +63,7 @@ class AdminController {
     vm.sideBarData = sideBarData;
 
     // 收起全部标签，然后再展开
-    vm.openTab = (d)=> {
+    vm.openTab = (d = {})=> {
       angular.forEach(vm.sideBarData, function (v) {
         if (d.title === v.title) return;
         v.$$open = false;
