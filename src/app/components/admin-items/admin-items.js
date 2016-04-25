@@ -1,14 +1,29 @@
+import {sideBarData} from '../../admin/admin.controller';
+
 let AdminItemsComponent = {
   templateUrl: ($stateParams)=> {
     'ngInject';
     return `app/components/admin-items/admin-${$stateParams.partial}.html`;
   },
-  controller: function () {
+  controller: function ($stateParams) {
     'ngInject';
-    console.log('trade items init');
+
+    let $ctrl = this;
+
+    $ctrl.$onInit = ()=> {
+      angular.forEach(sideBarData, function (v) {
+        angular.forEach(v.data, (v1)=> {
+          if ($stateParams.partial === v1.partial) {
+            v.$$open = true;
+            v1.$$active = true;
+          } else {
+            v1.$$active = false;
+          }
+        });
+      });
+    };
+
   }
 };
 
-export {
-  AdminItemsComponent
-};
+export default AdminItemsComponent;

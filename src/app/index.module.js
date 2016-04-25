@@ -25,7 +25,7 @@ import TradeItemsComponent from './components/trade-items/trade-items';
 import LoginFormComponent from './components/login-form/login-form';
 import RegisterFormComponent from './components/register-form/register-form';
 import {FinancesItemsComponent} from './components/finances-items/finances-items';
-import {AdminItemsComponent} from './components/admin-items/admin-items';
+import AdminItemsComponent from './components/admin-items/admin-items';
 import SafeItemsComponent from './components/safe-items/safe-items';
 import {LineChartComponent} from './components/line-chart/chart.component';
 import ProfileComponent from './components/profile/profile';
