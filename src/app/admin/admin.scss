@@ -312,16 +312,11 @@ a:focus {
   font-weight: 300;
 }
 .content-header > .breadcrumb {
-  float: right;
   background: transparent;
   margin-top: 0;
   margin-bottom: 0;
   font-size: 12px;
-  padding: 7px 5px;
-  position: absolute;
-  top: 15px;
-  right: 10px;
-  border-radius: 2px;
+  padding: 0;
 }
 .content-header > .breadcrumb > li > a {
   color: #444;
@@ -4882,4 +4877,20 @@ table.text-center th {
 }
 .skin-blue.layout-top-nav .main-header > .logo:hover {
   background-color: #3b8ab8;
+}
+
+
+//dataTables
+div.dataTables_info {
+  padding-top: 16px;
+  white-space: nowrap;
+}
+div.dataTables_paginate {
+  margin: 0;
+  white-space: nowrap;
+  text-align: right;
+}
+div.dataTables_paginate ul.pagination {
+  margin: 10px 0 0 0;
+  white-space: nowrap;
 }

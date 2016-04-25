@@ -1,7 +1,7 @@
 <!-- 登录 -->
 
 <form name="forgetForm" ng-submit="$ctrl.submit(forgetForm)" class="mb15">
-  <h3 class="text-center">忘记密码</h3>
+  <h3 class="text-center" style="margin-top: 10px;">忘记密码</h3>
 
   <div ng-cloak ng-if="$ctrl.way===2" class="form-group" ng-class="{
           'has-error':forgetForm.username.$invalid && forgetForm.username.$dirty,
@@ -9,7 +9,7 @@
         }">
     <div class="input-group">
       <span class="input-group-addon"><i class="ion ion-android-person"></i></span>
-      <input type="text" name="username" class="form-control" placeholder="用户名/邮箱/手机号码"
+      <input type="text" name="username" class="form-control" placeholder="邮箱/手机号码"
              ng-model="$ctrl.form.username" ng-required="true">
     </div>
   </div>
@@ -19,7 +19,7 @@
           'has-success':forgetForm.captcha.$valid
         }">
     <div class="input-group">
-      <span class="input-group-addon"><i class="ion ion-android-lock"></i></span>
+      <span class="input-group-addon"><i class="ion ion-android-list"></i></span>
       <input type="text" name="captcha" class="form-control" placeholder="验证码"
              ng-model="$ctrl.form.captcha" ng-required="true" autocomplete="off" ng-minlength="4" ng-maxlength="10">
       <span class="input-group-btn">
@@ -36,7 +36,7 @@
         }">
     <div class="input-group">
       <span class="input-group-addon"><i class="ion ion-android-lock"></i></span>
-      <input type="password" name="password" class="form-control" placeholder="密码"
+      <input type="password" name="password" class="form-control" placeholder="登录密码"
              ng-model="$ctrl.form.password" ng-required="true">
     </div>
   </div>
@@ -46,7 +46,7 @@
           'has-success':forgetForm.confirmPassword.$valid
         }">
     <div class="input-group">
-      <span class="input-group-addon"><i class="ion ion-android-lock"></i></span>
+      <span class="input-group-addon"><i class="ion ion-android-unlock"></i></span>
       <input type="password" name="confirmPassword" class="form-control" placeholder="确认密码"
              ng-model="$ctrl.form.confirmPassword" ng-required="true" at-compare="confirmPassword===password">
     </div>

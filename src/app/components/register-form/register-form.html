@@ -1,22 +1,18 @@
-<!-- 登录 -->
-<div class="row">
-
-  <div>
-    <input type="button" class="btn" value="手机注册"
-           ng-click="$ctrl.way=1" ng-class="{'btn-primary':$ctrl.way===1}">
-    <input type="button" class="btn" value="邮箱注册"
-           ng-click="$ctrl.way=2" ng-class="{'btn-primary':$ctrl.way===2}">
-  </div>
+<!-- 注册 -->
+<div>
+  <ul class="nav nav-tabs nav-justified mb15">
+    <li ng-class="{'active':$ctrl.way===1}"><a ng-click="$ctrl.way=1" href="javascript:void(0);">手机注册</a></li>
+    <li ng-class="{'active':$ctrl.way===2}"><a ng-click="$ctrl.way=2" href="javascript:void(0);">邮箱注册</a></li>
+  </ul>
   <form name="registerForm" ng-submit="$ctrl.register(registerForm)">
 
     <!--手机注册-->
-    <div ng-cloak ng-if="$ctrl.way===1" class="form-group" ng-class="{
-          'has-error':registerForm.tel.$invalid && registerForm.tel.$dirty,
-          'has-success':registerForm.tel.$valid
-        }">
-      <label>手机号码</label>
-      <input type="text" name="tel" class="form-control" placeholder="手机号"
-             ng-model="$ctrl.form.tel" ng-required="true" ng-pattern="$ctrl.telReg">
+    <div class="form-group" ng-cloak ng-if="$ctrl.way===1">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="ion ion-iphone"></i></span>
+        <input type="text" name="tel" class="form-control" placeholder="手机号"
+               ng-model="$ctrl.form.tel" ng-required="true" ng-pattern="$ctrl.telReg">
+      </div>
       <div ng-cloak ng-if="registerForm.tel.$invalid && registerForm.tel.$dirty">
         <p class="help-block" ng-cloak ng-if="registerForm.tel.$error.pattern">
           请输入11位的手机号
@@ -24,14 +20,24 @@
       </div>
     </div>
 
+    <div class="form-group" ng-cloak ng-if="$ctrl.way===1">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="ion ion-android-list"></i></span>
+        <input type="text" name="captcha" class="form-control login-code" placeholder="验证码"
+               ng-model="$ctrl.form.$$captcha" ng-required="true" autocomplete="off">
+        <span class="input-group-btn">
+        <button class="btn btn-default" type="button">发送验证码</button>
+      </span>
+      </div>
+    </div>
+
     <!--邮箱注册-->
-    <div ng-cloak ng-if="$ctrl.way===2" class="form-group" ng-class="{
-          'has-error':registerForm.email.$invalid && registerForm.email.$dirty,
-          'has-success':registerForm.email.$valid
-        }">
-      <label>邮箱</label>
-      <input type="email" name="email" class="form-control" placeholder="请输入邮箱"
-             ng-model="$ctrl.form.email" ng-required="true" ng-pattern="$ctrl.emailReg">
+    <div class="form-group" ng-cloak ng-if="$ctrl.way===2">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="ion ion-ios-email"></i></span>
+        <input type="email" name="email" class="form-control" placeholder="请输入邮箱"
+               ng-model="$ctrl.form.email" ng-required="true" ng-pattern="$ctrl.emailReg">
+      </div>
       <div ng-cloak ng-if="registerForm.email.$invalid && registerForm.email.$dirty">
         <p class="help-block" ng-cloak ng-if="registerForm.email.$error.pattern">
           请输入正确的邮箱
@@ -39,22 +45,20 @@
       </div>
     </div>
 
-    <div class="form-group" ng-class="{
-          'has-error':registerForm.password.$invalid && registerForm.password.$dirty,
-          'has-success':registerForm.password.$valid
-        }">
-      <label>密码</label>
-      <input type="password" name="password" class="form-control" placeholder="输入密码"
-             ng-model="$ctrl.form.password" ng-required="true">
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="ion ion-android-lock"></i></span>
+        <input type="password" name="password" class="form-control" placeholder="登录密码"
+               ng-model="$ctrl.form.password" ng-required="true">
+      </div>
     </div>
 
-    <div class="form-group" ng-class="{
-          'has-error':registerForm.confirmPassword.$invalid && registerForm.confirmPassword.$dirty,
-          'has-success':registerForm.confirmPassword.$valid
-        }">
-      <label>确认密码</label>
-      <input type="password" name="confirmPassword" class="form-control" placeholder="输入密码"
-             ng-model="$ctrl.form.confirmPassword" ng-required="true" at-compare="confirmPassword===password">
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="ion ion-android-unlock"></i></span>
+        <input type="password" name="confirmPassword" class="form-control" placeholder="确认密码"
+               ng-model="$ctrl.form.confirmPassword" ng-required="true" at-compare="confirmPassword===password">
+      </div>
       <div ng-cloak ng-if="registerForm.confirmPassword.$invalid && registerForm.confirmPassword.$dirty">
         <p class="help-block" ng-cloak ng-if="registerForm.confirmPassword.$error['confirmPassword===password']">
           两次密码不一致
@@ -63,7 +67,7 @@
     </div>
 
     <div>
-      <button type="submit" class="btn btn-block" ng-disabled="registerForm.$invalid">提交</button>
+      <button type="submit" class="btn btn-block btn-warning" ng-disabled="registerForm.$invalid">提交</button>
     </div>
 
   </form>
