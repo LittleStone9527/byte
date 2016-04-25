@@ -1,7 +1,7 @@
 
 import 'babel-polyfill';
-// import 'resource/dist/$resource.js';
-import 'resource';
+ import 'resource/dist/$resource.js';
+//import 'resource';
 
 import {SETTINGS} from './settings';
 import {config} from './index.config';

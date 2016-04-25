@@ -1,38 +1,124 @@
-<div>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-2">
+<div class="hold-transition skin-blue-light sidebar-mini">
+<div class="wrapper">
 
-        <!--logo-->
-        <div class="admin-logo">
-          <img class="img-responsive img-circle" src="" alt="">
-        </div>
+  <!-- Main Header -->
+  <div class="main-header">
 
-        <div class="list-group">
+    <!-- Logo -->
+    <a class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>FBC</b></span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>FBC</b> 交易平台</span>
+    </a>
 
-          <ul class="list-unstyled">
-            <li ng-repeat="d in vm.sideBarData track by d.partial">
-              <a data-ui-sref="admin.items({partial:d.partial})">{{::d.title}}</a>
-            </li>
-          </ul>
+    <!-- Header Navbar -->
+    <nav class="navbar navbar-static-top" role="navigation">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      <!-- Navbar Right Menu -->
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
 
-        </div>
+          <!-- Notifications Menu -->
+          <li class="dropdown notifications-menu">
+            <!-- Menu toggle button -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-bell-o"></i>
+              登出
+            </a>
+          </li>
 
+        </ul>
       </div>
-      <div class="col-sm-10">
-
-        <!--面包屑-->
-        <div class="breadcrumb">
-          <ol class="breadcrumb">
-            <li><a href="#">Admin</a></li>
-            <li class="active">Dash</li>
-          </ol>
-        </div>
-
-        <div ui-view="admin_items"></div>
-
-      </div>
-    </div>
+    </nav>
   </div>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+
+      <!-- Sidebar Menu -->
+      <ul class="sidebar-menu">
+        <li ng-repeat="d in vm.sideBarData track by d.partial">
+          <a data-ui-sref="admin.items({partial:d.partial})">{{::d.title}}</a>
+        </li>
+      </ul>
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Page Header
+        <small>Optional description</small>
+      </h1>
+      <!--面包屑-->
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+        <li class="active">Here</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <div ui-view="admin_items"></div>
+
+    </section><!-- /.content -->
+  </div><!-- /.content-wrapper -->
+
+  <!-- Main Footer -->
+  <div class="main-footer">
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2016 <a href="#">FBC</a>.</strong> All rights reserved.
+  </div>
+
+</div><!-- ./wrapper -->
+
 </div>
+
+<!--<div>-->
+  <!--<div class="container">-->
+    <!--<div class="row">-->
+      <!--<div class="col-sm-2">-->
+
+        <!--&lt;!&ndash;logo&ndash;&gt;-->
+        <!--<div class="admin-logo">-->
+          <!--<img class="img-responsive img-circle" src="" alt="">-->
+        <!--</div>-->
+
+        <!--<div class="list-group">-->
+
+          <!--<ul class="list-unstyled">-->
+            <!--<li ng-repeat="d in vm.sideBarData track by d.partial">-->
+              <!--<a data-ui-sref="admin.items({partial:d.partial})">{{::d.title}}</a>-->
+            <!--</li>-->
+          <!--</ul>-->
+
+        <!--</div>-->
+
+      <!--</div>-->
+      <!--<div class="col-sm-10">-->
+
+        <!--&lt;!&ndash;面包屑&ndash;&gt;-->
+        <!--<div class="breadcrumb">-->
+          <!--<ol class="breadcrumb">-->
+            <!--<li><a href="#">Admin</a></li>-->
+            <!--<li class="active">Dash</li>-->
+          <!--</ol>-->
+        <!--</div>-->
+
+        <!--<div ui-view="admin_items"></div>-->
+
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
 

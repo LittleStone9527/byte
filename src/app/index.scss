@@ -36,6 +36,12 @@ body{
 .mb20{
   margin-bottom: 20px;
 }
+.mt15{
+  margin-top: 15px;
+}
+.mt20{
+  margin-top: 20px;
+}
 a {
   color: #f39c12;
 }
@@ -94,6 +100,7 @@ a {
 }
 .form-control {
   height: 37px;
+  border-radius: 0;
 }
 .table > thead > tr > th, .table > thead > tr > td, .table > tbody > tr > th, .table > tbody > tr > td, .table > tfoot > tr > th, .table > tfoot > tr > td {
   vertical-align: middle;
