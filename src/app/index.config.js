@@ -1,4 +1,4 @@
-export function config($logProvider, toastrConfig, ngStoreProvider, SETTINGS) {
+export function config($logProvider, toastrConfig, ngStoreProvider, SETTINGS, $resourceProvider) {
   'ngInject';
   // Enable log
   $logProvider.debugEnabled(!SETTINGS.isProduct);
@@ -11,4 +11,22 @@ export function config($logProvider, toastrConfig, ngStoreProvider, SETTINGS) {
   toastrConfig.progressBar = true;
 
   ngStoreProvider.prefix('lw').exp(1000 * 3600 * 24 * 7);
+
+  $resourceProvider
+    .setWithCredentials(SETTINGS.isCors)
+    .setResponseType('json')
+    .setHosts(SETTINGS.hostApi)
+    .setInterceptor((response, $q)=> {
+      if (!response || response.status >= 400 || response.data.error || !response.data.success || !response.data) {
+        return $q.reject(response);
+      } else {
+        // 登陆，拿session
+        if (response.headers[SETTINGS.sessionTag]) {
+          return $q.resolve(response);
+        } else {
+          return $q.resolve(response.data);
+        }
+      }
+    });
+  
 }

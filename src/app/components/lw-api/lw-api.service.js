@@ -8,26 +8,6 @@ export class LwApiService {
     let $$ = $resource.register;
 
     let init = function () {
-      // set host api;
-      $resource.hosts = SETTINGS.hostApi;
-
-      // cros
-      $resource.withCredentials = true;
-
-      // 拦截器
-      $resource.interceptor = function (response) {
-        if (!response || response.status >= 400 || response.data.error || !response.data.success || !response.data) {
-          return $q.reject(response);
-        } else {
-          // 登陆，拿session
-          if (response.headers[SETTINGS.sessionTag]) {
-            return $q.resolve(response);
-          } else {
-            return $q.resolve(response.data);
-          }
-        }
-      };
-
       $resource.headers = {
         [SETTINGS.sessionTag]: ngStore.get(SETTINGS.sessionTag) || null
       };
@@ -98,7 +78,7 @@ export class LwApiService {
           /**
            * 修改密码
            * method:[put]
-           * 
+           *
            * *oldPassword
            * *newPassword
            */

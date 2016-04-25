@@ -1,7 +1,7 @@
 /* global malarkey:false, moment:false */
 
 import 'babel-polyfill';
-import 'resource';
+import 'resource/dist/$resource';
 
 import {SETTINGS} from './settings';
 import {config} from './index.config';
