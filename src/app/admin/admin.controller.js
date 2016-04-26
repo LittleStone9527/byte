@@ -73,12 +73,11 @@ class AdminController {
     };
 
     vm.logout = ()=> {
-      console.log('click');
       lwUser.logout()
         .finally(function () {
           $state.go('home');
         });
-    }
+    };
 
   }
 }

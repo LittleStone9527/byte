@@ -178,7 +178,7 @@ let router = {
     },
     $$child: {
       'admin.items': {
-        url: '/:partial',
+        url: '/:partial?:limit?:page?:skip?:order?:query',
         views: {
           admin_items: {
             template: '<admin-items></admin-items>'

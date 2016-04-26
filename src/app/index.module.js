@@ -1,6 +1,7 @@
 import 'babel-polyfill';
 import 'resource/dist/$resource.js';
 //import 'resource';
+import 'at-base64';
 
 import {SETTINGS} from './settings';
 import {config} from './index.config';
@@ -44,6 +45,7 @@ import {LwApiService} from './components/lw-api/lw-api.service';
 import LwUtilService from './components/lw-util/lw-util.service';
 import {LwDialogService} from './components/lw-dialog/lw-dialog.service';
 import LwPermissionService from './components/lw-permission/lw-permission.service';
+import QueryService from './components/query/query.service';
 
 
 angular.module('lwTrade', [
@@ -59,7 +61,8 @@ angular.module('lwTrade', [
     'toastr',
     'ngStore',
     '$resource',
-    'atCompare'
+    'atCompare',
+    'base64'
   ])
   .constant('SETTINGS', SETTINGS)
   .config(config)
@@ -70,6 +73,7 @@ angular.module('lwTrade', [
   .provider('lwUtil', LwUtilService)
   .provider('lwDialog', LwDialogService)
   .provider('lwPermission', LwPermissionService)
+  .provider('$query', QueryService)
 
   .run(runBlock)
 
