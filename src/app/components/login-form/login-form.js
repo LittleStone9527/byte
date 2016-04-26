@@ -5,10 +5,12 @@
 
 let LoginFormComponent = {
   templateUrl: 'app/components/login-form/login-form.html',
-  controller: function ($q, $state, $timeout, lwUser, lwDialog, lwApi, lwUtil, ngStore, $resource) {
+  controller: function ($q, $state, $timeout, lwUser, lwDialog, lwApi, lwUtil, ngStore) {
     'ngInject';
 
     let $ctrl = this;
+    
+    console.log('init login component');
 
     $ctrl.form = {};
 
@@ -22,13 +24,6 @@ let LoginFormComponent = {
     $ctrl.login = (loginForm)=> {
       let id = ngStore.get('captchaID');
       $ctrl.form.captcha = id + '.' + $ctrl.form.$$captcha;
-      // new $resource('/api/v1/user/signin?captcha=:captcha')
-      //   .post($ctrl.form).$promise
-      //   .then(function () {
-      //
-      //   }, function () {
-      //
-      //   });
       lwUser.login($ctrl.form)
         .then(function () {
           lwDialog.success();
