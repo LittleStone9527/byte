@@ -105,6 +105,8 @@ export class LwUserService {
 
       user.profile = {};
 
+      console.log(user);
+
       ngStore.remove(user.tag);
 
       angular.forEach(user.logoutActions, func=>angular.isFunction(func) && func());
@@ -122,7 +124,7 @@ export class LwUserService {
         .finally(()=> {
           logoutTrigger();
           $rootScope.$broadcast('logout');
-          // $state.reload();
+          $state.reload();
         });
       return deferred.promise;
     };

@@ -8,7 +8,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li ng-clock ng-if="!lwUser.isAuth"><a ui-sref="auth.login">登陆</a></li>
         <li ng-clock ng-if="!lwUser.isAuth"><a ui-sref="auth.register">注册</a></li>
-        <li ng-click ng-if="lwUser.isAuth"><a ui-sref="auth.register">欢迎您{{::lwUser.profile.nickname}}</a></li>
+        <li ng-click ng-if="lwUser.isAuth"><a ui-sref="auth.register">欢迎您{{lwUser.profile.nickname}}</a></li>
         <li ng-click ng-if="lwUser.isAuth"><a ui-sref="admin.items({partial:'dash'})">后台管理</a></li>
         <li ng-click ng-if="lwUser.isAuth"><a href="javascript:void(0);" ng-click="lwUser.logout()"><i class="ion ion-log-out"></i> 登出</a></li>
 
@@ -34,7 +34,7 @@
       <ul class="nav navbar-nav navbar-right">
 
         <li ng-repeat="d in navData track by $index" ng-class="{active:$state.includes(d.state)}">
-          <a ui-state="d.state" ui-state-params="d.params" ui-state-opts="d.opts">{{::d.title}}</a>
+          <a ui-state="d.state" ui-state-params="d.params" ui-state-opts="d.opts">{{d.title}}</a>
         </li>
 
       </ul>

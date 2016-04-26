@@ -6,24 +6,34 @@
           <i class="ion ion-ios-close-outline"></i>
         </div>
         <div class="col-sm-10">
-          <h4>liz****@126.com，您的账号安全级别低，建议提升安全设置</h4>
+          <h4><span>{{::$ctrl.profile.emailSafe}}</span>，您的账号安全级别低，建议提升安全设置</h4>
           您可以：<a>绑定手机</a> <a>绑定谷歌验证码</a>
         </div>
       </div>
     </div>
     <table class="table table-hover">
       <tbody>
+
       <tr>
         <td class="text-center"><i class="ion ion-ios-email-outline safe-ion active"></i></td>
         <td>绑定邮箱</td>
         <td>
           <span class="safe-p" ng-class="{active:$ctrl.profile.emailCheck}">
-            {{$ctrl.profile.emailCheck ? '已绑定' : '未绑定'}}
+            {{!!$ctrl.profile.emailCheck ? '已绑定' : '未绑定'}}
           </span>
         </td>
-        <td>您绑定的邮箱为liz****@126.com</td>
-        <td class="text-right"></td>
+        <td>您绑定的邮箱为<span>{{::$ctrl.profile.emailSafe}}</span></td>
+        <td class="text-right" ng-cloak ng-if="!$ctrl.profile.emailCheck">
+          <a ng-click="$ctrl.toggleDetail(0)" class="btn btn-warning">绑定</a>
+        </td>
       </tr>
+
+      <tr ng-cloak ng-if="$ctrl.items[0].$$detail">
+        <td colspan="3">
+          <h3 class="text-info">绑定邮箱</h3>
+        </td>
+      </tr>
+
       <tr>
         <td class="text-center"><i class="ion ion-ios-telephone-outline safe-ion"></i></td>
         <td>绑定手机</td>
@@ -34,9 +44,16 @@
         </td>
         <td>绑定手机号作为登录名</td>
         <td ng-clock ng-if="!$ctrl.profile.telCheck" class="text-right">
-          <a ng-click="$ctrl.telBinding()" class="btn btn-warning">绑定</a>
+          <a ng-click="$ctrl.toggleDetail(1)" class="btn btn-warning">绑定</a>
         </td>
       </tr>
+
+      <tr ng-if="$ctrl.items[1].$$detail">
+        <td colspan="3">
+          <h3 class="text-info">绑定手机</h3>
+        </td>
+      </tr>
+
       <tr>
         <td class="text-center"><i class="ion ion-social-google-outline safe-ion"></i></td>
         <td>绑定谷歌验证码</td>
@@ -47,23 +64,46 @@
         </td>
         <td>经常不能收到短信验证码，建议绑定谷歌验证码</td>
         <td ng-clock ng-if="!$ctrl.profile.googleCheck" class="text-right">
-          <a ng-click="$ctrl.googleCaptchaBinding()" class="btn btn-warning">绑定</a>
+          <a ng-click="$ctrl.toggleDetail(2)" class="btn btn-warning">绑定</a>
         </td>
       </tr>
+
+      <tr ng-if="$ctrl.items[2].$$detail">
+        <td colspan="3">
+          <h3 class="text-info">绑定谷歌验证码</h3>
+        </td>
+      </tr>
+
       <tr>
         <td class="text-center"><i class="ion ion-ios-locked-outline safe-ion active"></i></td>
         <td>登录密码</td>
         <td><span class="safe-p active">已设置</span></td>
         <td>登录时使用</td>
-        <td class="text-right"><a class="btn btn-info">修改</a></td>
+        <td class="text-right"><a ng-click="$ctrl.toggleDetail(3)" class="btn btn-info">修改</a></td>
       </tr>
+
+      <tr ng-if="$ctrl.items[3].$$detail">
+        <td colspan="3">
+          <h3 class="text-info">登录密码</h3>
+        </td>
+      </tr>
+
       <tr>
         <td class="text-center"><i class="ion ion-ios-medical-outline safe-ion"></i></td>
         <td>交易密码</td>
         <td><span class="safe-p">未设置</span></td>
-        <td>需要先 <a>绑定手机</a></td>
-        <td class="text-right"></td>
+        <td>需要先 <a ng-click="$ctrl.toggleDetail(1)" href="javascript:void(0);">绑定手机</a></td>
+        <td class="text-right" ng-clock ng-if="!!$ctrl.profile.telCheck">
+          <a ng-click="$ctrl.toggleDetail(4)"  class="btn btn-info">修改</a>
+        </td>
       </tr>
+
+      <tr ng-cloak ng-if="$ctrl.items[4].$$detail">
+        <td colspan="3">
+          <h3 class="text-info">交易密码</h3>
+        </td>
+      </tr>
+
       </tbody>
     </table>
   </div>
