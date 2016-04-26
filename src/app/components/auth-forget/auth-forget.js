@@ -27,7 +27,7 @@ let AuthForgetComponent = {
       $ctrl.isSending = true;
       lwApi.user.check.send.email.save({
         method: 'password',
-        username: $ctrl.form.email || $ctrl.form.tel
+        username: $ctrl.form.username
       }).$promise
         .then(function () {
           let $$CAPTCHA_INTERVAL = CAPTCHA_INTERVAL;
@@ -41,6 +41,7 @@ let AuthForgetComponent = {
           }, 1000, CAPTCHA_INTERVAL + 1);
           $ctrl.hasSended = true;
         }, function () {
+          debugger;
           $ctrl.sendCodeBtnText = "发送失败";
           $timeout(function () {
             $ctrl.sendCodeBtnText = "发送验证码";

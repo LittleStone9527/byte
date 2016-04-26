@@ -1,0 +1,14 @@
+.animate-toggle {
+  position: relative;
+  .child-menu {
+    position: absolute;
+    top:100%;
+    right:0;
+    height:0;
+    background-color: #303030;
+    display: none;
+    overflow: hidden;
+    z-index:999;
+    color: #fff;
+  }
+}

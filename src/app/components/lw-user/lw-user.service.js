@@ -122,7 +122,7 @@ export class LwUserService {
         .finally(()=> {
           logoutTrigger();
           $rootScope.$broadcast('logout');
-          // $state.reload();
+          $state.reload();
         });
       return deferred.promise;
     };
