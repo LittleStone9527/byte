@@ -1,4 +1,113 @@
+<div class="box">
+  <div class="box-header with-border">
+    <h3 class="box-title">提现管理</h3>
+  </div>
+  <div class="box-body">
+    <div class="row">
+      <div class="col-sm-10">
+        <form class="form-inline form-search mb10">
+          <div class="form-group">
+            <label>会员编号</label>
+            <input type="text" class="form-control">
+          </div>
+          <span class="serach-space"></span>
+          <div class="form-group"><label>时间</label>
+            <div class="input-group">
+              <input type="text" class="form-control">
+              <span class="input-group-addon">-</span>
+              <input type="text" class="form-control">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-default">筛选</button>
+        </form>
+      </div>
+      <div class="col-sm-2 text-right">
+          <button class="btn btn-default">导出Excel</button>
+      </div>
+    </div>
+    <table class="table table-bordered table-hover">
+      <thead>
+      <tr>
+        <th>会员编号</th>
+        <th>提现金额</th>
+        <th>手续费</th>
+        <th>会员姓名</th>
+        <th>银行卡号</th>
+        <th>开户银行</th>
+        <th>分支行</th>
+        <th>提现时间</th>
+        <th>状态</th>
+        <th>操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="info">
+        <td>531999999999</td>
+        <td>200.000</td>
+        <td>10.000</td>
+        <td>张三</td>
+        <td>622201245784152467</td>
+        <td>中国银行</td>
+        <td>南宁分行</td>
+        <td>2016-11-11 11:11:00</td>
+        <td>待确认</td>
+        <td>
+          <button class="btn btn-primary">确认</button>
+          <button class="btn btn-default">退回</button>
+        </td>
+      </tr>
+      <tr>
+        <td>531999999999</td>
+        <td>200.000</td>
+        <td>10.000</td>
+        <td>张三</td>
+        <td>622201245784152467</td>
+        <td>中国银行</td>
+        <td>南宁分行</td>
+        <td>2016-11-11 11:11:00</td>
+        <td>已退回</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>531999999999</td>
+        <td>200.000</td>
+        <td>10.000</td>
+        <td>张三</td>
+        <td>622201245784152467</td>
+        <td>中国银行</td>
+        <td>南宁分行</td>
+        <td>2016-11-11 11:11:00</td>
+        <td>已确认</td>
+        <td></td>
+      </tr>
+      </tbody>
+    </table>
 
-<div class="row">
-  <h4 class="text-warning">提现管理</h4>
+    <!--翻页-->
+    <div class="row">
+      <div class="col-sm-5">
+        <div class="dataTables_info">共57个结果，正在显示1至10个。
+        </div>
+      </div>
+      <div class="col-sm-7">
+        <div class="dataTables_paginate">
+          <ul class="pagination">
+            <li>
+              <a aria-label="Previous">
+                <span aria-hidden="true">上一页</span>
+              </a>
+            </li>
+            <li class="active"><a>1</a></li>
+            <li><a>2</a></li>
+            <li><a>3</a></li>
+            <li>
+              <a aria-label="Next">
+                <span aria-hidden="true">下一页</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
