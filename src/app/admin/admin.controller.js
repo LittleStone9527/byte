@@ -8,16 +8,8 @@ class AdminController {
 
     sideBarData = [
       {
-        title: '用户管理',
-        icon: 'ion-person-stalker',
-        data: [
-          {title: '已激活', partial: 'active'},
-          {title: '未激活', partial: 'unactive'}
-        ]
-      },
-      {
         title: '信息中心',
-        icon: 'ion-person-stalker',
+        icon: 'ion-chatbox-working',
         data: [
           {title: '发信箱', partial: 'outbox'},
           {title: '收信箱', partial: 'inbox'},
@@ -27,8 +19,16 @@ class AdminController {
         ]
       },
       {
-        title: '财务管理',
+        title: '用户管理',
         icon: 'ion-person-stalker',
+        data: [
+          {title: '已激活用户', partial: 'active'},
+          {title: '未激活用户', partial: 'unactive'}
+        ]
+      },
+      {
+        title: '财务管理',
+        icon: 'ion-calculator',
         data: [
           {title: '充值管理', partial: 'recharge'},
           {title: '网银充值记录', partial: 'record'},
@@ -39,7 +39,7 @@ class AdminController {
       },
       {
         title: '交易管理',
-        icon: 'ion-person-stalker',
+        icon: 'ion-stats-bars',
         data: [
           {title: '正在买入的记录', partial: 'buying-detail'},
           {title: '正在卖出的记录', partial: 'selling-detail'},
@@ -49,7 +49,7 @@ class AdminController {
       },
       {
         title: '系统设置',
-        icon: 'ion-person-stalker',
+        icon: 'ion-gear-a',
         data: [
           {title: '管理员设置', partial: 'administrator'},
           {title: '统计数据', partial: 'statistics'},

@@ -1,7 +1,14 @@
 .auth-bg{
+  margin-top: -20px;
+  background: url('../assets/images/auth.jpg') center top ;
+  padding-top: 120px;
+  height: 580px;
   .auth-form{
     width: 400px;
     margin: auto;
     background: #fff;
+    padding: 20px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   }
 }

@@ -30,6 +30,9 @@ body{
 // injector
 // endinjector
 
+.mb10{
+  margin-bottom: 10px;
+}
 .mb15{
   margin-bottom: 15px;
 }
@@ -102,10 +105,19 @@ a {
   height: 37px;
   border-radius: 0;
 }
+.box .input-group-addon{
+  border: 0;
+  padding: 0;
+  min-width: 10px;
+}
+.box .serach-space{
+  width: 10px;
+  display: inline-block;
+}
+//表格内的
 .table > thead > tr > th, .table > thead > tr > td, .table > tbody > tr > th, .table > tbody > tr > td, .table > tfoot > tr > th, .table > tfoot > tr > td {
   vertical-align: middle;
 }
-//表格内的
 .table .checkbox{
   margin: 0;
 }
