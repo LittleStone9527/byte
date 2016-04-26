@@ -1,0 +1,29 @@
+<div>
+  <input ng-model="$ctrl.date.date"
+         date-time format="YYYY-MM-DD"
+         min-view="date"
+         view="data"
+         max-view="date"
+         timezone="Asia/Hong_Kong"
+         placeholder="日期"
+         ng-readonly="true"
+         ng-change="$ctrl.updateDate()"
+         style="width: 80px;border: none;">
+  <input type="text" name="dateDefault" ng-model="$ctrl.date.hours" style="width: 30px;text-align: center"
+         mask="29"
+         restrict="reject" clean="true"
+         ng-change="$ctrl.updateDate()"
+         ng-value="00">
+  <span><b>：</b></span>
+  <input type="text" name="dateDefault" ng-model="$ctrl.date.min" style="width: 30px;text-align: center"
+         mask="59"
+         restrict="reject" clean="true"
+         ng-change="$ctrl.updateDate()"
+         ng-value="00">
+  <span><b>：</b></span>
+  <input type="text" name="dateDefault" ng-model="$ctrl.date.sec" style="width: 30px;text-align: center"
+         mask="59"
+         restrict="reject" clean="true"
+         ng-change="$ctrl.updateDate()"
+         ng-value="00">
+</div>

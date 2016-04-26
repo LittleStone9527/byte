@@ -33,6 +33,7 @@ import ProfileComponent from './components/profile/profile';
 import AuthForgetComponent from './components/auth-forget/auth-forget';
 import telBindingDialogComponent from './components/tel-binding-dialog/tel-binding-dialog';
 import googleCaptchaBindingDialogComponent from './components/google-captcha-binding-dialog/google-captcha-binding-dialog';
+import DatePickComponent from './components/date-pick/date-pick.component';
 
 // directive
 import {DragPickDirective} from './components/drag-pick/drag-pick.directive';
@@ -62,9 +63,12 @@ angular.module('lwTrade', [
     'ngStore',
     '$resource',
     'atCompare',
-    'base64'
+    'base64',
+    'datePicker',
+    'ngMask'
   ])
   .constant('SETTINGS', SETTINGS)
+  .value('$moment', window.moment)
   .config(config)
   .config(routerConfig)
   .provider('lwResource', LwResourceService)
@@ -99,6 +103,7 @@ angular.module('lwTrade', [
   .component('authForget', AuthForgetComponent)
   .component('telBind', telBindingDialogComponent)
   .component('googleCaptchaBind', googleCaptchaBindingDialogComponent)
+  .component('datePick', DatePickComponent)
 
   .directive('dragPick', DragPickDirective)
   .directive('menuToggle', ToggleDirective);
