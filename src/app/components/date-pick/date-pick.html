@@ -1,4 +1,4 @@
-<div>
+<div class="input-group">
   <input ng-model="$ctrl.date.date"
          date-time format="YYYY-MM-DD"
          min-view="date"
@@ -8,21 +8,24 @@
          placeholder="日期"
          ng-readonly="true"
          ng-change="$ctrl.updateDate()"
-         style="width: 80px;border: none;">
-  <input type="text" name="dateDefault" ng-model="$ctrl.date.hours" style="width: 30px;text-align: center"
+         class="form-control date-input">
+  <input type="text" name="dateDefault" ng-model="$ctrl.date.hours"
          mask="29"
+         class="form-control time-input"
          restrict="reject" clean="true"
          ng-change="$ctrl.updateDate()"
          ng-value="00">
-  <span><b>：</b></span>
-  <input type="text" name="dateDefault" ng-model="$ctrl.date.min" style="width: 30px;text-align: center"
+  <span class="input-group-addon">:</span>
+  <input type="text" name="dateDefault" ng-model="$ctrl.date.min"
          mask="59"
+         class="form-control time-input"
          restrict="reject" clean="true"
          ng-change="$ctrl.updateDate()"
          ng-value="00">
-  <span><b>：</b></span>
-  <input type="text" name="dateDefault" ng-model="$ctrl.date.sec" style="width: 30px;text-align: center"
+  <span class="input-group-addon">:</span>
+  <input type="text" name="dateDefault" ng-model="$ctrl.date.sec"
          mask="59"
+         class="form-control time-input"
          restrict="reject" clean="true"
          ng-change="$ctrl.updateDate()"
          ng-value="00">

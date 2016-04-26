@@ -11,13 +11,13 @@
             <input type="text" class="form-control">
           </div>
           <span class="serach-space"></span>
-          <div class="form-group"><label>时间</label>
-            <div class="input-group">
-              <input type="text" class="form-control">
-              <span class="input-group-addon">-</span>
-              <input type="text" class="form-control">
-            </div>
+          <div class="form-group">
+            <label>时间</label>
+            <date-pick date="vm.date"></date-pick>
+            <lable>-</lable>
+            <date-pick date="vm.date"></date-pick>
           </div>
+          <span class="serach-space"></span>
           <button type="submit" class="btn btn-default">筛选</button>
         </form>
       </div>
