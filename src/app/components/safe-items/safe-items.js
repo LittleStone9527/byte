@@ -10,6 +10,8 @@ let SafeItemsComponent = {
 
     $ctrl.profile = lwUser.profile;
 
+    console.log($ctrl.profile);
+
     $ctrl.items = [
       {'title': '绑定邮箱'},
       {'title': '绑定手机'},

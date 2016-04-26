@@ -4,21 +4,28 @@
       <thead>
       <tr>
         <td>UID</td>
-        <td colspan="2">4530084</td>
+        <td colspan="2">{{$ctrl.profile.username}}</td>
       </tr>
       </thead>
       <tbody>
       <tr>
         <td>账户名</td>
-        <td colspan="2">admin@admin.com</td>
+        <td colspan="2">{{$ctrl.profile.emailSafe}}</td>
       </tr>
       <tr>
         <td>登录密码</td>
-        <td colspan="2"><a class="btn btn-default">重置</a></td>
+        <td colspan="2">
+          <a ng-click="$ctrl.$$resetPwd=!$ctrl.$$resetPwd" class="btn btn-default">重置</a>
+        </td>
+      </tr>
+      <tr ng-clock ng-if="!!$ctrl.$$resetPwd">
+        <td colspan="2">
+          <change-password></change-password>
+        </td>
       </tr>
       <tr>
         <td>昵称</td>
-        <td><input type="text" class="form-control"></td>
+        <td><input type="text" class="form-control" ng-value="$ctrl.profile.nickname"></td>
         <td><a class="btn btn-default">保存</a></td>
       </tr>
       <tr>
@@ -32,7 +39,7 @@
       </tr>
       <tr>
         <td>上次登录时间</td>
-        <td colspan="2">2016-04-22 18:33:47</td>
+        <td colspan="2">{{$ctrl.profile.created | date:'yyyy-MM-dd HH:mm:ss'}}</td>
       </tr>
       </tbody>
     </table>
