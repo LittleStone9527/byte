@@ -59,9 +59,9 @@
       <div class="col-sm-5">
         <div class="dataTables_info">
           共 <span>{{$ctrl.userListMeta.total}}</span> 个结果，正在显示
-          <span>{{$ctrl.userListMeta.skip + $ctrl.userListMeta.limit * $ctrl.userListMeta.page}}</span>
+          <span>{{$ctrl.userListMeta.limit * $ctrl.userListMeta.page + $ctrl.userListMeta.skip}}</span>
           至
-          <span>{{$ctrl.userListMeta.limit * ($ctrl.userListMeta.page+1)}}</span>
+          <span>{{$ctrl.userListMeta.limit * ($ctrl.userListMeta.page+1) + $ctrl.userListMeta.skip}}</span>
           个。
         </div>
       </div>
