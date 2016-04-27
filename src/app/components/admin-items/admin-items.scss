@@ -11,14 +11,18 @@
     position: relative;
     background-color: #f4f4f4;
     margin-bottom: 10px;
+    .guide-btn{
+      display: none;
+      position: absolute;
+      right: -1px;
+      top: -1px;
+    }
     &:hover{
       background-color: #fff;
+      .guide-btn{
+        display: block;
+      }
     }
-  }
-  .guide-btn{
-    position: absolute;
-    right: -1px;
-    top: -1px;
   }
   button{
     margin-bottom: 10px;
