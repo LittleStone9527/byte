@@ -96,7 +96,6 @@ a {
   }
   .input-group-addon {
     min-width: 40px;
-    font-size: 20px;
     background-color: #fff;
     border-radius: 0;
   }
@@ -122,12 +121,22 @@ a {
 .table > thead > tr > th, .table > thead > tr > td, .table > tbody > tr > th, .table > tbody > tr > td, .table > tfoot > tr > th, .table > tfoot > tr > td {
   vertical-align: middle;
 }
-.table .checkbox{
-  margin: 0;
+.table{
+  .checkbox{
+    margin: 0;
+  }
+  p{
+    margin-bottom: 0;
+  }
+  .panel{
+    margin-top: 5px;
+    margin-bottom: 0;
+  }
+  .panel-body{
+    padding: 10px;
+  }
 }
-.table p{
-  margin-bottom: 0;
-}
+
 //筛选搜索
 .search-tag{
   .search-tag-li{
