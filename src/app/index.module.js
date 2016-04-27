@@ -26,7 +26,31 @@ import TradeItemsComponent from './components/trade-items/trade-items';
 import LoginFormComponent from './components/login-form/login-form';
 import RegisterFormComponent from './components/register-form/register-form';
 import {FinancesItemsComponent} from './components/finances-items/finances-items';
-import AdminItemsComponent from './components/admin-items/admin-items';
+import {
+  AdminItemsComponent,
+  AdminOutboxComponent,
+  AdminActiveComponent,
+  AdminPublicComponent,
+  AdminAdministratorComponent,
+  AdminBoughtDetailComponent,
+  AdminBuyingDetailComponent,
+  AdminDashComponent,
+  AdminDatabaseComponent,
+  AdminGuideComponent,
+  AdminInboxComponent,
+  AdminItemizedComponent,
+  AdminPermissionComponent,
+  AdminRechargeComponent,
+  AdminRecordComponent,
+  AdminSellingDetailComponent,
+  AdminSettingComponent,
+  AdminSoldDetailComponent,
+  AdminStatisticsComponent,
+  AdminTermsComponent,
+  AdminTransferComponent,
+  AdminUnactiveComponent,
+  AdminWithdrawalsComponent
+} from './components/admin-items/admin-items';
 import SafeItemsComponent from './components/safe-items/safe-items';
 import {LineChartComponent} from './components/line-chart/chart.component';
 import ProfileComponent from './components/profile/profile';
@@ -112,6 +136,28 @@ angular.module('lwTrade', [
   .component('userList', UserListComponent)
   .component('pagination', Pagination)
   .component('adminDetail', AdminDetailComponent)
+  .component('adminOutbox', AdminOutboxComponent)
+  .component('adminActive', AdminActiveComponent)
+  .component('adminPublic', AdminPublicComponent)
+  .component('adminAdministrator', AdminAdministratorComponent)
+  .component('adminBoughtDetail', AdminBoughtDetailComponent)
+  .component('adminBuyingDetail', AdminBuyingDetailComponent)
+  .component('adminDash', AdminDashComponent)
+  .component('adminDatabase', AdminDatabaseComponent)
+  .component('adminGuide', AdminGuideComponent)
+  .component('adminInbox', AdminInboxComponent)
+  .component('adminItemized', AdminItemizedComponent)
+  .component('adminPermission', AdminPermissionComponent)
+  .component('adminRecharge', AdminRechargeComponent)
+  .component('adminRecord', AdminRecordComponent)
+  .component('adminSellingDetail', AdminSellingDetailComponent)
+  .component('adminSetting', AdminSettingComponent)
+  .component('adminSoldDetail', AdminSoldDetailComponent)
+  .component('adminStatistics', AdminStatisticsComponent)
+  .component('adminTerms', AdminTermsComponent)
+  .component('adminTransfer', AdminTransferComponent)
+  .component('adminUnactive', AdminUnactiveComponent)
+  .component('adminWithdrawals', AdminWithdrawalsComponent)
 
   .directive('dragPick', DragPickDirective)
   .directive('menuToggle', ToggleDirective);

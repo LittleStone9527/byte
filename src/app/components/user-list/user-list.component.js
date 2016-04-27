@@ -58,7 +58,12 @@ let UserListComponent = {
       return deferred.promise;
     };
 
-    $ctrl.closeLogin = (username, state)=> {
+    /**
+     * 改变用户的状态
+     * @param username
+     * @param state
+     */
+    $ctrl.changeState = (username, state)=> {
       lwDialog.confirm()
         .then(()=> {
           return lwApi.user.manage.state.update({username, state}).$promise;
@@ -73,6 +78,14 @@ let UserListComponent = {
           }
         })
         .finally(()=>getUserList());
+    };
+
+    /**
+     *
+     */
+    $ctrl.deleteUser = (username)=> {
+      lwDialog.confirm()
+        .finally(()=>lwDialog.error('can not delete the user:' + username));
     };
 
     /**

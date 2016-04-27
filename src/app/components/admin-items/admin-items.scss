@@ -1,9 +1,10 @@
-.guide-ul{
+.guide-ul {
   list-style: none;
   padding-left: 0;
 }
-.guide-li{
-  a{
+
+.guide-li {
+  a {
     border: 1px solid #ddd;
     display: block;
     padding: 8px 12px;
@@ -11,24 +12,27 @@
     position: relative;
     background-color: #f4f4f4;
     margin-bottom: 10px;
-    &:hover{
+    &:hover {
       background-color: #fff;
     }
   }
-  .guide-btn{
+  .guide-btn {
     position: absolute;
     right: -1px;
     top: -1px;
   }
-  button{
+  button {
     margin-bottom: 10px;
   }
-  ul{
+  ul {
     list-style: none;
   }
 }
-.btn-box-tool.active{
+
+.btn-box-tool.active {
   background-color: #00c0ef;
   color: #fff;
   box-shadow: none;
 }
+
+

@@ -1,15 +1,46 @@
 import {sideBarData} from '../../admin/admin.controller';
 
+import AdminOutboxComponent from './admin-outbox';
+import AdminActiveComponent from './admin-active';
+import AdminPublicComponent from './admin-public';
+import AdminAdministratorComponent from './admin-administrator';
+import AdminBoughtDetailComponent from './admin-bought-detail';
+import AdminBuyingDetailComponent from './admin-buying-detail';
+import AdminDashComponent from './admin-dash';
+import AdminDatabaseComponent from './admin-datebase';
+import AdminGuideComponent from './admin-guide';
+import AdminInboxComponent from './admin-inbox';
+import AdminItemizedComponent from './admin-itemized';
+import AdminPermissionComponent from './admin-permission';
+import AdminRechargeComponent from './admin-recharge';
+import AdminRecordComponent from './admin-record';
+import AdminSellingDetailComponent from './admin-selling-detail';
+import AdminSettingComponent from './admin-setting';
+import AdminSoldDetailComponent from './admin-sold-detail';
+import AdminStatisticsComponent from './admin-statistics';
+import AdminTermsComponent from './admin-terms';
+import AdminTransferComponent from './admin-transfer';
+import AdminUnactiveComponent from './admin-unactive';
+import AdminWithdrawalsComponent from './admin-withdrawals';
+
 let AdminItemsComponent = {
-  templateUrl: ($stateParams)=> {
-    'ngInject';
-    return `app/components/admin-items/admin-${$stateParams.partial}.html`;
+  template: ($stateParams)=> {
+    'ngInject'
+    let partial = $stateParams.partial;
+    return `<admin-${partial}></admin-${partial}>`
   },
-  controller: function ($timeout, $stateParams, $query, base64, lwApi) {
+  // templateUrl: ($stateParams)=> {
+  //   'ngInject';
+  //   return `app/components/admin-items/admin-${$stateParams.partial}.html`;
+  // },
+  controller: function ($timeout, $stateParams) {
     'ngInject';
 
     let $ctrl = this;
-    
+
+    /**
+     * 初始化侧边栏
+     */
     $ctrl.$onInit = ()=> {
       angular.forEach(sideBarData, function (v) {
         angular.forEach(v.data, (v1)=> {
@@ -23,44 +54,31 @@ let AdminItemsComponent = {
       });
     };
 
-    // let query = {
-    //   limit: 10,
-    //   page: 0,
-    //   sort: ['+createTime', '+level'],
-    //   query: {
-    //     '%and': {
-    //       '%eq': {key1: '333', key2: '444'},
-    //       '%gq': {age: 18, level: 10}
-    //     }
-    //   }
-    // };
-    //
-    // `
-    //   [
-    //     {
-    //       "%and":{
-    //         "%eq":{"key1":"A12"}
-    //         "%gq":{"key2":"A13"}
-    //         }
-    //     },
-    //     {
-    //       "%l":5
-    //     },
-    //   ]
-    // `;
-
-
-    // // 步骤1：将url地址，解析成json对象
-    // let params = $params.decode($stateParams);
-    //
-    // console.log(params);
-    //
-    // // 步骤2： 将json对象，转化成headers发送给服务器
-    // let headers = $params.transform(params);
-    //
-    // console.log(headers);
-
   }
 };
 
-export default AdminItemsComponent;
+export {
+  AdminItemsComponent,
+  AdminOutboxComponent,
+  AdminActiveComponent,
+  AdminPublicComponent,
+  AdminAdministratorComponent,
+  AdminBoughtDetailComponent,
+  AdminBuyingDetailComponent,
+  AdminDashComponent,
+  AdminDatabaseComponent,
+  AdminGuideComponent,
+  AdminInboxComponent,
+  AdminItemizedComponent,
+  AdminPermissionComponent,
+  AdminRechargeComponent,
+  AdminRecordComponent,
+  AdminSellingDetailComponent,
+  AdminSettingComponent,
+  AdminSoldDetailComponent,
+  AdminStatisticsComponent,
+  AdminTermsComponent,
+  AdminTransferComponent,
+  AdminUnactiveComponent,
+  AdminWithdrawalsComponent
+};
