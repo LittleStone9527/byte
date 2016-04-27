@@ -42,7 +42,7 @@
         <td>{{d.user.created}}</td>
         <td>
           <div ng-clock ng-if="$ctrl.state==='active'">
-            <button class="btn btn-primary">修改资料</button>
+            <a ui-sref="admin.detail({partial:$ctrl.params.partial,sub:'profile',username:d.user.username})" class="btn btn-primary">修改资料</a>
             <button class="btn btn-default">关闭登陆</button>
           </div>
           <div ng-clock ng-if="$ctrl.state!=='active'">
@@ -67,21 +67,6 @@
       </div>
       <div class="col-sm-7">
         <div class="dataTables_paginate">
-          <!--<ul class="pagination">-->
-            <!--<li>-->
-              <!--<a aria-label="Previous">-->
-                <!--<span aria-hidden="true">上一页</span>-->
-              <!--</a>-->
-            <!--</li>-->
-            <!--<li class="active"><a>1</a></li>-->
-            <!--<li><a>2</a></li>-->
-            <!--<li><a>3</a></li>-->
-            <!--<li>-->
-              <!--<a aria-label="Next">-->
-                <!--<span aria-hidden="true">下一页</span>-->
-              <!--</a>-->
-            <!--</li>-->
-          <!--</ul>-->
           <pagination meta="$ctrl.userListMeta" data-trigger="$ctrl.pageTrigger"></pagination>
         </div>
       </div>

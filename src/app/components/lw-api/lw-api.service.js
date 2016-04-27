@@ -129,7 +129,29 @@ export class LwApiService {
            * *MetaQuery     "state"
            * *MetaOrder     "state"   "created"
            */
-          list: $$('user-list', '/api/v1/user/manage/list')
+          list: $$('user-list', '/api/v1/user/manage/list'),
+          /**
+           * 用户状态管理
+           * method:[put]
+           *
+           * *username
+           * *state         不修改则填-1
+           * *level         不修改则填-1
+           * *limit         不修改则填-1
+           */
+          state: $$('user-state', '/api/v1/user/manage/state'),
+          /**
+           * 用户信息管理(管理员)
+           * method:[put]
+           *
+           * *username
+           *
+           * [tel]
+           * [email]
+           * [password]
+           * 以上选填至少选择一种
+           */
+          profile: $$('user-profile', '/api/v1/user/manage/profile')
         }
       },
       captcha: {

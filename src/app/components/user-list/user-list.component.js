@@ -37,7 +37,7 @@ let UserListComponent = {
       }
     ];
 
-    // console.log($stateParams);
+    $ctrl.params = $stateParams;
 
     let getUserList = ()=> {
       let deferred = $q.defer();
