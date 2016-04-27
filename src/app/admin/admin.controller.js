@@ -1,7 +1,7 @@
 let sideBarData = [];
 
 class AdminController {
-  constructor($state, lwUser) {
+  constructor($state, lwUser, lwApi) {
     'ngInject';
 
     let vm = this;
@@ -73,8 +73,9 @@ class AdminController {
     };
 
     vm.logout = ()=> {
-      lwUser.logout()
+      lwApi.user.logout.post().$promise
         .finally(function () {
+          lwUser.logoutTrigger();
           $state.go('home');
         });
     };

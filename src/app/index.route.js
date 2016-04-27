@@ -176,6 +176,12 @@ let router = {
         controller: 'AdminController as vm'
       }
     },
+    resolve: {
+      login: ($q, $state, lwPermission)=> {
+        'ngInject';
+        return lwPermission.login().then(()=>$q.resolve(), ()=>$q.reject()).catch(()=>$state.go('404'));
+      }
+    },
     $$child: {
       'admin.items': {
         url: '/:partial?:limit?:page?:skip?:order?:query',

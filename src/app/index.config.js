@@ -21,7 +21,7 @@ export function config($logProvider, toastrConfig, ngStoreProvider, SETTINGS, $r
         return $q.reject(response);
       } else {
         // 登陆，拿session
-        if (response.headers[SETTINGS.sessionTag]) {
+        if (response.headers[SETTINGS.sessionTag.toLowerCase()]) {
           return $q.resolve(response);
         } else {
           return $q.resolve(response.data);

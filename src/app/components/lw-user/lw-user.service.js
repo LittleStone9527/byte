@@ -58,7 +58,7 @@ export class LwUserService {
       // 如果是登陆，会带headers
       if (resp.headers) {
         let session_key = user.tag;
-        let session_value = resp.headers[session_key];
+        let session_value = resp.headers[session_key.toLowerCase()];
         ngStore.set(session_key, session_value);
         data = resp.data;
       }
@@ -79,9 +79,9 @@ export class LwUserService {
       } else {
         lwApi.user.login.post({username, password, captcha}).$promise
           .then(resp => {
-            deferred.resolve(resp);
             loginTrigger(resp);
             $rootScope.$broadcast('login');
+            deferred.resolve(resp);
           }, error=> {
             deferred.reject(error);
           })
@@ -95,9 +95,7 @@ export class LwUserService {
     /**
      * 触发登出事件
      */
-    function logoutTrigger() {
-
-      lwApi.init();
+    user.logoutTrigger = ()=> {
 
       user.isAuth = false;
       user.isAdmin = false;
@@ -107,9 +105,11 @@ export class LwUserService {
 
       ngStore.remove(user.tag);
 
+      lwApi.init();
+
       angular.forEach(user.logoutActions, func=>angular.isFunction(func) && func());
 
-    }
+    };
 
     user.logout = ()=> {
       let deferred = $q.defer();
@@ -120,7 +120,7 @@ export class LwUserService {
           deferred.reject(error);
         })
         .finally(()=> {
-          logoutTrigger();
+          user.logoutTrigger();
           $rootScope.$broadcast('logout');
           $state.reload();
         });
@@ -148,7 +148,25 @@ export class LwUserService {
         })
         .catch(function (error) {
           console.info('fail get detail');
-          logoutTrigger(error);
+          user.logoutTrigger(error);
+          deferred.reject(error);
+        });
+
+      return deferred.promise;
+    };
+
+    user.getWallet = ()=> {
+      let deferred = $q.defer();
+
+      let promiseList = [];
+
+      promiseList.push(lwApi.user.wallet.info.get({type: 'USD'}).$promise);
+      promiseList.push(lwApi.user.wallet.info.get({type: 'FBC'}).$promise);
+
+      $q.all(promiseList)
+        .then((resp)=> {
+          deferred.resolve(resp);
+        }, (error)=> {
           deferred.reject(error);
         });
 
