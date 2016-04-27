@@ -102,9 +102,9 @@ export class LwApiService {
            * 用户钱包信息
            * method:[get]
            *
-           * *type    USD or FBC
+           * *currency    USD or FBC
            */
-          info: $$('wallet-info', '/api/v1/user/wallet?type=:type'),
+          info: $$('wallet-info', '/api/v1/user/wallet?currency=:currency'),
           /**
            * 用户钱包列表
            * method:[get]

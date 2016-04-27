@@ -52,8 +52,6 @@ export class LwUserService {
      */
     user.loginTrigger = (resp) => {
 
-      lwApi.init();
-
       let data = resp;
       // 如果是登陆，会带headers
       if (resp.headers) {
@@ -62,6 +60,8 @@ export class LwUserService {
         ngStore.set(session_key, session_value);
         data = resp.data;
       }
+
+      lwApi.init();
 
       user.isAuth = true;
       user.isUser = data.data.level === 100;

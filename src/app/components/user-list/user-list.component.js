@@ -1,33 +1,66 @@
 let UserListComponent = {
   templateUrl: 'app/components/user-list/user-list.html',
   bindings: {
-    state: '@'
+    eqState: '@',
+    neState: '@'
   },
-  controller: function (lwApi) {
+  controller: function ($scope, $q, $stateParams, lwApi) {
     'ngInject';
 
-    console.log('user-list init');
+
+    let $ctrl = this;
+
+    $ctrl.userList = [];
+    $ctrl.userListMeta = {};
 
     let Query = [
       {
         "%and": {
           "%eq": {
-            "state": "2"
+            "state": $ctrl.eqState
+          },
+          "%ne": {
+            "state": $ctrl.neState
           }
         }
+      },
+      {
+        "%o": [
+          "+created"
+        ]
+      },
+      {
+        "%l": $stateParams.limit * 1 || 10,
+        "%s": $stateParams.skip || 0,
+        "%p": $stateParams.page || 0
       }
     ];
 
-    lwApi.user.manage.list.get({}, {
-      headers: {
-        'Meta-Query': angular.toJson(Query)
-      }
-    }).$promise
-      .then((resp)=> {
-        console.log(resp);
-      }, (error)=> {
-        console.error(error);
-      });
+    
+    console.log($stateParams);
+
+    let getUserList = ()=> {
+      let deferred = $q.defer();
+      lwApi.user.manage.list.get({}, {
+        headers: {
+          'Meta-Query': angular.toJson(Query)
+        }
+      }).$promise
+        .then((resp)=> {
+          // why ? 为什么要手动触发
+          $scope.$apply(function () {
+            $ctrl.userList = resp.data;
+            $ctrl.userListMeta = resp.meta;
+          });
+          deferred.resolve(resp);
+        }).catch((err)=>deferred.reject(err));
+      return deferred.promise;
+    };
+
+
+    $ctrl.$onInit = ()=> {
+      getUserList();
+    };
 
   }
 };

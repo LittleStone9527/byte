@@ -32,13 +32,14 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>531999999999</td>
-        <td>张三</td>
-        <td>admin@admin.com</td>
+
+      <tr ng-repeat="d in $ctrl.userList">
+        <td>{{d.user.username}}</td>
+        <td>{{d.user.nickname}}</td>
+        <td>{{d.user.email}}</td>
         <td ng-clock ng-if="$ctrl.state==='2'">200.000</td>
         <td ng-clock ng-if="$ctrl.state==='2'">100.000</td>
-        <td>2016-11-11:11:00</td>
+        <td>{{d.user.created}}</td>
         <td>
           <div ng-clock ng-if="$ctrl.state==='2'">
             <button class="btn btn-primary">修改资料</button>
@@ -47,35 +48,41 @@
           <div ng-clock ng-if="$ctrl.state!=='2'">
             <button class="btn btn-primary">激活</button>
             <button class="btn btn-default">删除</button>
-            <
           </div>
         </td>
       </tr>
+
       </tbody>
     </table>
     <!--翻页-->
     <div class="row">
       <div class="col-sm-5">
-        <div class="dataTables_info">共57个结果，正在显示1至10个。
+        <div class="dataTables_info">
+          共 <span>{{$ctrl.userListMeta.total}}</span> 个结果，正在显示
+          <span>{{$ctrl.userListMeta.skip + $ctrl.userListMeta.limit * $ctrl.userListMeta.page}}</span>
+          至
+          <span>{{$ctrl.userListMeta.limit * ($ctrl.userListMeta.page+1)}}</span>
+          个。
         </div>
       </div>
       <div class="col-sm-7">
         <div class="dataTables_paginate">
-          <ul class="pagination">
-            <li>
-              <a aria-label="Previous">
-                <span aria-hidden="true">上一页</span>
-              </a>
-            </li>
-            <li class="active"><a>1</a></li>
-            <li><a>2</a></li>
-            <li><a>3</a></li>
-            <li>
-              <a aria-label="Next">
-                <span aria-hidden="true">下一页</span>
-              </a>
-            </li>
-          </ul>
+          <!--<ul class="pagination">-->
+            <!--<li>-->
+              <!--<a aria-label="Previous">-->
+                <!--<span aria-hidden="true">上一页</span>-->
+              <!--</a>-->
+            <!--</li>-->
+            <!--<li class="active"><a>1</a></li>-->
+            <!--<li><a>2</a></li>-->
+            <!--<li><a>3</a></li>-->
+            <!--<li>-->
+              <!--<a aria-label="Next">-->
+                <!--<span aria-hidden="true">下一页</span>-->
+              <!--</a>-->
+            <!--</li>-->
+          <!--</ul>-->
+          <pagination meta="$ctrl.userListMeta"></pagination>
         </div>
       </div>
     </div>
