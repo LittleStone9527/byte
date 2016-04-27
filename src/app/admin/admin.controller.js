@@ -14,7 +14,7 @@ class AdminController {
           {title: '发信箱', partial: 'outbox'},
           {title: '收信箱', partial: 'inbox'},
           {title: '服务条款', partial: 'terms'},
-          {title: '公共管理', partial: 'public'},
+          {title: '公告管理', partial: 'public'},
           {title: '新手指南', partial: 'guide'}
         ]
       },

@@ -1,4 +1,54 @@
+<div class="box">
+  <div class="box-header with-border">
+    <h3 class="box-title">公告列表</h3>
+  </div>
+  <div class="box-body">
+    <button class="btn btn-warning mb10">发布新公告</button>
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>标题</th>
+        <th>发布时间</th>
+        <th>操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>公告公告</td>
+        <td>2015-10-12 11:00:00</td>
+        <td>
+          <button class="btn btn-primary">编辑</button>
+          <button class="btn btn-default">删除</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
 
-<div class="row">
-  <h4 class="text-warning">公共管理</h4>
+    <!--翻页-->
+    <div class="row">
+      <div class="col-sm-5">
+        <div class="dataTables_info">共57个结果，正在显示1至10个。
+        </div>
+      </div>
+      <div class="col-sm-7">
+        <div class="dataTables_paginate">
+          <ul class="pagination">
+            <li>
+              <a aria-label="Previous">
+                <span aria-hidden="true">上一页</span>
+              </a>
+            </li>
+            <li class="active"><a>1</a></li>
+            <li><a>2</a></li>
+            <li><a>3</a></li>
+            <li>
+              <a aria-label="Next">
+                <span aria-hidden="true">下一页</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
