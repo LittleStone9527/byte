@@ -35,6 +35,7 @@ import telBindingDialogComponent from './components/tel-binding-dialog/tel-bindi
 import googleCaptchaBindingDialogComponent from './components/google-captcha-binding-dialog/google-captcha-binding-dialog';
 import DatePickComponent from './components/date-pick/date-pick.component';
 import ChangePwdComponent from './components/auth-change-pwd/change-pwd';
+import UserListComponent from './components/user-list/user-list.component';
 
 // directive
 import {DragPickDirective} from './components/drag-pick/drag-pick.directive';
@@ -106,6 +107,7 @@ angular.module('lwTrade', [
   .component('googleCaptchaBind', googleCaptchaBindingDialogComponent)
   .component('datePick', DatePickComponent)
   .component('changePassword', ChangePwdComponent)
+  .component('userList', UserListComponent)
 
   .directive('dragPick', DragPickDirective)
   .directive('menuToggle', ToggleDirective);

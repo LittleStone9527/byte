@@ -74,6 +74,9 @@ export class LwApiService {
            */
           tel: $$('check-tel', '/api/v1/user/check/tel')
         },
+        /**
+         * 安全方面
+         */
         security: {
           /**
            * 修改密码
@@ -90,6 +93,43 @@ export class LwApiService {
            * *password
            */
           forget: $$('pwd-forget', '/api/v1/user/security/forget')
+        },
+        /**
+         * 钱包
+         */
+        wallet: {
+          /**
+           * 用户钱包信息
+           * method:[get]
+           *
+           * *type    USD or FBC
+           */
+          info: $$('wallet-info', '/api/v1/user/wallet?type=:type'),
+          /**
+           * 用户钱包列表
+           * method:[get]
+           */
+          list: $$('wallet-list', '/api/v1/user/wallet/list')
+        },
+        /**
+         * 用户管理
+         */
+        manage: {
+          /**
+           * 获取用户信息(管理员)
+           * method:[get]
+           *
+           * *username
+           */
+          one: $$('user-one', '/api/v1/user/manage/one?username=:username'),
+          /**
+           * 获取用户列表
+           * method:[get]
+           *
+           * *MetaQuery     "state"
+           * *MetaOrder     "state"   "created"
+           */
+          list: $$('user-list', '/api/v1/user/manage/list')
         }
       },
       captcha: {
