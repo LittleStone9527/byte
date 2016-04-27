@@ -1,6 +1,6 @@
 <div class="box">
   <div class="box-header with-border">
-    <h3 class="box-title"><span>{{$ctrl.state==='2' ? '已激活用户' : '未激活的用户'}}</span></h3>
+    <h3 class="box-title"><span>{{$ctrl.state==='active' ? '已激活用户' : '未激活的用户'}}</span></h3>
   </div>
 
   <div class="box-body">
@@ -25,8 +25,8 @@
         <th>用户编号</th>
         <th>姓名</th>
         <th>邮箱</th>
-        <th ng-clock ng-if="$ctrl.state==='2'">美金账户</th>
-        <th ng-clock ng-if="$ctrl.state==='2'">FBC货币帐户</th>
+        <th ng-clock ng-if="$ctrl.state==='active'">美金账户</th>
+        <th ng-clock ng-if="$ctrl.state==='active'">FBC货币帐户</th>
         <th>注册时间</th>
         <th>操作</th>
       </tr>
@@ -37,15 +37,15 @@
         <td>{{d.user.username}}</td>
         <td>{{d.user.nickname}}</td>
         <td>{{d.user.email}}</td>
-        <td ng-clock ng-if="$ctrl.state==='2'">200.000</td>
-        <td ng-clock ng-if="$ctrl.state==='2'">100.000</td>
+        <td ng-clock ng-if="$ctrl.state==='active'">200.000</td>
+        <td ng-clock ng-if="$ctrl.state==='active'">100.000</td>
         <td>{{d.user.created}}</td>
         <td>
-          <div ng-clock ng-if="$ctrl.state==='2'">
-            <button class="btn btn-primary">修改资料</button>
+          <div ng-clock ng-if="$ctrl.state==='active'">
+            <a ui-sref="admin.detail({partial:$ctrl.params.partial,sub:'profile',username:d.user.username})" class="btn btn-primary">修改资料</a>
             <button class="btn btn-default">关闭登陆</button>
           </div>
-          <div ng-clock ng-if="$ctrl.state!=='2'">
+          <div ng-clock ng-if="$ctrl.state!=='active'">
             <button class="btn btn-primary">激活</button>
             <button class="btn btn-default">删除</button>
           </div>
@@ -67,22 +67,7 @@
       </div>
       <div class="col-sm-7">
         <div class="dataTables_paginate">
-          <!--<ul class="pagination">-->
-            <!--<li>-->
-              <!--<a aria-label="Previous">-->
-                <!--<span aria-hidden="true">上一页</span>-->
-              <!--</a>-->
-            <!--</li>-->
-            <!--<li class="active"><a>1</a></li>-->
-            <!--<li><a>2</a></li>-->
-            <!--<li><a>3</a></li>-->
-            <!--<li>-->
-              <!--<a aria-label="Next">-->
-                <!--<span aria-hidden="true">下一页</span>-->
-              <!--</a>-->
-            <!--</li>-->
-          <!--</ul>-->
-          <pagination meta="$ctrl.userListMeta"></pagination>
+          <pagination meta="$ctrl.userListMeta" data-trigger="$ctrl.pageTrigger"></pagination>
         </div>
       </div>
     </div>

@@ -1,8 +1,7 @@
 import 'babel-polyfill';
- import 'resource/dist/$resource.js';
-//import 'resource';
+import 'resource/dist/$resource.js';
+// import 'resource';
 import 'at-base64';
-
 
 import {SETTINGS} from './settings';
 import {config} from './index.config';
@@ -38,6 +37,7 @@ import DatePickComponent from './components/date-pick/date-pick.component';
 import ChangePwdComponent from './components/auth-change-pwd/change-pwd';
 import UserListComponent from './components/user-list/user-list.component';
 import Pagination from './components/pagination/pagination';
+import AdminDetailComponent from './components/admin-detail/admin-detail';
 
 // directive
 import {DragPickDirective} from './components/drag-pick/drag-pick.directive';
@@ -111,6 +111,7 @@ angular.module('lwTrade', [
   .component('changePassword', ChangePwdComponent)
   .component('userList', UserListComponent)
   .component('pagination', Pagination)
+  .component('adminDetail', AdminDetailComponent)
 
   .directive('dragPick', DragPickDirective)
   .directive('menuToggle', ToggleDirective);

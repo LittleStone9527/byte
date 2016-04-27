@@ -14,6 +14,7 @@
          class="form-control time-input"
          restrict="reject" clean="true"
          ng-change="$ctrl.updateDate()"
+         autocomplete="off"
          ng-value="00">
   <span class="input-group-addon">:</span>
   <input type="text" name="dateDefault" ng-model="$ctrl.date.min"
@@ -21,6 +22,7 @@
          class="form-control time-input"
          restrict="reject" clean="true"
          ng-change="$ctrl.updateDate()"
+         autocomplete="off"
          ng-value="00">
   <span class="input-group-addon">:</span>
   <input type="text" name="dateDefault" ng-model="$ctrl.date.sec"
@@ -28,5 +30,6 @@
          class="form-control time-input"
          restrict="reject" clean="true"
          ng-change="$ctrl.updateDate()"
+         autocomplete="off"
          ng-value="00">
 </div>

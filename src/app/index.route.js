@@ -190,6 +190,14 @@ let router = {
             template: '<admin-items></admin-items>'
           }
         }
+      },
+      'admin.detail': {
+        url: '/:partial/:sub?:username?',
+        views: {
+          admin_items: {
+            template: '<admin-detail></admin-detail>'
+          }
+        }
       }
     }
   },
