@@ -1,11 +1,11 @@
 let UserListComponent = {
   templateUrl: 'app/components/user-list/user-list.html',
   bindings: {
-    eqState: '@',
-    neState: '@',
-    state: '@'
+    eqState: '@',     // 等于
+    neState: '@',     // 不等于
+    state: '@'        // 状态   active or unactive
   },
-  controller: function ($scope, $q, $stateParams, lwApi) {
+  controller: function ($scope, $state, $q, $stateParams, lwApi) {
     'ngInject';
 
 
@@ -32,10 +32,12 @@ let UserListComponent = {
       },
       {
         "%l": $stateParams.limit * 1 || 10,
-        "%s": $stateParams.skip || 0,
-        "%p": $stateParams.page || 0
+        "%s": $stateParams.skip * 1 || 0,
+        "%p": $stateParams.page * 1 || 0
       }
     ];
+
+    // console.log($stateParams);
 
     let getUserList = ()=> {
       let deferred = $q.defer();
@@ -55,6 +57,11 @@ let UserListComponent = {
       return deferred.promise;
     };
 
+
+    /**
+     * 翻页
+     */
+    $ctrl.pageTrigger = page=> $state.go('admin.items', angular.merge($stateParams, {page}));
 
     $ctrl.$onInit = ()=> {
       getUserList();
