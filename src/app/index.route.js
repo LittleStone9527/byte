@@ -179,7 +179,11 @@ let router = {
     resolve: {
       login: ($q, $state, lwPermission)=> {
         'ngInject';
-        return lwPermission.login().then(()=>$q.resolve(), ()=>$q.reject()).catch(()=>$state.go('404'));
+        return lwPermission.login().then(()=>$q.resolve(true), ()=>$q.reject(false)).catch(()=>$state.go('404'));
+      },
+      admin: (login, $q, $state, lwPermission)=> {
+        'ngInject';
+        (login ? $q.resolve() : $q.reject()).then(()=>lwPermission.admin()).catch(()=>$state.go('error'));
       }
     },
     $$child: {
@@ -202,16 +206,17 @@ let router = {
     }
   },
   404: {
+    // url: '/404',
     views: {
       main: {
-        templateUrl: '404.html'
+        templateUrl: 'app/views/404.html'
       }
     }
   },
   error: {
     views: {
       main: {
-        templateUrl: 'error.html'
+        templateUrl: 'app/views/error.html'
       }
     }
   }

@@ -115,6 +115,15 @@ export class LwApiService {
          * 用户管理
          */
         manage: {
+          /*
+           state
+
+           0 无效
+           1 冻结
+           2 激活
+           3 警告
+
+           */
           /**
            * 获取用户信息(管理员)
            * method:[get]

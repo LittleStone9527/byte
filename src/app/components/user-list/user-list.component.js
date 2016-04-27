@@ -5,7 +5,7 @@ let UserListComponent = {
     neState: '@',     // 不等于
     state: '@'        // 状态   active or unactive
   },
-  controller: function ($scope, $state, $q, $stateParams, lwApi) {
+  controller: function ($scope, $state, $q, $stateParams, lwApi, lwDialog) {
     'ngInject';
 
 
@@ -39,6 +39,7 @@ let UserListComponent = {
 
     $ctrl.params = $stateParams;
 
+
     let getUserList = ()=> {
       let deferred = $q.defer();
       lwApi.user.manage.list.get({}, {
@@ -57,6 +58,22 @@ let UserListComponent = {
       return deferred.promise;
     };
 
+    $ctrl.closeLogin = (username, state)=> {
+      lwDialog.confirm()
+        .then(()=> {
+          return lwApi.user.manage.state.update({username, state}).$promise;
+        }, ()=> {
+          return $q.reject();
+        })
+        .then(()=> {
+          lwDialog.success();
+        }, (error)=> {
+          if (error) {
+            lwDialog.error();
+          }
+        })
+        .finally(()=>getUserList());
+    };
 
     /**
      * 翻页
