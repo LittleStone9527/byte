@@ -13,7 +13,7 @@ export default class LwPermissionService {
     /**
      * 是否是普通用户
      */
-    let user = ()=> lwUser.isUser ? $q.resolve(true) : $q.reject(false);
+    let user = ()=> !lwUser.isAdmin ? $q.resolve(true) : $q.reject(false);
 
     /**
      * 是否是管理员

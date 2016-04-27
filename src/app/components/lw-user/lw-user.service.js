@@ -9,7 +9,6 @@ export class LwUserService {
     let user = {};
 
     user.isAuth = false;          // 是否已登陆
-    user.isUser = false;          // 普通用户
     user.isAdmin = false;         // 是否是管理员
     user.profile = {};            // 用户资料
     user.trade = {};              // 交易信息
@@ -64,7 +63,7 @@ export class LwUserService {
       lwApi.init();
 
       user.isAuth = true;
-      user.isUser = data.data.level === 100;
+      user.isAdmin = data.data.level === 100;
 
       user.profile = data.data;
 
@@ -99,7 +98,6 @@ export class LwUserService {
 
       user.isAuth = false;
       user.isAdmin = false;
-      user.isUser = !user.isAdmin;
 
       user.profile = {};
 
