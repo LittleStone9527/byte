@@ -50,7 +50,7 @@ export class LwUserService {
     /**
      * 触发登陆事件
      */
-    function loginTrigger(resp) {
+    user.loginTrigger = (resp) => {
 
       lwApi.init();
 
@@ -64,13 +64,13 @@ export class LwUserService {
       }
 
       user.isAuth = true;
-      user.isUser = !user.isAdmin;
+      user.isUser = data.data.level === 100;
 
       user.profile = data.data;
 
       angular.forEach(user.loginActions, func=>angular.isFunction(func) && func());
 
-    }
+    };
 
     user.login = ({username='', password='', captcha=''})=> {
       let deferred = $q.defer();
@@ -79,7 +79,7 @@ export class LwUserService {
       } else {
         lwApi.user.login.post({username, password, captcha}).$promise
           .then(resp => {
-            loginTrigger(resp);
+            user.loginTrigger(resp);
             $rootScope.$broadcast('login');
             deferred.resolve(resp);
           }, error=> {
@@ -135,18 +135,14 @@ export class LwUserService {
     user.getDetail = ()=> {
       let deferred = $q.defer();
       user.getSession()
-        .then(function () {
+        .then(() => {
           return lwApi.user.detail.get().$promise;
-        }, function (error) {
-          return $q.reject(error);
         })
-        .then(function (resp) {
+        .then((resp)=> {
+          user.loginTrigger(resp);
           deferred.resolve(resp);
-          loginTrigger(resp)
-        }, function (error) {
-          return $q.reject(error);
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.info('fail get detail');
           user.logoutTrigger(error);
           deferred.reject(error);

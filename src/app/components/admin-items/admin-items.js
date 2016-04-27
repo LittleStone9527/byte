@@ -5,11 +5,11 @@ let AdminItemsComponent = {
     'ngInject';
     return `app/components/admin-items/admin-${$stateParams.partial}.html`;
   },
-  controller: function ($stateParams, $query, base64) {
+  controller: function ($timeout, $stateParams, $query, base64, lwApi) {
     'ngInject';
 
     let $ctrl = this;
-
+    
     $ctrl.$onInit = ()=> {
       angular.forEach(sideBarData, function (v) {
         angular.forEach(v.data, (v1)=> {
