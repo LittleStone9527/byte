@@ -1,6 +1,6 @@
 import 'babel-polyfill';
-// import 'resource/dist/$resource.js';
-import 'resource';
+import 'resource/dist/$resource.js';
+// import 'resource';
 import 'at-base64';
 
 import {SETTINGS} from './settings';

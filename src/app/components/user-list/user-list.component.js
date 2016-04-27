@@ -2,7 +2,8 @@ let UserListComponent = {
   templateUrl: 'app/components/user-list/user-list.html',
   bindings: {
     eqState: '@',
-    neState: '@'
+    neState: '@',
+    state: '@'
   },
   controller: function ($scope, $q, $stateParams, lwApi) {
     'ngInject';
@@ -35,9 +36,6 @@ let UserListComponent = {
         "%p": $stateParams.page || 0
       }
     ];
-
-    
-    console.log($stateParams);
 
     let getUserList = ()=> {
       let deferred = $q.defer();
