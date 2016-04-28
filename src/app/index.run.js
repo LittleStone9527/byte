@@ -1,13 +1,11 @@
-export function runBlock($rootScope, $log, $moment, lwUser) {
+export function runBlock($rootScope, $state, $moment, lwUser) {
   'ngInject';
 
   lwUser.init();
 
-  $log.debug('runBlock end');
+  $rootScope.$on('$stateNoFount', () =>$state.go('404'));
 
-  $rootScope.$on('$stateNoFount', function () {
-    $state.go('404');
-  });
+  $rootScope.$on('$stateChangeError', ()=> $state.go('error'));
 
   $moment.locale('zh-cn');
 
