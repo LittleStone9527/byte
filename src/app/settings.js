@@ -14,7 +14,7 @@ const SETTINGS = {
   serverCanProxy: true,                       // 服务器是否能访问外部网络
   host: window.location.host,                 // 当前host
   hostApi: 'http://192.168.199.219:1005',     // api host
-  // hostApi: 'http://58.59.251.163:1005',     // api host
+  // hostApi: 'http://office.yichui.net:1005',     // api host
   hostImgLis: [                               // 图片服务器 阿里云
     ''
   ],

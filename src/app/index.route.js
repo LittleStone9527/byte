@@ -280,23 +280,6 @@ export function routerConfig($locationProvider, $stateProvider, $urlRouterProvid
      * http://www.xxx.com/#!/
      */
     let $state = $injector.get('$state');
-    let path = $location.path();
-    // if (/^\/zh-CN\//i.test(path)) {
-    //   window.localStorage.lang = 'zh-CN';
-    //   // window.location.reload();
-    //   // $state.reload();
-    // }
-    // else if (/^\/en-US\//i.test(path)) {
-    //   window.localStorage.lang = 'en-US';
-    //   debugger;
-    //   // window.location.reload();
-    // }
-    // else if (path === '/') {
-    //   window.localStorage.lang = '';
-    //   window.location.reload();
-    // }
-
-
     let target = !$location.path() || $state.current.name === 'home' ? 'home' : '404';
 
     $state.go(target);

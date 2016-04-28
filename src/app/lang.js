@@ -26,7 +26,7 @@ const LANG = {
   S1005: {zh: "删除成功", en: "Success"}
 };
 
-var i18n = {};
+let i18n = {};
 
 // 支持的语言列表
 i18n.supports = ['zh-CN', 'en-US'];
@@ -48,7 +48,6 @@ angular.forEach(i18n.supports, (lang)=> {
 
 // 当前页面正在使用的语言
 i18n.lang = window.sessionStorage.lang || i18n.systemlang || 'zh-CN';
-console.log(i18n.lang);
 
 angular.forEach(LANG, function (langPacks, keyCode) {
   angular.forEach(langPacks, function (keyWord, lang) {
