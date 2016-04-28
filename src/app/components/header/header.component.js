@@ -1,6 +1,6 @@
 let HeaderComponent = {
   templateUrl: 'app/components/header/header.html',
-  controller: function ($scope, $state, $timeout, lwUser) {
+  controller: function ($scope, $state, $timeout, lwUser, i18n) {
     'ngInject';
 
     $scope.$state = $state;
@@ -16,6 +16,10 @@ let HeaderComponent = {
 
     $scope.lwUser = lwUser;
     $scope.profile = lwUser.profile;
+
+    $scope.changeLang = (lang)=> {
+      i18n.set(lang);
+    }
 
   }
 };

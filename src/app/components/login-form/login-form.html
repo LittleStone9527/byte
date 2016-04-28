@@ -25,7 +25,7 @@
              ng-model="$ctrl.form.$$captcha" ng-required="true" autocomplete="off">
       <div class="input-group-addon login-code-img" ng-clock ng-if="$ctrl.$$showCaptcha">
         <a href="javascript:void(0);" ng-click="$ctrl.refreshCaptcha()">
-          <img class="img-responsive" alt="换一张？" ng-src="{{$ctrl.captchaImageUrl}}">
+          <img class="img-responsive" style="width: 100%;" alt="换一张？" ng-src="{{$ctrl.captchaImageUrl}}">
         </a>
       </div>
     </div>

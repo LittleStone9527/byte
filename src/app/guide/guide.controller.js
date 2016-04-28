@@ -4,9 +4,44 @@ export default class GuideController {
 
     let vm = this;
 
-    vm.date = '333';
+    vm.sideBarData = [
+      {
+        title: '注册登录',
+        data: [
+          {title: '...'},
+          {title: '...'},
+          {title: '...'},
+          {title: '...'},
+          {title: '...'}
+        ]
+      },
+      {
+        title: '新用户注册',
+        data: [
+          {title: '...'},
+          {title: '...'}
+        ]
+      },
+      {
+        title: '安全设置',
+        data: [
+          {title: '...'},
+          {title: '...'},
+          {title: '...'},
+          {title: '...'},
+          {title: '...'}
+        ]
+      }
+    ];
 
-    console.log('init guide controller');
+    vm.toggle = (d)=> {
+      angular.forEach(vm.sideBarData, (item)=> {
+        if (item.title !== d.title) {
+          item.$$extend = false;
+        }
+      });
+      d.$$extend = !d.$$extend;
+    };
 
   }
 }

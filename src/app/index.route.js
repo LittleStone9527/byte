@@ -1,4 +1,6 @@
-let routerConfig = class {
+import i18n from './lang';
+
+let defaultVal = class {
   static get params() {
     return {
       page: {
@@ -213,7 +215,7 @@ let router = {
     $$child: {
       'admin.items': {
         url: '/:partial?:order?:query' + limit,
-        params: routerConfig.params,
+        params: defaultVal.params,
         views: {
           admin_items: {
             template: '<admin-items></admin-items>'
@@ -247,6 +249,13 @@ let router = {
   }
 };
 
+// 如果url上写有地址
+if (i18n.urlLang) {
+  angular.forEach(router, (v)=> {
+    if (v.url) v.url = '/' + i18n.lang + v.url;
+  });
+}
+
 export function routerConfig($locationProvider, $stateProvider, $urlRouterProvider, SETTINGS) {
   'ngInject';
 
@@ -271,7 +280,26 @@ export function routerConfig($locationProvider, $stateProvider, $urlRouterProvid
      * http://www.xxx.com/#!/
      */
     let $state = $injector.get('$state');
+    let path = $location.path();
+    // if (/^\/zh-CN\//i.test(path)) {
+    //   window.localStorage.lang = 'zh-CN';
+    //   // window.location.reload();
+    //   // $state.reload();
+    // }
+    // else if (/^\/en-US\//i.test(path)) {
+    //   window.localStorage.lang = 'en-US';
+    //   debugger;
+    //   // window.location.reload();
+    // }
+    // else if (path === '/') {
+    //   window.localStorage.lang = '';
+    //   window.location.reload();
+    // }
+
+
     let target = !$location.path() || $state.current.name === 'home' ? 'home' : '404';
+
     $state.go(target);
+
   });
 }
