@@ -4,10 +4,10 @@
 
 let AdminOutboxComponent = {
   templateUrl: 'app/components/admin-items/admin-outbox.html',
-  controller: function () {
+  controller: function ($element, $attrs) {
     'ngInject';
 
-    // let $ctrl = this;
+    let $ctrl = this;
 
     /**
      * state

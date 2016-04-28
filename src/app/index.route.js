@@ -1,3 +1,27 @@
+let routerConfig = class {
+  static get params() {
+    return {
+      page: {
+        value: '0',
+        squash: true
+      },
+      limit: {
+        value: '10',
+        squash: true
+      },
+      skip: {
+        value: '0',
+        squash: true
+      }
+    }
+  }
+};
+
+let limit = ':limit?:page?:skip?';
+
+let appPath = 'app';
+let componentsPath = appPath + '/components';
+
 let router = {
   home: {
     url: '/',
@@ -26,7 +50,7 @@ let router = {
       'trade.home': {
         views: {
           trade_items: {
-            templateUrl: 'app/components/trade-items/trade-home.html'
+            templateUrl: componentsPath + '/trade-items/trade-home.html'
           }
         }
       },
@@ -58,7 +82,7 @@ let router = {
       'finances.home': {
         views: {
           fin_items: {
-            templateUrl: 'app/components/finances-items/finances-home.html'
+            templateUrl: componentsPath + '/finances-items/finances-home.html'
           }
         }
       },
@@ -66,7 +90,7 @@ let router = {
         url: '/:partial',
         views: {
           fin_items: {
-            template: '<finances-items></finances-items>'
+            template: '<finances-items/>'
           }
         }
       }
@@ -89,13 +113,13 @@ let router = {
     $$child: {
       'safe.home': {
         views: {
-          safe_items: {templateUrl: 'app/components/safe-items/safe-home.html'}
+          safe_items: {templateUrl: componentsPath + '/safe-items/safe-home.html'}
         }
       },
       'safe.items': {
         url: '/:partial',
         views: {
-          safe_items: {template: '<safe-items></safe-items>'}
+          safe_items: {template: '<safe-items/>'}
         }
       }
     }
@@ -183,12 +207,13 @@ let router = {
       },
       admin: (login, $q, $state, lwPermission)=> {
         'ngInject';
-        (login ? $q.resolve() : $q.reject()).then(()=>lwPermission.admin()).catch(()=>$state.go('error'));
+        (login ? $q.resolve() : $q.reject()).then(()=>lwPermission.admin()).catch(()=>$state.go('404'));
       }
     },
     $$child: {
       'admin.items': {
-        url: '/:partial?:limit?:page?:skip?:order?:query',
+        url: '/:partial?:order?:query' + limit,
+        params: routerConfig.params,
         views: {
           admin_items: {
             template: '<admin-items></admin-items>'

@@ -1,4 +1,4 @@
-export function DragPickDirective($log, $parse) {
+export function DragPickDirective() {
   'ngInject';
   return {
     restrict: 'E',
