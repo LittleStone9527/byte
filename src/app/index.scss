@@ -117,6 +117,9 @@ a {
   width: 10px;
   display: inline-block;
 }
+.progress-bar.active{
+  color: #fff;
+}
 //表格内的
 .table > thead > tr > th, .table > thead > tr > td, .table > tbody > tr > th, .table > tbody > tr > td, .table > tfoot > tr > th, .table > tfoot > tr > td {
   vertical-align: middle;
