@@ -183,7 +183,7 @@ let router = {
       },
       admin: (login, $q, $state, lwPermission)=> {
         'ngInject';
-        (login ? $q.resolve() : $q.reject()).then(()=>lwPermission.admin()).catch(()=>$state.go('error'));
+        (login ? $q.resolve() : $q.reject()).then(()=>lwPermission.admin()).catch(()=>$state.go('404'));
       }
     },
     $$child: {
