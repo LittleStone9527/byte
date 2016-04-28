@@ -50,16 +50,6 @@ let AdminOutboxComponent = {
     //
     // }
 
-
-    $ctrl.$onInit = ()=> {
-      // angular.element('.box-body').slideDown();
-    };
-
-    $ctrl.$postLink = ()=> {
-
-    };
-
-
   }
 };
 

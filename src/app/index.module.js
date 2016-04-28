@@ -92,7 +92,9 @@ angular.module('lwTrade', [
     'atCompare',
     'base64',
     'datePicker',
-    'ngMask'
+    'ngMask',
+    'hc.marked',
+    'monospaced.elastic'
   ])
   .constant('SETTINGS', SETTINGS)
   .value('$moment', window.moment)

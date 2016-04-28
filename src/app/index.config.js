@@ -28,5 +28,6 @@ export function config($logProvider, toastrConfig, ngStoreProvider, SETTINGS, $r
         }
       }
     });
+  
 
 }

@@ -7,8 +7,6 @@ let AdminTermsComponent = {
   controller: ()=> {
     'ngInject';
 
-    console.log('terms init');
-
   }
 };
 
