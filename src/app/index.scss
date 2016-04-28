@@ -43,6 +43,9 @@ body{
 .mb20{
   margin-bottom: 20px;
 }
+.mt10{
+  margin-top: 10px;
+}
 .mt15{
   margin-top: 15px;
 }
@@ -86,6 +89,9 @@ a {
 .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
   background-color: #f39c12;
   border-color: #f39c12;
+}
+.nav-pills > li > a {
+  border-top: 0;
 }
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
   background-color: #f39c12;

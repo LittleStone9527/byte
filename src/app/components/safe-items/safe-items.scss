@@ -1,28 +1,3 @@
-.acme-malarkey {
-  text-transform: capitalize;
-  color: #cb3837;
-
-  &:after {
-    animation: cursor-blink 0.4s linear infinite;
-    content: "|";
-    color: #cb3837;
-  }
-}
-
-@keyframes cursor-blink {
-  1% {
-    opacity: 0;
-  }
-  40% {
-    opacity: 0;
-  }
-  60% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 .safe-ion{
   font-size: 40px;
   color: #777;
@@ -38,5 +13,11 @@
   }
   i{
     font-size: 80px;
+  }
+}
+//展出框
+.setting-add{
+  h3{
+    font-size: 20px;
   }
 }

@@ -30,7 +30,32 @@
 
       <tr ng-cloak ng-if="$ctrl.items[0].$$detail">
         <td colspan="5">
-          <h3 class="text-info">绑定邮箱</h3>
+          <div class="row setting-add">
+            <div class="col-sm-6 col-sm-offset-3">
+              <!--绑定邮箱组件-->
+              <form class="mb15">
+                <h3 class="text-center" style="margin-top: 10px;">绑定邮箱</h3>
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="ion ion-ios-email"></i></span>
+                    <input type="email" name="username" class="form-control" placeholder="邮箱">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="ion ion-android-list"></i></span>
+                    <input type="text" name="captcha" class="form-control" placeholder="验证码">
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-default">发送验证码</button>
+                    </span>
+                  </div>
+                </div>
+                <div class="login-submit">
+                  <button type="submit" class="btn btn-block btn-warning">确定</button>
+                </div>
+              </form>
+            </div>
+          </div>
         </td>
       </tr>
 
@@ -50,7 +75,32 @@
 
       <tr ng-if="$ctrl.items[1].$$detail">
         <td colspan="5">
-          <h3 class="text-info">绑定手机</h3>
+          <div class="row setting-add">
+            <div class="col-sm-6 col-sm-offset-3">
+              <!--绑定手机组件-->
+              <form class="mb15">
+                <h3 class="text-center" style="margin-top: 10px;">绑定手机号</h3>
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="ion ion-iphone"></i></span>
+                    <input type="text" name="username" class="form-control" placeholder="手机号">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="ion ion-android-list"></i></span>
+                    <input type="text" name="captcha" class="form-control" placeholder="验证码">
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-default">发送验证码</button>
+                    </span>
+                  </div>
+                </div>
+                <div class="login-submit">
+                  <button type="submit" class="btn btn-block btn-warning">确定</button>
+                </div>
+              </form>
+            </div>
+          </div>
         </td>
       </tr>
 
@@ -70,7 +120,36 @@
 
       <tr ng-if="$ctrl.items[2].$$detail">
         <td colspan="5">
-          <h3 class="text-info">绑定谷歌验证码</h3>
+          <div class="row setting-add mb10">
+            <div class="col-sm-12">
+              <h3 class="text-center" style="margin-top: 10px;">绑定谷歌验证码</h3>
+            </div>
+            <div class="col-sm-8">
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">密钥</label>
+                  <div class="col-sm-9">
+                    <p class="form-control-static">FG7BMEJZTGYDD4Z4</p>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">谷歌验证码</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-3 col-sm-3">
+                    <button type="submit" class="btn btn-warning btn-block">确定</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="col-sm-4 text-center">
+              <img src="data:image/png;base64,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">
+              <p class="mt10">可通过谷歌验证码扫一扫即可绑定</p>
+            </div>
+          </div>
         </td>
       </tr>
 
@@ -84,7 +163,11 @@
 
       <tr ng-if="$ctrl.items[3].$$detail">
         <td colspan="5">
-          <change-password></change-password>
+          <div class="row setting-add">
+            <div class="col-sm-6 col-sm-offset-3">
+              <change-password></change-password>
+            </div>
+          </div>
         </td>
       </tr>
 
@@ -93,14 +176,18 @@
         <td>交易密码</td>
         <td><span class="safe-p">未设置</span></td>
         <td>需要先 <a ng-click="$ctrl.toggleDetail(1)" href="javascript:void(0);">绑定手机</a></td>
-        <td class="text-right" ng-clock ng-if="!!$ctrl.profile.telCheck">
-          <a ng-click="$ctrl.toggleDetail(4)"  class="btn btn-info">修改</a>
+        <td class="text-right" ng-clock>
+          <a ng-click="$ctrl.toggleDetail(4)" ng-if="!!$ctrl.profile.telCheck" class="btn btn-info">修改</a>
         </td>
       </tr>
 
       <tr ng-cloak ng-if="$ctrl.items[4].$$detail">
         <td colspan="5">
-          <h3 class="text-info">交易密码</h3>
+          <div class="row setting-add">
+            <div class="col-sm-6 col-sm-offset-3">
+              <change-password></change-password>
+            </div>
+          </div>
         </td>
       </tr>
 
