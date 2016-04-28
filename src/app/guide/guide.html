@@ -4,21 +4,40 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-3">
+
         <ul class="help-list">
+
           <li class="help-header">新手指南</li>
-          <li>
-            <a class="active">注册登录<i class="ion ion-minus-round"></i></a>
-            <ul>
-              <li><a>新用户注册</a></li>
-              <li><a>找回密码</a></li>
+
+          <li ng-repeat="d in vm.sideBarData">
+            <!--<a href="javascript:void(0);" class="active" ng-click="d.$$extend=!d.$$extend">-->
+            <a href="javascript:void(0);" class="active" ng-click="vm.toggle(d)">
+              <span>{{::d.title}}</span>
+              <i class="ion ion-minus-round"
+                 ng-class="{'ion-minus-round':!!d.$$extend,'ion-plus-round':!d.$$extend}"></i>
+            </a>
+            <ul ng-clock ng-if="!!d.$$extend">
+              <li ng-repeat="d1 in d.data">
+                <a href="javascript:void(0);">{{d1.title}}</a>
+              </li>
             </ul>
           </li>
-          <li>
-            <a>安全设置<i class="ion ion-plus-round"></i></a>
-          </li>
+
+          <!--<li>-->
+          <!--<a class="active">注册登录<i class="ion ion-minus-round"></i></a>-->
+          <!--<ul>-->
+          <!--<li><a>新用户注册</a></li>-->
+          <!--<li><a>找回密码</a></li>-->
+          <!--</ul>-->
+          <!--</li>-->
+          <!--<li>-->
+          <!--<a>安全设置<i class="ion ion-plus-round"></i></a>-->
+          <!--</li>-->
 
         </ul>
+
       </div>
+
       <div class="col-sm-9">
         <div class="panel">
           <div class="panel-body">
@@ -27,6 +46,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </div>
 
