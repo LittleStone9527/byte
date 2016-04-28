@@ -75,6 +75,7 @@ import LwUtilService from './components/lw-util/lw-util.service';
 import {LwDialogService} from './components/lw-dialog/lw-dialog.service';
 import LwPermissionService from './components/lw-permission/lw-permission.service';
 import QueryService from './components/query/query.service';
+import i18nService from './components/i18n/i18n';
 
 
 angular.module('lwTrade', [
@@ -106,6 +107,7 @@ angular.module('lwTrade', [
   .provider('lwDialog', LwDialogService)
   .provider('lwPermission', LwPermissionService)
   .provider('$query', QueryService)
+  .provider('i18n', i18nService)
 
   .run(runBlock)
 

@@ -1,3 +1,5 @@
+// import i18n from './lang';
+
 export function runBlock($rootScope, $state, $moment, lwUser) {
   'ngInject';
 
@@ -7,6 +9,10 @@ export function runBlock($rootScope, $state, $moment, lwUser) {
 
   $rootScope.$on('$stateChangeError', ()=> $state.go('error'));
 
-  $moment.locale('zh-cn');
+  $rootScope.$on('$stateChangeStart', (e)=> {
+  });
+
+  $moment.locale('zh-CN');
+
 
 }
