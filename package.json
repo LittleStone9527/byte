@@ -5,7 +5,7 @@
     "at-base64": "^0.1.1",
     "babel-polyfill": "^6.7.4",
     "echarts": "^3.1.6",
-    "resource": "git+https://github.com/suboat/resource.git#0.3.2"
+    "resource": "git+https://github.com/suboat/resource.git#0.3.3"
   },
   "scripts": {
     "test": "gulp test"
