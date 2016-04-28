@@ -66,6 +66,7 @@ import AdminDetailComponent from './components/admin-detail/admin-detail';
 // directive
 import {DragPickDirective} from './components/drag-pick/drag-pick.directive';
 import {ToggleDirective} from './components/animate-toggle/toggle.directive';
+import SlideDirective from './components/slide/slide.dereictive'
 
 // service
 import {LwUserService} from './components/lw-user/lw-user.service';
@@ -157,4 +158,5 @@ angular.module('lwTrade', [
   .component('adminWithdrawals', AdminWithdrawalsComponent)
 
   .directive('dragPick', DragPickDirective)
-  .directive('menuToggle', ToggleDirective);
+  .directive('menuToggle', ToggleDirective)
+  .directive('slide', SlideDirective);

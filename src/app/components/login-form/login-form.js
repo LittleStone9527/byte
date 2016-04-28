@@ -26,7 +26,6 @@ let LoginFormComponent = {
       $ctrl.form.captcha = id + '.' + $ctrl.form.$$captcha;
       lwUser.login($ctrl.form)
         .then(function () {
-          lwDialog.success();
           return $state.go('home');
         }, function (resp) {
           lwDialog.error(resp.data.error);
