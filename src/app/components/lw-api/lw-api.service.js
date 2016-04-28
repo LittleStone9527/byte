@@ -2,7 +2,7 @@ export class LwApiService {
   constructor() {
   }
 
-  $get(lwResource, $resource, SETTINGS, $q, ngStore) {
+  $get($resource, SETTINGS, ngStore) {
     'ngInject';
 
     let $$ = $resource.register;

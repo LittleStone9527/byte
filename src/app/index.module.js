@@ -68,7 +68,6 @@ import {DragPickDirective} from './components/drag-pick/drag-pick.directive';
 import {ToggleDirective} from './components/animate-toggle/toggle.directive';
 
 // service
-import {LwResourceService} from './components/lw-resource/lw-resource.service';
 import {LwUserService} from './components/lw-user/lw-user.service';
 import {LwApiService} from './components/lw-api/lw-api.service';
 import LwUtilService from './components/lw-util/lw-util.service';
@@ -84,7 +83,6 @@ angular.module('lwTrade', [
     'ngSanitize',
     'ngMessages',
     'ngAria',
-    'ngResource',
     'ui.router',
     'ngDialog',
     'toastr',
@@ -99,7 +97,6 @@ angular.module('lwTrade', [
   .value('$moment', window.moment)
   .config(config)
   .config(routerConfig)
-  .provider('lwResource', LwResourceService)
   .provider('lwApi', LwApiService)
   .provider('lwUser', LwUserService)
   .provider('lwUtil', LwUtilService)
