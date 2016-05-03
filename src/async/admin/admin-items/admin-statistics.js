@@ -4,7 +4,7 @@
 
 let AdminStatisticsComponent = {
   template: require('./admin-statistics.html'),
-  controller: ()=> {
+  controller(){
     'ngInject';
 
   }

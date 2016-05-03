@@ -4,7 +4,7 @@
 
 let AdminUnactiveComponent = {
   template: require('./admin-unactive.html'),
-  controller: ()=> {
+  controller(){
     'ngInject';
   }
 };

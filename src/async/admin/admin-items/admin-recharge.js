@@ -4,7 +4,7 @@
 
 let AdminRechargeComponent = {
   template: require('./admin-recharge.html'),
-  controller: ()=> {
+  controller(){
     'ngInject';
 
   }

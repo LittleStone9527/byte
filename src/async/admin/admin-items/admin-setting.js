@@ -4,7 +4,7 @@
 
 let AdminSettingComponent = {
   template: require('./admin-setting.html'),
-  controller: ()=> {
+  controller(){
     'ngInject';
 
   }

@@ -4,7 +4,7 @@
 
 let AdminItemizedComponent = {
   template: require('./admin-itemized.html'),
-  controller: ()=> {
+  controller(){
     'ngInject';
 
     console.log('itemized init');

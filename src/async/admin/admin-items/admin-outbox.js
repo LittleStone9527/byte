@@ -4,7 +4,7 @@
 
 let AdminOutboxComponent = {
   template: require('./admin-outbox.html'),
-  controller: function () {
+  controller() {
     'ngInject';
 
   }

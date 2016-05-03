@@ -4,7 +4,7 @@
 
 let AdminWithdrawalsComponent = {
   template: require('./admin-withdrawals.html'),
-  controller: ()=> {
+  controller(){
     'ngInject';
   }
 };

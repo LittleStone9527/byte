@@ -4,7 +4,7 @@
 
 let AdminGuideComponent = {
   template: require('./admin-guide.html'),
-  controller: ()=> {
+  controller() {
     'ngInject';
 
     console.log('guide init');

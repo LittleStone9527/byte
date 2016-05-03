@@ -4,7 +4,7 @@
 
 let AdminDashComponent = {
   template: require('./admin-dash.html'),
-  controller: ()=> {
+  controller(){
     'ngInject';
 
     console.log('active init');

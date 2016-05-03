@@ -4,7 +4,7 @@
 
 let AdminRecordComponent = {
   template: require('./admin-record.html'),
-  controller: function () {
+  controller() {
     'ngInject';
 
   }

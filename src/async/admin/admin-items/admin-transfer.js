@@ -4,7 +4,7 @@
 
 let AdminTransferComponent = {
   template: require('./admin-transfer.html'),
-  controller: ()=> {
+  controller(){
     'ngInject';
 
   }

@@ -4,7 +4,7 @@
 
 let AdminDatabaseComponent = {
   template: require('./admin-database.html'),
-  controller: ()=> {
+  controller(){
     'ngInject';
 
     console.log('active init');

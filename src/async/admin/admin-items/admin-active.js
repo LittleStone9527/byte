@@ -4,9 +4,8 @@
 
 let AdminActiveComponent = {
   template: require('./admin-active.html'),
-  controller: ()=> {
+  controller(){
     'ngInject';
-
   }
 };
 

@@ -2,15 +2,12 @@ import {sideBarData} from '../../../app/admin/admin.controller';
 
 // var css = require("!css!sass!./admin-items.scss");
 
-// require('./admin-items.scss');
-
 let AdminItemsComponent = {
-  template: ($stateParams)=> {
+  template($stateParams){
     'ngInject'
-    let partial = $stateParams.partial;
-    return `<admin-${partial}/>`
+    return `<admin-${$stateParams.partial}/>`
   },
-  controller: function ($timeout, $stateParams) {
+  controller($stateParams){
     'ngInject';
 
     let $ctrl = this;
@@ -32,7 +29,6 @@ let AdminItemsComponent = {
       });
 
     };
-
   }
 };
 

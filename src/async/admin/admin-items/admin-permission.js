@@ -4,7 +4,7 @@
 
 let AdminPermissionComponent = {
   template: require('./admin-permission.html'),
-  controller: ()=> {
+  controller(){
     'ngInject';
 
 

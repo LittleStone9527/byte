@@ -4,7 +4,7 @@
 
 let AdminSoldDetailComponent = {
   template: require('./admin-sold-detail.html'),
-  controller: ()=> {
+  controller(){
     'ngInject';
 
   }

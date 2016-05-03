@@ -4,7 +4,7 @@
 
 let AdminInboxComponent = {
   template: require('./admin-inbox.html'),
-  controller: ()=> {
+  controller() {
     'ngInject';
 
     console.log('inbox init');

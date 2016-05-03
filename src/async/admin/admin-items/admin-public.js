@@ -6,7 +6,7 @@ import i18n from '../../../app/lang';
 
 let AdminPublicComponent = {
   template: require('./admin-public.html'),
-  controller: function () {
+  controller() {
     'ngInject';
 
     let $ctrl = this;
