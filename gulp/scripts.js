@@ -9,6 +9,9 @@ var webpack = require('webpack-stream');
 
 var $ = require('gulp-load-plugins')();
 
+var web = require('webpack');
+var commonsPlugin = new web.optimize.CommonsChunkPlugin('common.js');
+// var commonResourcePlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 
 function webpackWrapper(watch, test, callback) {
   var webpackOptions = {
@@ -16,11 +19,34 @@ function webpackWrapper(watch, test, callback) {
     module: {
       preLoaders: [{test: /\.js$/, exclude: /node_modules/, loader: 'eslint-loader'}],
       loaders: [
-        {test: /\.js$/, exclude: /node_modules/, loaders: ['ng-annotate', 'babel-loader?presets[]=es2015']}
-        // {test: /\.js$/,loaders: ['ng-annotate', 'babel-loader?presets[]=es2015']}
+        {test: /\.js$/, exclude: /node_modules/, loaders: ['ng-annotate', 'babel-loader?presets[]=es2015']},
+        {test: /\.html$/, exclude: /node_modules/, loader: "html!html-minify"},
+        {
+          test: /\.(scss|css|sass)$/,
+          loaders: ["sass", "css", "style"]
+        }
+      ],
+      plugins: [
+        commonsPlugin
+        // new web.optimize.CommonsChunkPlugin('common.js')
+        // new commonResourcePlugin("./js/commons.chunk.js")
       ]
     },
-    output: {filename: 'index.module.js'}
+    'html-minify-loader': {
+      empty: true,        // KEEP empty attributes
+      cdata: true,        // KEEP CDATA from scripts
+      comments: true,     // KEEP comments
+      dom: {                            // options of !(htmlparser2)[https://github.com/fb55/htmlparser2]
+        lowerCaseAttributeNames: false,      // do not call .toLowerCase for each attribute name (Angular2 use camelCase attributes)
+      }
+    },
+    // output: {filename: 'index.module.js'}
+    output: {
+      path: path.join(__dirname, "js"),
+      // path: '../',
+      filename: "index.module.js",
+      chunkFilename: "../[id]-[name]-[chunkhash:8].chunk.js"
+    },
   };
 
   if (watch) {

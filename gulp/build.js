@@ -80,6 +80,11 @@ gulp.task('other', function () {
     return file.stat.isFile();
   });
 
+  // 移动server中的异步模块到dist目录
+  gulp.src([conf.paths.tmp + '/serve/*.chunk.js'])
+    .pipe($.uglify({ preserveComments: $.uglifySaveLicense })).on('error', conf.errorHandler('Uglify'))
+    .pipe(gulp.dest(path.join(conf.paths.dist, '/')));
+
   return gulp.src([
     path.join(conf.paths.src, '/**/*'),
     path.join('!' + conf.paths.src, '/**/*.{html,css,js,scss}')
