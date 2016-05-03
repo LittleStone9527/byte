@@ -21,10 +21,8 @@ function webpackWrapper(watch, test, callback) {
       loaders: [
         {test: /\.js$/, exclude: /node_modules/, loaders: ['ng-annotate', 'babel-loader?presets[]=es2015']},
         {test: /\.html$/, exclude: /node_modules/, loader: "html!html-minify"},
-        {
-          test: /\.(scss|css|sass)$/,
-          loaders: ["sass", "css", "style"]
-        }
+        {test: /\.scss$/, loaders: ["style", "css", "sass"]},
+        {test: /\.css$/, loader: "style-loader!css-loader"},
       ],
       plugins: [
         commonsPlugin
