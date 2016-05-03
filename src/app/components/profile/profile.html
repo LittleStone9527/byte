@@ -1,8 +1,8 @@
 <div>
   <p class="mt20">您正在使用的账号为：</p>
   <h4>{{$ctrl.lwUser.profile.nickname}}</h4>
-  <p>USD余额：200.000</p>
-  <p>FBC余额：100.000</p>
+  <p>USD余额：<span>{{$ctrl.USD.balance | number:3}}</span></p>
+  <p>FBC余额：<span>{{$ctrl.FBC.balance | number:3}}</span></p>
   <div class="row">
     <div class="col-xs-6">
       <a ui-sref="finances.items({partial:'recharge'})" class="btn btn-block btn-default">充值</a>

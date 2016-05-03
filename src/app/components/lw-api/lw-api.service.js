@@ -169,6 +169,164 @@ export class LwApiService {
          * method:[get]
          */
         id: $$('captcha-id', '/api/v1/captcha/id')
+      },
+      // 交易
+      deal: {
+
+        /**
+         * type
+         *    0   支付
+         *    1   收益
+         *    2   充值
+         *    3   提现
+         *    4   换币
+         *
+         * status
+         *    0   无效
+         *    1   质疑
+         *    2   处理中
+         *    3   完成
+         *    4   撤销
+         *    5   拒绝
+         */
+
+        /**
+         * 添加交易
+         * method:[post]
+         *
+         * *type        // 非收益，非提现，非换币
+         * *username    // 充值、提现可以不填
+         * *currency    // 钱包currency
+         * *money       // 非负数，非零
+         * [tag]        // 最多16字节
+         */
+        api: $$('deal-api', '/api/v1/deal'),
+
+        /**
+         * 交易列表
+         * method:[get]
+         *
+         *
+         */
+        list: $$('deal-list', '/api/v1/deal/list'),
+        manage: {
+          /**
+           * 充值交易(管理员)
+           * method:[post]
+           *
+           * *username
+           * *currency
+           * *money
+           * [tag]
+           */
+          recharge: $$('deal-man-recharge', '/api/v1/deal/manage/recharge'),
+          /**
+           * 交易列表(管理员)
+           * method:[get]
+           *
+           * [username]
+           */
+          list: $$('deal-man-list', '/api/v1/deal/manage/list?username=:username'),
+          /**
+           * 确认交易(管理员)
+           * method:[put]
+           *
+           * *status    1 or 3 or 4 or 5
+           */
+          confirm: $$('deal-man-confirm', '/api/v1/deal/manage/confirm?id=:id&status=:status')
+        },
+        /**
+         * 确认交易
+         * method:[put]
+         *
+         * *status    3 or 4
+         */
+        confirm: $$('deal-confirm', '/api/v1/deal/confirm?id=:id&status=:status')
+      },
+      // 汇率
+      exchange: {
+        /**
+         * 创建汇率(管理员)
+         * method:[post]
+         *
+         * *currency    货币，非FBC
+         * *rate        浮点数，大于零，公式： 1FBC=货币rate
+         *
+         *
+         * 获取指定汇率
+         * method:[get]
+         * [currency]   指定汇率
+         */
+        rate: $$('exchange-rate', '/api/v1/exchange/rate?currency=:currency'),
+        /**
+         * 获取汇率列表
+         * method:[get]
+         */
+        list: $$('rate-list', '/api/v1/exchange/rate/list')
+      },
+      // 买卖交易
+      stock: {
+        /**
+         * type
+         *    0   买
+         *    1   卖
+         */
+
+        /**
+         * 挂出买卖交易(管理员)
+         * method:[post]
+         *
+         * *type
+         * *currency      交易币种
+         * *stocks
+         *      *amount   开放额度
+         *      *start    起始时间
+         * [limit]        限制购买额度
+         * [count]        限制购买次数
+         * [note]         备注
+         * [start]        起始时间
+         * [finish]       终止时间
+         */
+        api: $$('stock-api', '/api/v1/stock'),
+        /**
+         * 挂出的买卖交易列表
+         * method:[get]
+         */
+        list: $$('stock-list', '/api/v1/stock/list'),
+        /**
+         * 创建买卖交易
+         * method:[post]
+         *
+         * *num           买卖交易num
+         * *currency      支付币种
+         * *money         购买额度
+         */
+        deal: $$('stock-deal', '/api/v1/stock/deal'),
+        /**
+         * 买卖交易列表
+         * method:[get]
+         *
+         * *MetaQuery         "num", "status", "created" // created: 例如20160427
+         * *MetaOrder         "created"，推荐"-created"
+         * *MetaLimit         limit <= 100
+         */
+        dealList: $$('stock-deal-list', '/api/v1/stock/deal/list'),
+
+        manage: {
+          /**
+           * 买卖交易列表(管理员)
+           */
+          list: $$('stock-man-list', '/api/v1/stock/deal/manage/list?username=:username'),
+          /**
+           * 激活挂出的买卖交易(管理员)
+           * method:[post]
+           *
+           * 撤销挂出的买卖交易(管理员)
+           * method:[delete]
+           */
+          one: $$('stock-man-one', '/api/v1/stock/manage/one?num=:num '),
+          confirm:$$('stock-man-confirm')
+        }
       }
     };
 

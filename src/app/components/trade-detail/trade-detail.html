@@ -1,0 +1,49 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">账户明细</h3>
+  </div>
+  <div class="panel-body">
+    <div class="search-tag">
+      <div class="search-tag-li">时间日期：
+        <a class="tag" ng-click="$ctrl.filterDate(333)">今天</a>
+        <a class="tag active" ng-click="$ctrl.filterDate(333)">7天</a>
+        <a class="tag" ng-click="$ctrl.filterDate(333)">15天</a>
+        <a class="tag" ng-click="$ctrl.filterDate(333)">30天</a>
+      </div>
+      <div class="search-tag-li">货币类型：
+        <a class="tag active">USD</a>
+        <a class="tag">FBC</a>
+      </div>
+      <div class="search-tag-li">操作类型：
+        <a class="tag active">全部</a>
+        <a class="tag">充值</a>
+        <a class="tag">提现</a>
+        <a class="tag">转账</a>
+      </div>
+    </div>
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>时间</th>
+        <th>货币</th>
+        <th>类型</th>
+        <th>备注</th>
+        <th>数量</th>
+        <th>余额</th>
+      </tr>
+      </thead>
+      <tbody>
+
+      <tr ng-repeat="d in $ctrl.tradeList">
+        <td>{{d.created | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+        <td>{{d.fromCurrency}}</td>
+        <td>{{d.type}}</td>
+        <td>{{d.tag}}</td>
+        <td>{{d.fromMoney}}</td>
+        <td>{{d.toBalance}}</td>
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>

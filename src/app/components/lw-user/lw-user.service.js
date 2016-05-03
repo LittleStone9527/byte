@@ -12,6 +12,7 @@ export class LwUserService {
     user.isAdmin = false;         // 是否是管理员
     user.profile = {};            // 用户资料
     user.trade = {};              // 交易信息
+    user.wallets = [];            // 钱包列表信息
     user.loginActions = [];       // 登陆操作
     user.logoutActions = [];      // 登出操作
     user.tag = SETTINGS.sessionTag;
@@ -101,6 +102,8 @@ export class LwUserService {
 
       user.profile = {};
 
+      user.wallets = [];
+
       ngStore.remove(user.tag);
 
       lwApi.init();
@@ -149,21 +152,12 @@ export class LwUserService {
       return deferred.promise;
     };
 
-    user.getWallet = ()=> {
+    user.getWallets = ()=> {
       let deferred = $q.defer();
-
-      let promiseList = [];
-
-      promiseList.push(lwApi.user.wallet.info.get({type: 'USD'}).$promise);
-      promiseList.push(lwApi.user.wallet.info.get({type: 'FBC'}).$promise);
-
-      $q.all(promiseList)
+      lwApi.user.wallet.list.get().$promise
         .then((resp)=> {
           deferred.resolve(resp);
-        }, (error)=> {
-          deferred.reject(error);
-        });
-
+        }, (error)=>deferred.reject(error));
       return deferred.promise;
     };
 

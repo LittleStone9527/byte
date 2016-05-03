@@ -3,14 +3,18 @@ export default class LwUtilService {
 
   }
 
-  $get($state, SETTINGS) {
+  $get($state, $stateParams, SETTINGS) {
     'ngInject';
 
     let util = {};
 
     // 初始化meta信息
     util.initMeta = function () {
-
+      return {
+        limit: $stateParams.limit || 10,
+        page: $stateParams.page || 0,
+        skip: $stateParams.skip || 0
+      }
     };
 
     // 翻页触发

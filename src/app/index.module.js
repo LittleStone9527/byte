@@ -37,6 +37,7 @@ import DatePickComponent from './components/date-pick/date-pick.component';
 import ChangePwdComponent from './components/auth-change-pwd/change-pwd';
 import UserListComponent from './components/user-list/user-list.component';
 import Pagination from './components/pagination/pagination';
+import TradeDetailComponent from './components/trade-detail/trade-detail';
 
 // directive
 import {DragPickDirective} from './components/drag-pick/drag-pick.directive';
@@ -51,6 +52,7 @@ import {LwDialogService} from './components/lw-dialog/lw-dialog.service';
 import LwPermissionService from './components/lw-permission/lw-permission.service';
 import QueryService from './components/query/query.service';
 import i18nService from './components/i18n/i18n';
+import LwTradeService from './components/lw-trade/lw-trade.service';
 
 
 angular.module('lwTrade', [
@@ -83,6 +85,7 @@ angular.module('lwTrade', [
   .provider('lwPermission', LwPermissionService)
   .provider('$query', QueryService)
   .provider('i18n', i18nService)
+  .provider('lwTrade', LwTradeService)
 
   .run(runBlock)
 
@@ -112,6 +115,7 @@ angular.module('lwTrade', [
   .component('changePassword', ChangePwdComponent)
   .component('userList', UserListComponent)
   .component('pagination', Pagination)
+  .component('tradeDetail', TradeDetailComponent)
 
   .directive('dragPick', DragPickDirective)
   .directive('menuToggle', ToggleDirective)
