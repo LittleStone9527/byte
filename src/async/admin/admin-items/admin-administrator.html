@@ -1,0 +1,227 @@
+<div class="box box-primary add-admin">
+  <div class="box-header with-border">
+    <h3 class="box-title">添加管理员</h3>
+    <div class="box-tools pull-right">
+      <button class="btn btn-box-tool" slide data-target=".add-admin .slide-box" data-status="false"
+              data-extend-class="ion-minus-round"
+              data-hide-class="ion-plus-round">
+        <i class="ion"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="box-body slide-box">
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label class="col-sm-2 control-label">用户名</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">姓名</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">密码</label>
+        <div class="col-sm-3">
+          <input type="password" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">权限</label>
+        <div class="col-sm-8">
+          <table class="table table-bordered mb0">
+            <tbody>
+            <tr>
+              <td>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> 信息中心
+                </label>
+              </td>
+              <td>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> 发信箱
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> 收信箱
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> 服务条款
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> 公告管理
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> 新手指南
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> 用户管理
+                </label>
+              </td>
+              <td>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> 已激活用户
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> 未激活用户
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> 财务管理
+                </label>
+              </td>
+              <td>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> 充值管理
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> 网银充值记录
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> 提现管理
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> 转帐管理
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> 流水明细
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> 交易管理
+                </label>
+              </td>
+              <td>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> 正在买入的记录
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> 正在卖出的记录
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> 已完结的买入明细
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> 已完结的卖出明细
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> 系统管理
+                </label>
+              </td>
+              <td>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> 管理员设置
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> 统计数据
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> 参数设置
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> 数据库操作
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> 系统登陆控制
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <label class="checkbox-inline">
+                  <input type="checkbox"> 全选
+                </label>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-primary">确定</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="box">
+  <div class="box-header with-border">
+    <h3 class="box-title">管理员列表</h3>
+  </div>
+  <div class="box-body">
+    <form class="form-inline form-search mb10">
+      <div class="form-group">
+        <label>用户名</label>
+        <input type="text" class="form-control">
+      </div>
+      <button type="submit" class="btn btn-default">筛选</button>
+    </form>
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>用户名</th>
+        <th>姓名</th>
+        <th>注册时间</th>
+        <th>操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>531999999999</td>
+        <td>客服</td>
+        <td>2015-10-12 11:00:00</td>
+        <td>
+          <button class="btn btn-primary">修改</button>
+          <button class="btn btn-default">删除</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <!--翻页-->
+    <div class="row">
+      <div class="col-sm-5">
+        <div class="dataTables_info">共57个结果，正在显示1至10个。
+        </div>
+      </div>
+      <div class="col-sm-7">
+        <div class="dataTables_paginate">
+          <ul class="pagination">
+            <li>
+              <a aria-label="Previous">
+                <span aria-hidden="true">上一页</span>
+              </a>
+            </li>
+            <li class="active"><a>1</a></li>
+            <li><a>2</a></li>
+            <li><a>3</a></li>
+            <li>
+              <a aria-label="Next">
+                <span aria-hidden="true">下一页</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

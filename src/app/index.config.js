@@ -1,5 +1,15 @@
-export function config($logProvider, toastrConfig, ngStoreProvider, SETTINGS, $resourceProvider) {
+let register = {};
+
+function config($logProvider, toastrConfig, ngStoreProvider, SETTINGS, $resourceProvider, $controllerProvider, $compileProvider, $filterProvider, $provide) {
   'ngInject';
+
+  register.controller = $controllerProvider.register;
+  register.directive = $compileProvider.directive;
+  register.component = $compileProvider.component;
+  register.filter = $filterProvider.register;
+  register.factory = $provide.factory;
+  register.service = $provide.service;
+
   // Enable log
   $logProvider.debugEnabled(!SETTINGS.isProduct);
 
@@ -28,6 +38,7 @@ export function config($logProvider, toastrConfig, ngStoreProvider, SETTINGS, $r
         }
       }
     });
-  
 
 }
+
+export {config, register}

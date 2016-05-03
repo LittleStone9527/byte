@@ -4,7 +4,7 @@
 
 const SETTINGS = {
   // 基本设置
-  lang: "zh",                                 // 当前语言
+  lang: "zh-CN",                                 // 当前语言
   isDebug: true,                              // 调试模式, 输出信息
   isProduct: false,                           // 生产模式
   isCors: true,                               // 是否跨域请求api
@@ -14,7 +14,8 @@ const SETTINGS = {
   serverCanProxy: true,                       // 服务器是否能访问外部网络
   host: window.location.host,                 // 当前host
   hostApi: 'http://192.168.199.219:1005',     // api host
-  // hostApi: 'http://office.yichui.net:1005',     // api host
+  // hostApi: 'http://222.216.131.244:1005',         // api host
+  // hostApi: 'http://office.yichui.net:1005',         // api host
   hostImgLis: [                               // 图片服务器 阿里云
     ''
   ],

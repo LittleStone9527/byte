@@ -1,4 +1,7 @@
 import i18n from './lang';
+import {register} from './index.config';
+
+let registerAdmin = false;
 
 let defaultVal = class {
   static get params() {
@@ -210,6 +213,49 @@ let router = {
       admin: (login, $q, $state, lwPermission)=> {
         'ngInject';
         (login ? $q.resolve() : $q.reject()).then(()=>lwPermission.admin()).catch(()=>$state.go('404'));
+      },
+      module: ($q)=> {
+        'ngInject';
+
+        let deferred = $q.defer();
+
+        if (registerAdmin === false) {
+          require.ensure('../async/admin/index', function (require) {
+            console.info('load the admin module');
+            let module = require('../async/admin/index');
+            register
+              .component('adminDetail', module.AdminDetailComponent)
+              .component('adminOutbox', module.AdminOutboxComponent)
+              .component('adminActive', module.AdminActiveComponent)
+              .component('adminPublic', module.AdminPublicComponent)
+              .component('adminAdministrator', module.AdminAdministratorComponent)
+              .component('adminBoughtDetail', module.AdminBoughtDetailComponent)
+              .component('adminBuyingDetail', module.AdminBuyingDetailComponent)
+              .component('adminDash', module.AdminDashComponent)
+              .component('adminDatabase', module.AdminDatabaseComponent)
+              .component('adminGuide', module.AdminGuideComponent)
+              .component('adminInbox', module.AdminInboxComponent)
+              .component('adminItemized', module.AdminItemizedComponent)
+              .component('adminPermission', module.AdminPermissionComponent)
+              .component('adminRecharge', module.AdminRechargeComponent)
+              .component('adminRecord', module.AdminRecordComponent)
+              .component('adminSellingDetail', module.AdminSellingDetailComponent)
+              .component('adminSetting', module.AdminSettingComponent)
+              .component('adminSoldDetail', module.AdminSoldDetailComponent)
+              .component('adminStatistics', module.AdminStatisticsComponent)
+              .component('adminTerms', module.AdminTermsComponent)
+              .component('adminTransfer', module.AdminTransferComponent)
+              .component('adminUnactive', module.AdminUnactiveComponent)
+              .component('adminWithdrawals', module.AdminWithdrawalsComponent);
+
+            registerAdmin = true;
+
+            deferred.resolve(true);
+          }, 'admin');
+        } else {
+          deferred.resolve(true);
+        }
+        return deferred.promise;
       }
     },
     $$child: {
