@@ -7,8 +7,6 @@ let AdminGuideComponent = {
   controller() {
     'ngInject';
 
-    console.log('guide init');
-
   }
 };
 

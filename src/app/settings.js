@@ -16,12 +16,8 @@ const SETTINGS = {
   hostApi: 'http://192.168.199.219:1005',     // api host
   // hostApi: 'http://222.216.131.244:1005',         // api host
   // hostApi: 'http://office.yichui.net:1005',         // api host
-  hostImgLis: [                               // 图片服务器 阿里云
-    ''
-  ],
-  hostImgLisLocal: [                          // 图片服务器 本地
-    ''
-  ],
+  hostImgLis: [],
+  hostImgLisLocal: [],
   secureUrl: "admin",                         // 管理员地址
   isInit: false,                              // SETTINGS是否已初始化
 

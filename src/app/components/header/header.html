@@ -5,16 +5,17 @@
         <!--<li><a>资讯</a></li>-->
         <!--<li><a>新手指南</a></li>-->
         <li>
-          <a class="pull-left" target="_blank" href="http://localhost:3000/#!/zh-CN/">中文</a>
-          <a class="pull-right" target="_blank" href="http://localhost:3000/#!/en-US/">ENG</a>
+          <a class="pull-left" ui-state="$state.current.name" ui-state-params="{lang:'zh-CN'}">中文</a>
+          <a class="pull-right" ui-state="$state.current.name" ui-state-params="{lang:'en-US'}">ENG</a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li ng-clock ng-if="!lwUser.isAuth"><a ui-sref="auth.login">登陆</a></li>
-        <li ng-clock ng-if="!lwUser.isAuth"><a ui-sref="auth.register">注册</a></li>
+        <li ng-clock ng-if="!lwUser.isAuth"><a ui-sref="auth.login({lang:lang})">登陆</a></li>
+        <li ng-clock ng-if="!lwUser.isAuth"><a ui-sref="auth.register({lang:lang})">注册</a></li>
         <li ng-click ng-if="lwUser.isAuth"><a href="javascript:void(0);">欢迎您{{lwUser.profile.nickname}}</a></li>
-        <li ng-click ng-if="lwUser.isAdmin"><a ui-sref="admin.items({partial:'dash'})">后台管理</a></li>
-        <li ng-click ng-if="lwUser.isAuth"><a href="javascript:void(0);" ng-click="lwUser.logout()"><i class="ion ion-log-out"></i> 登出</a></li>
+        <li ng-click ng-if="lwUser.isAdmin"><a ui-sref="admin.items({lang:lang,partial:'dash'})">后台管理</a></li>
+        <li ng-click ng-if="lwUser.isAuth"><a href="javascript:void(0);" ng-click="lwUser.logout()"><i
+          class="ion ion-log-out"></i> 登出</a></li>
 
         <!--全站导航-->
         <!--<menu-toggle data-$height="240"></menu-toggle>-->

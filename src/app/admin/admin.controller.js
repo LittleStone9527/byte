@@ -1,10 +1,12 @@
 let sideBarData = [];
 
 class AdminController {
-  constructor($state, lwUser, lwApi) {
+  constructor($state, $stateParams, lwUser, lwApi) {
     'ngInject';
 
     let vm = this;
+
+    vm.lang = $stateParams.lang || null;
 
     sideBarData = [
       {
@@ -15,7 +17,7 @@ class AdminController {
           {title: '收信箱', partial: 'inbox'},
           {title: '服务条款', partial: 'terms'},
           {title: '公告管理', partial: 'public'},
-          {title: '新手指南', partial: 'guide'}
+          {title: '新手指南', partial: 'guider'}
         ]
       },
       {

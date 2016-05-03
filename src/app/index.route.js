@@ -1,5 +1,6 @@
 import i18n from './lang';
 import {register} from './index.config';
+import {SETTINGS} from './settings';
 
 let registerAdmin = false;
 
@@ -198,7 +199,7 @@ let router = {
     }
   },
   admin: {
-    url: '/admin',
+    url: `/${SETTINGS.secureUrl}`,
     views: {
       main: {
         templateUrl: 'app/admin/admin.html',
@@ -233,7 +234,7 @@ let router = {
               .component('adminBuyingDetail', module.AdminBuyingDetailComponent)
               .component('adminDash', module.AdminDashComponent)
               .component('adminDatabase', module.AdminDatabaseComponent)
-              .component('adminGuide', module.AdminGuideComponent)
+              .component('adminGuider', module.AdminGuideComponent)
               .component('adminInbox', module.AdminInboxComponent)
               .component('adminItemized', module.AdminItemizedComponent)
               .component('adminPermission', module.AdminPermissionComponent)
@@ -279,7 +280,6 @@ let router = {
     }
   },
   404: {
-    // url: '/404',
     views: {
       main: {
         templateUrl: 'app/views/404.html'
@@ -295,12 +295,17 @@ let router = {
   }
 };
 
-// 如果url上写有地址
-if (i18n.urlLang) {
-  angular.forEach(router, (v)=> {
-    if (v.url) v.url = '/' + i18n.lang + v.url;
-  });
-}
+angular.forEach(router, (v)=> {
+  if (v.url) {
+    v.url = '/' + '{lang}' + v.url;
+    v.params = {
+      lang: {
+        value: i18n.systemlang,
+        squash: true
+      }
+    }
+  }
+});
 
 export function routerConfig($locationProvider, $stateProvider, $urlRouterProvider, SETTINGS) {
   'ngInject';
@@ -326,9 +331,26 @@ export function routerConfig($locationProvider, $stateProvider, $urlRouterProvid
      * http://www.xxx.com/#!/
      */
     let $state = $injector.get('$state');
-    let target = !$location.path() || $state.current.name === 'home' ? 'home' : '404';
+    let path = $location.path();
 
-    $state.go(target);
+
+    let isLang = false;
+    i18n.supports.forEach((lang)=> {
+      if (path.indexOf(lang) >= 1) {
+        isLang = true;
+      }
+    });
+
+    let target = '';
+    let params = {};
+    if (isLang) {
+      target = 'home';
+      params = {lang: path.replace(/^\/+/i, '')};
+    } else {
+      target = !$location.path() || $state.current.name === 'home' ? 'home' : '404';
+    }
+
+    $state.go(target, params);
 
   });
 }

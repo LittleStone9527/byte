@@ -48,7 +48,7 @@
             </a>
             <ul class="treeview-menu menu-open">
               <li ng-repeat="d2 in d.data track by d2.title" ui-sref-active="active">
-                <a ui-sref="admin.items({partial:d2.partial,limit:null,page:null,skip:null,query:null,order:null})">
+                <a ui-sref="admin.items({lang:vm.lang,partial:d2.partial,limit:null,page:null,skip:null,query:null,order:null})">
                   <i class="ion"
                      ng-class="{'ion-android-radio-button-on':d2.$$active,'ion-android-radio-button-off':!d2.$$active}"></i>
                   {{::d2.title}}
