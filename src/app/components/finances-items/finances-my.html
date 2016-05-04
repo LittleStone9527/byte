@@ -18,6 +18,11 @@
         <td>{{::d.currency}}</td>
         <td>{{::d.balance | number:3}}</td>
         <td>{{::d.frozen | number:3}}</td>
+        <td class="text-right">
+          <a class="btn btn-info" ng-click="$ctrl.drawCash()">提现</a>
+          <a class="btn btn-warning" ng-click="$ctrl.charge()">充值</a>
+          <a class="btn btn-danger" ng-click="$ctrl.transfer()">转账</a>
+        </td>
       </tr>
 
       </tbody>

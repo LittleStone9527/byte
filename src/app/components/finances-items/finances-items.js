@@ -11,7 +11,7 @@ let FinancesItemsComponent = {
     $ctrl.wallets = [];
 
     $ctrl.drawCash = ()=> {
-      alert('draw cash success');
+      alert('draw cash test');
       // lwApi.deal.api.post().$promise
       //   .then(()=> {
       //
