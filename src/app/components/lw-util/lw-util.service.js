@@ -11,9 +11,9 @@ export default class LwUtilService {
     // 初始化meta信息
     util.initMeta = function () {
       return {
-        limit: $stateParams.limit || 10,
-        page: $stateParams.page || 0,
-        skip: $stateParams.skip || 0
+        limit: $stateParams.limit * 1 || 10,
+        page: $stateParams.page * 1 || 0,
+        skip: $stateParams.skip * 1 || 0
       }
     };
 
