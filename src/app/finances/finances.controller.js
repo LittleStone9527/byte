@@ -1,5 +1,5 @@
 export class FinancesController {
-  constructor($scope, $state) {
+  constructor($scope, $state, $stateParams) {
     'ngInject';
 
     let vm = this;
@@ -20,6 +20,16 @@ export class FinancesController {
       {title: '委托管理', partial: 'proxy'},
       {title: '会员转账', partial: 'transfer'}
     ];
+
+    vm.lang = $stateParams.lang;
+
+    vm.params = $stateParams;
+
+    console.log($stateParams);
+
+    console.log($state.current.name);
+
+    console.log($state.includes('finances.items'));
 
   }
 }

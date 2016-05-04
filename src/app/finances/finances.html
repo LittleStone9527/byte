@@ -8,7 +8,8 @@
 
           <a ng-repeat="d in vm.sideBarData track by d.partial"
              ui-sref-active="active"
-             ui-sref="finances.items({partial:d.partial})" class="list-group-item">
+             ui-sref="finances.items({lang:vm.lang,partial:d.partial,query:null,order:null,limit:null,page:null,skip:null})"
+             class="list-group-item">
             {{::d.title}}
           </a>
 

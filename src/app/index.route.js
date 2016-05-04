@@ -64,7 +64,7 @@ let router = {
         url: '/:partial',
         views: {
           trade_items: {
-            template: '<trade-items></trade-items>'
+            template: '<trade-items/>'
           }
         }
       }
@@ -93,7 +93,7 @@ let router = {
         }
       },
       'finances.items': {
-        url: '/:partial',
+        url: '/:partial?:order?:query' + limit,
         views: {
           fin_items: {
             template: '<finances-items/>'
@@ -222,7 +222,6 @@ let router = {
 
         if (registerAdmin === false) {
           require.ensure('../async/admin/index', function (require) {
-            console.info('load the admin module');
             let module = require('../async/admin/index');
             register
               .component('adminDetail', module.AdminDetailComponent)
@@ -248,9 +247,7 @@ let router = {
               .component('adminTransfer', module.AdminTransferComponent)
               .component('adminUnactive', module.AdminUnactiveComponent)
               .component('adminWithdrawals', module.AdminWithdrawalsComponent);
-
             registerAdmin = true;
-
             deferred.resolve(true);
           }, 'admin');
         } else {

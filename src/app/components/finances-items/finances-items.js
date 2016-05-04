@@ -1,6 +1,7 @@
 let FinancesItemsComponent = {
   templateUrl($stateParams){
     'ngInject';
+    console.log($stateParams);
     return `app/components/finances-items/finances-${$stateParams.partial}.html`;
   },
   controller($stateParams, lwApi, lwUser) {

@@ -16,9 +16,7 @@ export default class LwTradeService {
         .then((resp)=> {
           trade.list = resp.data || [];
           deferred.resolve(resp);
-        }, (error)=> {
-          deferred.reject(error);
-        });
+        }, (error)=> deferred.reject(error));
       return deferred.promise;
     };
 
