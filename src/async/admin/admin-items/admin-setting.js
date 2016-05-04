@@ -63,6 +63,22 @@ let AdminSettingComponent = {
 
       getExchangeList();
 
+      lwApi.stock.api.post({
+        type: 0,
+        currency: 'USD',
+        stocks: {
+          amount: 1000,
+          start: ''
+        },
+        start: '20160504',
+        finish: '20160506'
+      }).$promise
+        .then((resp)=> {
+          console.log(resp);
+        }, (error)=> {
+          console.error(error);
+        });
+
     };
 
   }
