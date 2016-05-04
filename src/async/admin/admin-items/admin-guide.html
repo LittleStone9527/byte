@@ -26,8 +26,8 @@
       <div class="box-header with-border">
         <h3 class="box-title">新手指南</h3>
         <div class="box-tools pull-right">
-          <a class="btn btn-box-tool active" ng-class="{active:$ctrl.lang === 'zh-CN'}" ng-click="$ctrl.lang ='zh-CN'">中文</a>
-          <a class="btn btn-box-tool" ng-class="{active:$ctrl.lang === 'en-US'}" ng-click="$ctrl.lang  = 'en-US'">English</a>
+          <a class="btn btn-box-tool" ng-class="{active:$ctrl.lang==='zh-CN'}" ng-click="$ctrl.lang='zh-CN'">中文</a>
+          <a class="btn btn-box-tool" ng-class="{active:$ctrl.lang==='en-US'}" ng-click="$ctrl.lang='en-US'">English</a>
         </div>
       </div>
       <div class="box-body" ng-show="$ctrl.lang==='zh-CN'">
@@ -123,8 +123,8 @@
   <div class="box-header with-border">
     <h3 class="box-title">添加文章</h3>
     <div class="box-tools pull-right">
-      <a class="btn btn-box-tool" ng-class="{active:$ctrl.lang2 === 'zh-CN'}" ng-click="$ctrl.lang2='zh-CN'">中文</a>
-      <a class="btn btn-box-tool" ng-class="{active:$ctrl.lang2 === 'en-US'}" ng-click="$ctrl.lang2='en-US'">English</a>
+      <a class="btn btn-box-tool" ng-class="{active:$ctrl.lang2==='zh-CN'}" ng-click="$ctrl.lang2='zh-CN'">中文</a>
+      <a class="btn btn-box-tool" ng-class="{active:$ctrl.lang2==='en-US'}" ng-click="$ctrl.lang2='en-US'">English</a>
     </div>
   </div>
   <form>
