@@ -23,13 +23,5 @@ export class FinancesController {
 
     vm.lang = $stateParams.lang;
 
-    vm.params = $stateParams;
-
-    console.log($stateParams);
-
-    console.log($state.current.name);
-
-    console.log($state.includes('finances.items'));
-
   }
 }
