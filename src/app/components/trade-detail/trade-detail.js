@@ -5,7 +5,9 @@ let TradeDetailComponent = {
 
     let $ctrl = this;
 
-    let _dataFormat = 'YYYYMMDD';
+    const _dataFormat = 'YYYYMMDD';
+
+    const STATENAME = $state.current.name;
 
     $ctrl.tradeList = [];
     $ctrl.tradeListMeta = lwUtil.initMeta();
@@ -15,9 +17,7 @@ let TradeDetailComponent = {
     let _nowDay = _nowDate.date();
 
     let days = {
-      "-1": _nowDate.clone().date(_nowDay + 1).format(_dataFormat),
       0: _nowDate.clone().format(_dataFormat),
-      1: _nowDate.clone().date(_nowDay - 1).format(_dataFormat),
       7: _nowDate.clone().date(_nowDay - 7).format(_dataFormat),
       15: _nowDate.clone().date(_nowDay - 15).format(_dataFormat),
       30: _nowDate.clone().date(_nowDay - 30).format(_dataFormat)
@@ -27,16 +27,17 @@ let TradeDetailComponent = {
       {
         "%and": {
           "%eq": {
-            status: 3
+            status: 3,
+            currency: 'USD'
           },
           "%ne": {
             type: -1
           },
-          // 不大于
+          // 不大于:今天
           "%lte": {
             created: days[0]
           },
-          // 不小于
+          // 不小于:七天前
           "%gte": {
             created: days[7]
           }
@@ -46,31 +47,26 @@ let TradeDetailComponent = {
         "%o": ['-created']
       },
       {
-        "%l": $ctrl.tradeListMeta.limit
+        // "%l": $ctrl.tradeListMeta.limit
+        "%l": 100
       }
     ];
-
-
     $ctrl.query = query;
 
-    let _query = $query.parse($stateParams.query);
+    angular.extend(query[0], $query.parse($stateParams.query));
 
-    query[0] = $stateParams.query && angular.isObject(_query) && Object.keys(_query) ? _query : query[0];
-
+    // 几天前
     let _gteDay = query[0]["%and"]["%gte"].created;
-
-    _gteDay = $moment(_gteDay, _dataFormat);
+    let gteDayObj = $moment(_gteDay, _dataFormat);
     // 相差的时间ms
-    let _diffTimes = $moment(days[0], [_dataFormat]).diff(_gteDay);
-    // 相差多少天
+    let _diffTimes = $moment(days[0], [_dataFormat]).diff(gteDayObj);
+    // 最终结果:相差多少天
     $ctrl.diffDays = _diffTimes / (1000 * 3600 * 24);
 
     // 按照时间筛选
     $ctrl.filterDate = (skipDay)=> {
       query[0]['%and']['%gte'].created = days[skipDay];
-      $state.go($state.current.name, angular.merge($stateParams, {
-        query: $query.stringify(query[0])
-      }));
+      GOGO();
     };
 
     // 按照类型筛选
@@ -84,12 +80,20 @@ let TradeDetailComponent = {
         if (query[0]['%and']['%ne']) delete query[0]['%and']['%ne'];
         query[0]['%and']['%eq'].type = type;
       }
-      $ctrl.$onInit();
+      GOGO()
     };
 
     // 按照货币筛选
     $ctrl.filterCurrency = (currency)=> {
-      console.log(currency);
+      query[0]['%and']['%eq'].currency = currency;
+      GOGO();
+    };
+
+    // 跳转
+    const GOGO = function () {
+      $state.go(STATENAME, angular.merge($stateParams, {
+        query: $query.stringify(query[0])
+      }));
     };
 
     $ctrl.$onInit = ()=> {
