@@ -9,7 +9,7 @@
         <td><label>FBC比率</label></td>
         <td>
           <div class="form-inline">
-            当前 1FBC= <input type="text" class="form-control"> USD
+            当前 1FBC= <input type="text" class="form-control" ng-model="$ctrl.form.ex[0].rate"> USD
           </div>
         </td>
         <td>
@@ -74,7 +74,7 @@
       <tr>
         <td></td>
         <td colspan="2">
-          <button type="submit" class="btn btn-primary">确定</button>
+          <button type="submit" class="btn btn-primary" ng-click="$ctrl.submit($ctrl.form)">确定</button>
           <button type="submit" class="btn btn-default">重置参数</button>
         </td>
       </tr>
