@@ -47,7 +47,7 @@ let router = {
       }
     },
     resolve: {
-      login: ($q, $state, lwPermission)=> {
+      login($q, $state, lwPermission){
         'ngInject';
         return lwPermission.login().then(()=>$q.resolve(), ()=>$q.reject()).catch(()=>$state.go('auth.login'));
       }
@@ -55,17 +55,13 @@ let router = {
     $$child: {
       'trade.home': {
         views: {
-          trade_items: {
-            templateUrl: componentsPath + '/trade-items/trade-home.html'
-          }
+          trade_items: {templateUrl: componentsPath + '/trade-items/trade-home.html'}
         }
       },
       'trade.items': {
         url: '/:partial',
         views: {
-          trade_items: {
-            template: '<trade-items/>'
-          }
+          trade_items: {template: '<trade-items/>'}
         }
       }
     }
@@ -79,7 +75,7 @@ let router = {
       }
     },
     resolve: {
-      login: ($q, $state, lwPermission)=> {
+      login($q, $state, lwPermission) {
         'ngInject';
         return lwPermission.login().then(()=>$q.resolve(), ()=>$q.reject()).catch(()=>$state.go('auth.login'));
       }
@@ -87,17 +83,13 @@ let router = {
     $$child: {
       'finances.home': {
         views: {
-          fin_items: {
-            templateUrl: componentsPath + '/finances-items/finances-home.html'
-          }
+          fin_items: {templateUrl: componentsPath + '/finances-items/finances-home.html'}
         }
       },
       'finances.items': {
         url: '/:partial?:order?:query' + limit,
         views: {
-          fin_items: {
-            template: '<finances-items/>'
-          }
+          fin_items: {template: '<finances-items/>'}
         }
       }
     }
@@ -111,7 +103,7 @@ let router = {
       }
     },
     resolve: {
-      login: ($q, $state, lwPermission)=> {
+      login($q, $state, lwPermission) {
         'ngInject';
         return lwPermission.login().then(()=>$q.resolve(), ()=>$q.reject()).catch(()=>$state.go('auth.login'));
       }
@@ -140,7 +132,7 @@ let router = {
       }
     },
     resolve: {
-      unLogin: ($q, lwPermission)=> {
+      unLogin($q, lwPermission) {
         'ngInject';
         return lwPermission.login().then(()=> $q.reject(), ()=>$q.resolve());
       }
@@ -149,33 +141,25 @@ let router = {
       'auth.register': {
         url: '/register?:from?',
         views: {
-          auth_items: {
-            template: '<register-form/>'
-          }
+          auth_items: {template: '<register-form/>'}
         }
       },
       'auth.login': {
         url: '/login',
         views: {
-          auth_items: {
-            template: '<login-form/>'
-          }
+          auth_items: {template: '<login-form/>'}
         }
       },
       'auth.forget': {
         url: '/forget',
         views: {
-          auth_items: {
-            template: '<auth-forget/>'
-          }
+          auth_items: {template: '<auth-forget/>'}
         }
       },
       'auth.active': {
         url: '/active',
         views: {
-          auth_items: {
-            template: '<active-form/>'
-          }
+          auth_items: {template: '<active-form/>'}
         }
       }
     }
@@ -207,15 +191,15 @@ let router = {
       }
     },
     resolve: {
-      login: ($q, $state, lwPermission)=> {
+      login($q, $state, lwPermission) {
         'ngInject';
         return lwPermission.login().then(()=>$q.resolve(true), ()=>$q.reject(false)).catch(()=>$state.go('404'));
       },
-      admin: (login, $q, $state, lwPermission)=> {
+      admin(login, $q, $state, lwPermission) {
         'ngInject';
         (login ? $q.resolve() : $q.reject()).then(()=>lwPermission.admin()).catch(()=>$state.go('404'));
       },
-      module: ($q)=> {
+      module($q) {
         'ngInject';
 
         let deferred = $q.defer();
@@ -261,17 +245,13 @@ let router = {
         url: '/:partial?:order?:query' + limit,
         params: defaultVal.params,
         views: {
-          admin_items: {
-            template: '<admin-items></admin-items>'
-          }
+          admin_items: {template: '<admin-items></admin-items>'}
         }
       },
       'admin.detail': {
         url: '/:partial/:sub?:username?',
         views: {
-          admin_items: {
-            template: '<admin-detail></admin-detail>'
-          }
+          admin_items: {template: '<admin-detail></admin-detail>'}
         }
       }
     }
@@ -315,13 +295,13 @@ export function routerConfig($locationProvider, $stateProvider, $urlRouterProvid
    * @param route 遍历的配置项目
    */
   (function endLessRouter(route) {
-    angular.forEach(route, function (config, stateName) {
+    angular.forEach(route, (config, stateName) => {
       $stateProvider.state(stateName, config);
       config.$$child && endLessRouter(config.$$child);
     });
   })(router);
 
-  $urlRouterProvider.otherwise(function ($injector, $location) {
+  $urlRouterProvider.otherwise(($injector, $location)=> {
     /**
      * http://www.xxx.com
      * 跳转到
