@@ -5,7 +5,7 @@ let TradeDetailComponent = {
 
     let $ctrl = this;
 
-    const _dataFormat = 'YYYYMMDD';
+    const _dataFormat = 'YYYYMMDDHHmmss';
 
     const STATENAME = $state.current.name;
 
@@ -17,10 +17,11 @@ let TradeDetailComponent = {
     let _nowDay = _nowDate.date();
 
     let days = {
-      0: _nowDate.clone().format(_dataFormat),
-      7: _nowDate.clone().date(_nowDay - 7).format(_dataFormat),
-      15: _nowDate.clone().date(_nowDay - 15).format(_dataFormat),
-      30: _nowDate.clone().date(_nowDay - 30).format(_dataFormat)
+      0: _nowDate.clone().hour(0).minute(0).second(0).format(_dataFormat),
+      7: _nowDate.clone().date(_nowDay - 7).hour(0).minute(0).second(0).format(_dataFormat),
+      15: _nowDate.clone().date(_nowDay - 15).hour(0).minute(0).second(0).format(_dataFormat),
+      30: _nowDate.clone().date(_nowDay - 30).hour(0).minute(0).second(0).format(_dataFormat),
+      max: _nowDate.clone().hour(23).minute(0).second(0).format(_dataFormat)
     };
 
     let query = [
@@ -35,7 +36,7 @@ let TradeDetailComponent = {
           },
           // 不大于:今天
           "%lte": {
-            created: days[0]
+            created: days.max
           },
           // 不小于:七天前
           "%gte": {
@@ -48,12 +49,19 @@ let TradeDetailComponent = {
       },
       {
         // "%l": $ctrl.tradeListMeta.limit
-        "%l": 100
+        "%l": 10,
+        "%p": 0,
+        "%s": 0
       }
     ];
     $ctrl.query = query;
 
     angular.extend(query[0], $query.parse($stateParams.query));
+    angular.extend(query[2], {
+      '%l': $stateParams.limit * 1 || 10,
+      '%p': $stateParams.page * 1 || 0,
+      '%s': $stateParams.skip * 1 || 0
+    });
 
     // 几天前
     let _gteDay = query[0]["%and"]["%gte"].created;
@@ -61,7 +69,7 @@ let TradeDetailComponent = {
     // 相差的时间ms
     let _diffTimes = $moment(days[0], [_dataFormat]).diff(gteDayObj);
     // 最终结果:相差多少天
-    $ctrl.diffDays = _diffTimes / (1000 * 3600 * 24);
+    $ctrl.diffDays = parseInt(_diffTimes / (1000 * 3600 * 24), 10);
 
     // 按照时间筛选
     $ctrl.filterDate = (skipDay)=> {
@@ -93,8 +101,11 @@ let TradeDetailComponent = {
     const GOGO = function () {
       $state.go(STATENAME, angular.merge($stateParams, {
         query: $query.stringify(query[0])
-      }));
+      }, {page: 0}));
     };
+
+    // 翻页
+    $ctrl.pageTrigger = page=> $state.go($state.current.name, angular.merge($stateParams, {page}));
 
     $ctrl.$onInit = ()=> {
       // 交易列表

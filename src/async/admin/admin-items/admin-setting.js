@@ -22,6 +22,8 @@ let AdminSettingComponent = {
       ]
     };
 
+    $ctrl.hand = {};
+
     $ctrl.setExchange = ({currency, rate}={})=> {
       var deferred = $q.defer();
       if (!currency || !rate) return false;
@@ -59,25 +61,32 @@ let AdminSettingComponent = {
     };
 
 
-    $ctrl.$onInit = ()=> {
-
-      getExchangeList();
-
+    // 手动挂出交易
+    $ctrl.addTrade = (data)=> {
       lwApi.stock.api.post({
-        type: 0,
-        currency: 'USD',
-        stocks: {
-          amount: 1000,
-          start: ''
-        },
-        start: '20160504',
-        finish: '20160506'
+        type: Number(data.type),
+        currency: data.currency,
+        // stocks: {
+        //   amount: 10000,
+        //   start: '201605051010'
+        // },
+        stocks: [
+          10000, '201605051010'
+        ],
+        price: data.price * 1,
+        start: '201605051010',
+        finish: '201605203010'
       }).$promise
         .then((resp)=> {
           console.log(resp);
-        }, (error)=> {
-          console.error(error);
+        }, (err)=> {
+          console.error(err);
         });
+    };
+
+    $ctrl.$onInit = ()=> {
+
+      getExchangeList();
 
     };
 

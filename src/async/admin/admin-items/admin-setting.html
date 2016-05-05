@@ -1,3 +1,63 @@
+<div class="box box-primary hand-setting">
+  <div class="box-header with-border">
+    <h3 class="box-title">手动设置</h3>
+    <div class="box-tools pull-right">
+      <button class="btn btn-box-tool" slide data-target=".hand-setting .slide-box" data-status="false"
+              data-extend-class="ion-minus-round"
+              data-hide-class="ion-plus-round">
+        <i class="ion"></i>
+      </button>
+    </div>
+  </div>
+  {{$ctrl.hand | json}}
+  <div class="box-body slide-box">
+    <form class="form-horizontal" ng-submit="$ctrl.addTrade($ctrl.hand)">
+      <div class="form-group">
+        <label class="col-sm-2 control-label">交易类型</label>
+        <div class="col-sm-3">
+          <label>
+            买
+            <input type="radio" name="type" ng-model="$ctrl.hand.type" value="0">
+          </label>
+          <label>
+            卖
+            <input type="radio" name="type" ng-model="$ctrl.hand.type" value="1">
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">交易币种</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" ng-model="$ctrl.hand.currency">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">单价</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" ng-model="$ctrl.hand.price">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">起始时间</label>
+        <div class="col-sm-3">
+          <input type="password" class="form-control" ng-model="$ctrl.hand.start">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">终止时间</label>
+        <div class="col-sm-3">
+          <input type="password" class="form-control" ng-model="$ctrl.hand.finish">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-primary">挂出买卖</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
 <div class="box">
   <div class="box-header with-border">
     <h3 class="box-title">参数设置</h3>
@@ -82,3 +142,4 @@
     </table>
   </div>
 </div>
+

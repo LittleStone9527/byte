@@ -88,6 +88,7 @@ let router = {
       },
       'finances.items': {
         url: '/:partial?:order?:query' + limit,
+        params: defaultVal.params,
         views: {
           fin_items: {template: '<finances-items/>'}
         }

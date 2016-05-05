@@ -214,12 +214,13 @@ export class LwApiService {
            * 充值交易(管理员)
            * method:[post]
            *
+           * *type        2 or 5
            * *username
            * *currency
            * *money
            * [tag]
            */
-          recharge: $$('deal-man-recharge', '/api/v1/deal/manage/recharge'),
+          api: $$('deal-man-recharge', '/api/v1/deal/manage'),
           /**
            * 交易列表(管理员)
            * method:[get]

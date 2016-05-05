@@ -19,8 +19,20 @@ let AdminRechargeComponent = {
         return false;
       }
 
-      lwApi.deal.manage.recharge.post({
-        username, money: money * 1, currency, tag
+      money = money * 1;
+
+      let type;
+
+      if (money > 0) {
+        type = 2;
+      } else {
+        type = 5;
+      }
+
+      money = Math.abs(money);
+
+      lwApi.deal.manage.api.post({
+        type, username, money: money * 1, currency, tag
       }).$promise
         .then(()=> {
           lwDialog.success();
