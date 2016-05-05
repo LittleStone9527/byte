@@ -54,6 +54,13 @@ export default class LwTradeService {
       return deferred.promise;
     };
 
+    trade.removeStock = (num)=> {
+      let deferred = $q.defer();
+      lwApi.stock.manage.one.remove({num}).$promise
+        .then((resp)=>deferred.resolve(resp), (error)=>deferred.reject(error));
+      return deferred.promise;
+    };
+
     return trade;
 
   }

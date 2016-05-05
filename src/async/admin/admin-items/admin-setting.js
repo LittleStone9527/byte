@@ -52,6 +52,18 @@ let AdminSettingComponent = {
       return deferred.promise;
     }
 
+    // 获取已挂出的交易列表
+    function getStockList() {
+      let deferred = $q.defer();
+      lwTrade.getStockList()
+        .then((resp) => {
+          $ctrl.stockList = resp.data;
+          $ctrl.stockListMeta = resp.meta;
+          deferred.resolve(resp);
+        }, (error)=>deferred.reject(error));
+      return deferred.promise;
+    }
+
     // 提交所有配置
     $ctrl.submit = function (data) {
 
@@ -59,7 +71,6 @@ let AdminSettingComponent = {
 
       $ctrl.setExchange({currency, rate: rate * 1});
     };
-
 
     // 手动挂出交易
     $ctrl.addTrade = (form)=> {
@@ -82,14 +93,35 @@ let AdminSettingComponent = {
         .then(()=> {
           $ctrl.hand = {};
           form.$setPristine();
+          return getStockList();
         }, (error)=> {
           lwDialog.error(error.data.error);
         });
     };
 
+
+    // 手动撤销挂出的交易
+    $ctrl.removeStock = (num)=> {
+      lwDialog.confirm()
+        .then(()=> {
+          return lwTrade.removeStock(num);
+        })
+        .then(()=> {
+          lwDialog.success('Remove Success');
+          return getStockList();
+        });
+    };
+
+    // 激活交易
+    $ctrl.activeStock = ()=> {
+
+    };
+
     $ctrl.$onInit = ()=> {
 
       getExchangeList();
+
+      getStockList();
 
     };
 

@@ -55,6 +55,36 @@
         </div>
       </div>
     </form>
+
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>交易编号</th>
+        <th>交易类型</th>
+        <th>币种</th>
+        <th>单价</th>
+        <th>剩余</th>
+        <th>操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="d in $ctrl.stockList">
+        <td>{{d.num}}</td>
+        <td ng-switch="d.type">
+          <span ng-switch-when="0">买入</span>
+          <span ng-switch-when="1">卖出</span>
+        </td>
+        <td>{{d.currency}}</td>
+        <td>{{d.price}}</td>
+        <td>{{d.balance}}</td>
+        <td>
+          <a class="btn btn-default" href="javascript:void(0);" ng-click="$ctrl.removeStock(d.num)">撤销</a>
+          <a class="btn btn-default" href="javascript:void(0);">激活</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
   </div>
 </div>
 

@@ -325,7 +325,7 @@ export class LwApiService {
            * 撤销挂出的买卖交易(管理员)
            * method:[delete]
            */
-          one: $$('stock-man-one', '/api/v1/stock/manage/one?num=:num '),
+          one: $$('stock-man-one', '/api/v1/stock/manage/one?num=:num'),
           confirm:$$('stock-man-confirm')
         }
       }
