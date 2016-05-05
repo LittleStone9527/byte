@@ -19,23 +19,5 @@ export class TradeController {
       {title: '交易记录', partial: 'record'}
     ];
 
-    vm.tradeList = [];
-    vm.tradeListMeta = lwUtil.initMeta();
-
-    // 获取挂出的买卖交易列表
-    function getTradeList() {
-      let deferred = $q.defer();
-      lwApi.stock.list.get().$promise
-        .then((resp)=> {
-          console.log(resp);
-          vm.tradeList = resp.data;
-          vm.tradeListMeta = resp.meta;
-          deferred.resolve(resp);
-        }, (error)=> deferred.reject(error));
-      return deferred.promise;
-    }
-
-    getTradeList();
-
   }
 }

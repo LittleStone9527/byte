@@ -64,12 +64,9 @@ let AdminSettingComponent = {
     // 手动挂出交易
     $ctrl.addTrade = (data)=> {
       lwApi.stock.api.post({
-        type: Number(data.type),
+        // type: Number(data.type),
+        type: data.type,
         currency: data.currency,
-        // stocks: {
-        //   amount: 10000,
-        //   start: '201605051010'
-        // },
         stocks: [
           10000, '201605051010'
         ],
