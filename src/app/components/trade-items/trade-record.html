@@ -15,16 +15,31 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>2016-11-12 14:12:14</td>
-        <td>卖出</td>
-        <td>$0.124</td>
-        <td>45</td>
-        <td>$4.5</td>
-        <td>$0.045</td>
+
+
+      <!--<tr>-->
+      <!--<td>2016-11-12 14:12:14</td>-->
+      <!--<td>卖出</td>-->
+      <!--<td>$0.124</td>-->
+      <!--<td>45</td>-->
+      <!--<td>$4.5</td>-->
+      <!--<td>$0.045</td>-->
+      <!--</tr>-->
+
+      <tr ng-repeat="d in $ctrl.latest">
+        <td>{{d.created | date:'yyyy:MM:dd HH:mm:ss'}}</td>
+        <td ng-switch="d.type">
+          <span ng-switch-when="0">买入</span>
+          <span ng-switch-when="1">卖出</span>
+        </td>
+        <td>${{d.price | number:3}}</td>
+        <td>{{d.count}}</td>
+        <td>${{d.price * d.count | number:3}}</td>
+        <td>null</td>
       </tr>
       </tbody>
     </table>
+    <pagination meta="$ctrl.latestMeta" trigger="$ctrl.pageTrigger"/>
   </div>
 
 </div>

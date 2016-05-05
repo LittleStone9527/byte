@@ -59,7 +59,7 @@ let router = {
         }
       },
       'trade.items': {
-        url: '/:partial',
+        url: '/:partial?:order?:query' + limit,
         views: {
           trade_items: {template: '<trade-items/>'}
         }

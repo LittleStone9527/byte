@@ -4,7 +4,7 @@ let TradeItemsComponent = {
     let tpl = $attrs.template || $stateParams.partial;
     return `app/components/trade-items/trade-${tpl}.html`;
   },
-  controller($stateParams, $q, lwUtil, lwTrade, lwApi) {
+  controller($scope, $state, $stateParams, $q, lwUtil, lwTrade) {
     'ngInject';
 
     let $ctrl = this;
@@ -13,14 +13,11 @@ let TradeItemsComponent = {
     $ctrl.stockListMeta = lwUtil.initMeta();
     $ctrl.latest = [];
     $ctrl.latestMeta = lwUtil.initMeta();
+    console.log($ctrl.latestMeta);
 
     let query = [
       {
         '%and': {
-          // '%eq': {
-          //   num: '160505154701',
-          //   status: 0
-          // },
           '%ne': {
             num: '0'
           }
@@ -30,9 +27,25 @@ let TradeItemsComponent = {
         '%o': ['-created']
       },
       {
-        '%l': 10
+        '%l': $ctrl.latestMeta.limit || 10,
+        '%p': $ctrl.latestMeta.page || 0,
+        '%s': $ctrl.latestMeta.skip || 0
       }
     ];
+
+    let getDealList = ()=> {
+      lwTrade.dealList(query)
+        .then((resp)=> {
+          console.log(resp.data);
+          $scope.$apply(()=> {
+            $ctrl.latest = resp.data;
+            $ctrl.latestMeta = resp.meta;
+          });
+        });
+    };
+
+    // 翻页
+    $ctrl.pageTrigger = page=> $state.go($state.current.name, angular.merge($stateParams, {page}));
 
     $ctrl.$onInit = ()=> {
       switch ($stateParams.partial) {
@@ -42,27 +55,10 @@ let TradeItemsComponent = {
               $ctrl.stockList = resp.data;
               $ctrl.stockListMeta = resp.meta;
             });
-
-          // 最近交易记录
-          // lwApi.stock.dealList.get({}, {
-          //   headers: {
-          //     'Meta-Query': JSON.stringify(query)
-          //   }
-          // }).$promise
-          //   .then((resp)=> {
-          //     $ctrl.latest = resp.data;
-          //     $ctrl.latestMeta = resp.meta;
-          //   }, (error)=> {
-          //     console.error(error);
-          //   });
-
-          lwTrade.dealList(query)
-            .then((resp)=> {
-              $ctrl.latest = resp.data;
-              $ctrl.latestMeta = resp.meta;
-              console.log($ctrl.latest);
-            });
-
+          getDealList();
+          break;
+        case 'record':
+          getDealList();
           break;
         default:
       }
