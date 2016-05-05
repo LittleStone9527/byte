@@ -19,9 +19,10 @@
         <td>{{::d.balance | number:3}}</td>
         <td>{{::d.frozen | number:3}}</td>
         <td class="text-right">
-          <a ng-clock ng-if="d.currency!=='FBC'" class="btn btn-info" ng-click="$ctrl.drawCash()">提现</a>
-          <a ng-clock ng-if="d.currency!=='FBC'" class="btn btn-warning" ng-click="$ctrl.charge()">充值</a>
-          <a class="btn btn-danger" ng-click="$ctrl.transfer()">转账</a>
+          <a ng-clock ng-if="d.currency!=='FBC'" class="btn btn-info" ui-sref="finances.items({partial:'withdrawals'})">提现</a>
+          <!--<a ng-clock ng-if="d.currency!=='FBC'" class="btn btn-warning" ng-click="$ctrl.charge()">充值</a>-->
+          <a ng-clock ng-if="d.currency!=='FBC'" class="btn btn-warning" ui-sref="finances.items({partial:'recharge'})">充值</a>
+          <a class="btn btn-danger" ui-sref="finances.items({partial:'transfer'})">转账</a>
         </td>
       </tr>
 
