@@ -54,6 +54,11 @@ export default class LwTradeService {
       return deferred.promise;
     };
 
+    trade.dealList = (metaQuery)=> {
+      // 最近交易记录
+      return lwApi.stock.dealList.get({}, {headers: {'Meta-Query': JSON.stringify(metaQuery)}}).$promise;
+    };
+
     trade.removeStock = (num)=> {
       let deferred = $q.defer();
       lwApi.stock.manage.one.remove({num}).$promise

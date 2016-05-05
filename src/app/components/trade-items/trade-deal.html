@@ -34,13 +34,17 @@
       </thead>
       <tbody>
 
-      <tr>
-        <td>14:12:14</td>
-        <td>卖出</td>
-        <td>$0.124</td>
-        <td>45</td>
-        <td>$1324.011</td>
+      <tr ng-repeat="d in $ctrl.latest">
+        <td>{{d.created | date:'yyyy:MM:dd HH:mm:ss'}}</td>
+        <td ng-switch="d.type">
+          <span ng-switch-when="0">买入</span>
+          <span ng-switch-when="1">卖出</span>
+        </td>
+        <td>${{d.price | number:3}}</td>
+        <td>{{d.count}}</td>
+        <td>${{d.price * d.count | number:3}}</td>
       </tr>
+
       </tbody>
     </table>
   </div>
