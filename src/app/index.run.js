@@ -9,9 +9,6 @@ export function runBlock($rootScope, $state, $moment, lwUser) {
 
   $rootScope.$on('$stateChangeError', ()=> $state.go('error'));
 
-  $rootScope.$on('$stateChangeStart', (e)=> {
-  });
-
   $moment.locale('zh-CN');
 
 

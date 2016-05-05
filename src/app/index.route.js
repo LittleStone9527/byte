@@ -202,36 +202,36 @@ let router = {
       },
       module($q) {
         'ngInject';
-
         let deferred = $q.defer();
 
         if (registerAdmin === false) {
-          require.ensure('../async/admin/index', function (require) {
-            let module = require('../async/admin/index');
+          require.ensure([], function (require) {
+            let m = require('../async/admin/index');
             register
-              .component('adminDetail', module.AdminDetailComponent)
-              .component('adminOutbox', module.AdminOutboxComponent)
-              .component('adminActive', module.AdminActiveComponent)
-              .component('adminPublic', module.AdminPublicComponent)
-              .component('adminAdministrator', module.AdminAdministratorComponent)
-              .component('adminBoughtDetail', module.AdminBoughtDetailComponent)
-              .component('adminBuyingDetail', module.AdminBuyingDetailComponent)
-              .component('adminDash', module.AdminDashComponent)
-              .component('adminDatabase', module.AdminDatabaseComponent)
-              .component('adminGuider', module.AdminGuideComponent)
-              .component('adminInbox', module.AdminInboxComponent)
-              .component('adminItemized', module.AdminItemizedComponent)
-              .component('adminPermission', module.AdminPermissionComponent)
-              .component('adminRecharge', module.AdminRechargeComponent)
-              .component('adminRecord', module.AdminRecordComponent)
-              .component('adminSellingDetail', module.AdminSellingDetailComponent)
-              .component('adminSetting', module.AdminSettingComponent)
-              .component('adminSoldDetail', module.AdminSoldDetailComponent)
-              .component('adminStatistics', module.AdminStatisticsComponent)
-              .component('adminTerms', module.AdminTermsComponent)
-              .component('adminTransfer', module.AdminTransferComponent)
-              .component('adminUnactive', module.AdminUnactiveComponent)
-              .component('adminWithdrawals', module.AdminWithdrawalsComponent);
+              .component('adminDetail', m.AdminDetailComponent)
+              .component('adminOutbox', m.AdminOutboxComponent)
+              .component('adminActive', m.AdminActiveComponent)
+              .component('adminPublic', m.AdminPublicComponent)
+              .component('adminAdministrator', m.AdminAdministratorComponent)
+              .component('adminBoughtDetail', m.AdminBoughtDetailComponent)
+              .component('adminBuyingDetail', m.AdminBuyingDetailComponent)
+              .component('adminDash', m.AdminDashComponent)
+              .component('adminDatabase', m.AdminDatabaseComponent)
+              .component('adminGuider', m.AdminGuideComponent)
+              .component('adminInbox', m.AdminInboxComponent)
+              .component('adminItemized', m.AdminItemizedComponent)
+              .component('adminPermission', m.AdminPermissionComponent)
+              .component('adminRecharge', m.AdminRechargeComponent)
+              .component('adminRecord', m.AdminRecordComponent)
+              .component('adminSellingDetail', m.AdminSellingDetailComponent)
+              .component('adminSetting', m.AdminSettingComponent)
+              .component('adminSoldDetail', m.AdminSoldDetailComponent)
+              .component('adminStatistics', m.AdminStatisticsComponent)
+              .component('adminTerms', m.AdminTermsComponent)
+              .component('adminTransfer', m.AdminTransferComponent)
+              .component('adminUnactive', m.AdminUnactiveComponent)
+              .component('adminWithdrawals', m.AdminWithdrawalsComponent)
+              .component('userList', m.UserListComponent);
             registerAdmin = true;
             deferred.resolve(true);
           }, 'admin');

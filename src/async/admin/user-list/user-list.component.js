@@ -1,5 +1,5 @@
 let UserListComponent = {
-  templateUrl: 'app/components/user-list/user-list.html',
+  template: require('./user-list.html'),
   bindings: {
     eqState: '@',     // 等于
     neState: '@',     // 不等于
@@ -100,4 +100,4 @@ let UserListComponent = {
   }
 };
 
-export default UserListComponent;
+export {UserListComponent};

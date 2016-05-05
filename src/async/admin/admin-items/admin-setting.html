@@ -9,19 +9,16 @@
       </button>
     </div>
   </div>
-  {{$ctrl.hand | json}}
   <div class="box-body slide-box">
     <form class="form-horizontal" ng-submit="$ctrl.addTrade($ctrl.hand)">
       <div class="form-group">
         <label class="col-sm-2 control-label">交易类型</label>
-        <div class="col-sm-3">
+        <div class="col-sm-3 radio">
           <label>
-            买
-            <input type="radio" name="type" ng-model="$ctrl.hand.type" value="0">
+            <input type="radio" name="type" ng-model="$ctrl.hand.type" value="0">买
           </label>
           <label>
-            卖
-            <input type="radio" name="type" ng-model="$ctrl.hand.type" value="1">
+            <input type="radio" name="type" ng-model="$ctrl.hand.type" value="1">卖
           </label>
         </div>
       </div>

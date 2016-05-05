@@ -1,3 +1,47 @@
+const _dataFormat = 'YYYYMMDDHHmmss';
+
+// 当前日期
+let _nowDate = window.moment();
+let _nowDay = _nowDate.date();
+
+let days = {
+  0: _nowDate.clone().hour(0).minute(0).second(0).format(_dataFormat),
+  7: _nowDate.clone().date(_nowDay - 7).hour(0).minute(0).second(0).format(_dataFormat),
+  15: _nowDate.clone().date(_nowDay - 15).hour(0).minute(0).second(0).format(_dataFormat),
+  30: _nowDate.clone().date(_nowDay - 30).hour(0).minute(0).second(0).format(_dataFormat),
+  max: _nowDate.clone().hour(23).minute(0).second(0).format(_dataFormat)
+};
+
+let defaultQuery = [
+  {
+    "%and": {
+      "%eq": {
+        status: 3,
+        currency: 'USD'
+      },
+      "%ne": {
+        type: -1
+      },
+      // 不大于:今天
+      "%lte": {
+        created: days.max
+      },
+      // 不小于:七天前
+      "%gte": {
+        created: days[7]
+      }
+    }
+  },
+  {
+    "%o": ['-created']
+  },
+  {
+    "%l": 10,
+    "%p": 0,
+    "%s": 0
+  }
+];
+
 let TradeDetailComponent = {
   templateUrl: 'app/components/trade-detail/trade-detail.html',
   controller($state, $stateParams, $moment, lwTrade, lwUtil, $query) {
@@ -5,55 +49,13 @@ let TradeDetailComponent = {
 
     let $ctrl = this;
 
-    const _dataFormat = 'YYYYMMDDHHmmss';
-
     const STATENAME = $state.current.name;
 
     $ctrl.tradeList = [];
     $ctrl.tradeListMeta = lwUtil.initMeta();
 
-    // 当前日期
-    let _nowDate = $moment();
-    let _nowDay = _nowDate.date();
+    let query = angular.copy(defaultQuery);
 
-    let days = {
-      0: _nowDate.clone().hour(0).minute(0).second(0).format(_dataFormat),
-      7: _nowDate.clone().date(_nowDay - 7).hour(0).minute(0).second(0).format(_dataFormat),
-      15: _nowDate.clone().date(_nowDay - 15).hour(0).minute(0).second(0).format(_dataFormat),
-      30: _nowDate.clone().date(_nowDay - 30).hour(0).minute(0).second(0).format(_dataFormat),
-      max: _nowDate.clone().hour(23).minute(0).second(0).format(_dataFormat)
-    };
-
-    let query = [
-      {
-        "%and": {
-          "%eq": {
-            status: 3,
-            currency: 'USD'
-          },
-          "%ne": {
-            type: -1
-          },
-          // 不大于:今天
-          "%lte": {
-            created: days.max
-          },
-          // 不小于:七天前
-          "%gte": {
-            created: days[7]
-          }
-        }
-      },
-      {
-        "%o": ['-created']
-      },
-      {
-        // "%l": $ctrl.tradeListMeta.limit
-        "%l": 10,
-        "%p": 0,
-        "%s": 0
-      }
-    ];
     $ctrl.query = query;
 
     angular.extend(query[0], $query.parse($stateParams.query));
