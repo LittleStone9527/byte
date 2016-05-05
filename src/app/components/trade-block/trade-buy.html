@@ -1,0 +1,49 @@
+<form name="buyForm" class="form-horizontal row" ng-submit="$ctrl.buy(buyForm)">
+  <div class="form-group">
+    <label class="col-sm-3 control-label">最佳买价</label>
+    <div class="col-sm-8">
+      <p class="form-control-static">0.005 USD/FBC</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3 control-label">买入价</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" placeholder="此出价为1个币的价格">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3 control-label">最大可买</label>
+    <div class="col-sm-8">
+      <p class="form-control-static">100000 FBC</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3 control-label">买入比例</label>
+    <div class="col-sm-8" ng-init="test=30">
+      <drag-pick data-percent-model="test"></drag-pick>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3 control-label">买入数量</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" placeholder="FBC">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3 control-label">交易额</label>
+    <div class="col-sm-8">
+      <p class="form-control-static">0.114 USD</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3 control-label">手续费</label>
+    <div class="col-sm-8">
+      <p class="form-control-static">免费</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-6 col-sm-offset-3">
+      <button type="submit" class="btn btn-danger btn-block">买 入</button>
+    </div>
+  </div>
+</form>

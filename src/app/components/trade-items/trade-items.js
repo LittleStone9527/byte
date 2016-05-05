@@ -4,7 +4,7 @@ let TradeItemsComponent = {
     let tpl = $attrs.template || $stateParams.partial;
     return `app/components/trade-items/trade-${tpl}.html`;
   },
-  controller($q, lwApi, lwUtil) {
+  controller($q, lwUtil, lwTrade) {
     'ngInject';
 
     let $ctrl = this;
@@ -12,21 +12,15 @@ let TradeItemsComponent = {
     $ctrl.stockList = [];
     $ctrl.stockListMeta = lwUtil.initMeta();
 
-    function getStock() {
-      let deferred = $q.defer();
-      lwApi.stock.list.get().$promise
+
+    $ctrl.$onInit = ()=> {
+      lwTrade.getStockList()
         .then((resp)=> {
           $ctrl.stockList = resp.data;
           $ctrl.stockListMeta = resp.meta;
-          deferred.resolve(resp);
-        }, (err)=> {
-          deferred.reject(err);
+        }, (error)=> {
+          console.error(error);
         });
-      return deferred.promise;
-    }
-
-    $ctrl.$onInit = ()=> {
-      getStock();
     };
 
   }

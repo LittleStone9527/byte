@@ -3,108 +3,17 @@
     <line-chart></line-chart>
     <hr>
     <div class="row">
-      <div class="col-sm-6">
-        <form class="form-horizontal">
-          <div class="form-group">
-            <label class="col-sm-3 control-label">最佳买价</label>
-            <div class="col-sm-8">
-              <p class="form-control-static">0.005 USD/FBC</p>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-3 control-label">买入价</label>
-            <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="此出价为1个币的价格">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-3 control-label">最大可买</label>
-            <div class="col-sm-8">
-              <p class="form-control-static">100000 FBC</p>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-3 control-label">买入比例</label>
-            <div class="col-sm-8" ng-init="test=30">
-              <drag-pick data-percent-model="test"></drag-pick>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-3 control-label">买入数量</label>
-            <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="FBC">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-3 control-label">交易额</label>
-            <div class="col-sm-8">
-              <p class="form-control-static">0.114 USD</p>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-3 control-label">手续费</label>
-            <div class="col-sm-8">
-              <p class="form-control-static">免费</p>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-sm-6 col-sm-offset-3">
-              <button type="submit" class="btn btn-danger btn-block">买 入</button>
-            </div>
-          </div>
-        </form>
+      <!--<div class="col-sm-6">-->
+        <!--<trade-block type="0"/>-->
+      <!--</div>-->
+      <!--<div class="col-sm-6">-->
+        <!--<trade-block type="1"/>-->
+      <!--</div>-->
+
+      <div class="col-sm-6" ng-repeat="d in $ctrl.stockList">
+        <trade-block trade="d"/>
       </div>
-      <div class="col-sm-6">
-        <form class="form-horizontal">
-          <div class="form-group">
-            <label class="col-sm-3 control-label">最佳卖价</label>
-            <div class="col-sm-8">
-              <p class="form-control-static">0.005 USD/FBC</p>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-3 control-label">卖出价</label>
-            <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="此出价为1个币的价格">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-3 control-label">最大可卖</label>
-            <div class="col-sm-8">
-              <p class="form-control-static">0.125 FBC</p>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-3 control-label">卖出比例</label>
-            <div class="col-sm-8">
-              <drag-pick data-percent-model="test"></drag-pick>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-3 control-label">卖出数量</label>
-            <div class="col-sm-8">
-              <input type="text" class="form-control" placeholder="FBC">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-3 control-label">交易额</label>
-            <div class="col-sm-8">
-              <p class="form-control-static">0.114 USD</p>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-3 control-label">手续费</label>
-            <div class="col-sm-8">
-              <p class="form-control-static">0.114 USD</p>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-sm-6 col-sm-offset-3">
-              <button type="submit" class="btn btn-success btn-block">卖 出</button>
-            </div>
-          </div>
-        </form>
-      </div>
+
     </div>
   </div>
 </div>

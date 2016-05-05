@@ -4,7 +4,7 @@
 
 let AdminSettingComponent = {
   template: require('./admin-setting.html'),
-  controller($q, lwApi, lwUtil, lwDialog){
+  controller($q, lwApi, lwUtil, lwDialog, lwTrade){
     'ngInject';
 
     let $ctrl = this;
@@ -62,22 +62,28 @@ let AdminSettingComponent = {
 
 
     // 手动挂出交易
-    $ctrl.addTrade = (data)=> {
-      lwApi.stock.api.post({
-        // type: Number(data.type),
-        type: data.type,
-        currency: data.currency,
-        stocks: [
-          10000, '201605051010'
-        ],
-        price: data.price * 1,
-        start: '201605051010',
-        finish: '201605203010'
-      }).$promise
-        .then((resp)=> {
-          console.log(resp);
-        }, (err)=> {
-          console.error(err);
+    $ctrl.addTrade = (form)=> {
+      let data = $ctrl.hand;
+      lwTrade.stock({
+          type: data.type * 1,
+          currency: data.currency,
+          stocks: [
+            {amount: 10000, start: '201605051025'},
+            {amount: 20000, start: '201605051125'},
+            {amount: 30000, start: '201605051225'}
+          ],
+          price: data.price * 1,
+          // 'limit': 8000,
+          // 'count': 10,
+          // 'note': '',
+          start: data.start || '201605011225',
+          finish: data.finish || '201605201225'
+        })
+        .then(()=> {
+          $ctrl.hand = {};
+          form.$setPristine();
+        }, (error)=> {
+          lwDialog.error(error.data.error);
         });
     };
 

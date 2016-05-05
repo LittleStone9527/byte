@@ -1,15 +1,15 @@
-const _dataFormat = 'YYYYMMDDHHmmss';
+const DATEFORMAT = 'YYYYMMDDHHmmss';
 
 // 当前日期
 let _nowDate = window.moment();
 let _nowDay = _nowDate.date();
 
 let days = {
-  0: _nowDate.clone().hour(0).minute(0).second(0).format(_dataFormat),
-  7: _nowDate.clone().date(_nowDay - 7).hour(0).minute(0).second(0).format(_dataFormat),
-  15: _nowDate.clone().date(_nowDay - 15).hour(0).minute(0).second(0).format(_dataFormat),
-  30: _nowDate.clone().date(_nowDay - 30).hour(0).minute(0).second(0).format(_dataFormat),
-  max: _nowDate.clone().hour(23).minute(0).second(0).format(_dataFormat)
+  0: _nowDate.clone().hour(0).minute(0).second(0).format(DATEFORMAT),
+  7: _nowDate.clone().date(_nowDay - 7).hour(0).minute(0).second(0).format(DATEFORMAT),
+  15: _nowDate.clone().date(_nowDay - 15).hour(0).minute(0).second(0).format(DATEFORMAT),
+  30: _nowDate.clone().date(_nowDay - 30).hour(0).minute(0).second(0).format(DATEFORMAT),
+  max: _nowDate.clone().hour(23).minute(0).second(0).format(DATEFORMAT)
 };
 
 let defaultQuery = [
@@ -67,9 +67,9 @@ let TradeDetailComponent = {
 
     // 几天前
     let _gteDay = query[0]["%and"]["%gte"].created;
-    let gteDayObj = $moment(_gteDay, _dataFormat);
+    let gteDayObj = $moment(_gteDay, DATEFORMAT);
     // 相差的时间ms
-    let _diffTimes = $moment(days[0], [_dataFormat]).diff(gteDayObj);
+    let _diffTimes = $moment(days[0], [DATEFORMAT]).diff(gteDayObj);
     // 最终结果:相差多少天
     $ctrl.diffDays = parseInt(_diffTimes / (1000 * 3600 * 24), 10);
 

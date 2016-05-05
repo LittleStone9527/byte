@@ -10,7 +10,7 @@
     </div>
   </div>
   <div class="box-body slide-box">
-    <form class="form-horizontal" ng-submit="$ctrl.addTrade($ctrl.hand)">
+    <form name="handSetForm" class="form-horizontal" ng-submit="$ctrl.addTrade(handSetForm)">
       <div class="form-group">
         <label class="col-sm-2 control-label">交易类型</label>
         <div class="col-sm-3 radio">
@@ -25,7 +25,10 @@
       <div class="form-group">
         <label class="col-sm-2 control-label">交易币种</label>
         <div class="col-sm-3">
-          <input type="text" class="form-control" ng-model="$ctrl.hand.currency">
+          <select class="form-control" ng-model="$ctrl.hand.currency">
+            <option value="">--请选择币种--</option>
+            <option value="USD">USD</option>
+          </select>
         </div>
       </div>
       <div class="form-group">
@@ -37,13 +40,13 @@
       <div class="form-group">
         <label class="col-sm-2 control-label">起始时间</label>
         <div class="col-sm-3">
-          <input type="password" class="form-control" ng-model="$ctrl.hand.start">
+          <input type="text" class="form-control" ng-model="$ctrl.hand.start" placeholder="201605051025">
         </div>
       </div>
       <div class="form-group">
         <label class="col-sm-2 control-label">终止时间</label>
         <div class="col-sm-3">
-          <input type="password" class="form-control" ng-model="$ctrl.hand.finish">
+          <input type="text" class="form-control" ng-model="$ctrl.hand.finish" placeholder="201605051025">
         </div>
       </div>
       <div class="form-group">
