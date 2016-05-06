@@ -3,7 +3,8 @@ const componentPath = 'app/components/trade-block';
 let TradeBlockComponent = {
   templateUrl: componentPath + '/trade-block.html',
   bindings: {
-    data: '=trade'
+    data: '=trade',
+    wallets: '=wallets'
   },
   controller($window, lwTrade, lwUser) {
     'ngInject';
@@ -16,8 +17,6 @@ let TradeBlockComponent = {
     $ctrl.buyItem = {price};
 
     $ctrl.sellItem = {price};
-
-    $ctrl.USDWallet = {};
 
     $ctrl.max = 0;
 
@@ -43,7 +42,7 @@ let TradeBlockComponent = {
 
     // 最大可买XXX FBC
     $ctrl.maxBuy = ()=> {
-      let max = parseFloat($ctrl.USDWallet.balance / $ctrl.buyItem.price);
+      let max = parseFloat($ctrl.wallets.USD.balance / $ctrl.buyItem.price);
       $ctrl.buyItem.maxBuy = $window.isNaN(max) ? 0 : max.toFixed(3);
     };
 
@@ -54,14 +53,7 @@ let TradeBlockComponent = {
     };
 
     $ctrl.$onInit = ()=> {
-      lwUser.getWallets()
-        .then((resp)=> {
-          angular.forEach(resp.data, (v)=> {
-            if (v.currency === 'USD') $ctrl.USDWallet = v;
-          });
-          $ctrl.maxBuy();
-          $ctrl.maxSell();
-        });
+
     }
 
   }

@@ -6,6 +6,8 @@ export class LwUserService {
   $get($rootScope, $q, $state, SETTINGS, ngStore, lwApi) {
     'ngInject';
 
+    const moneyTimes = SETTINGS.TIMES;
+
     let user = {};
 
     user.isAuth = false;          // 是否已登陆
@@ -164,6 +166,11 @@ export class LwUserService {
       let deferred = $q.defer();
       lwApi.user.wallet.list.get().$promise
         .then((resp)=> {
+          angular.forEach(resp.data, (v)=> {
+            v.balance = v.balance / moneyTimes;
+            v.total = v.total / moneyTimes;
+            v.frozen = v.frozen / moneyTimes;
+          });
           user.wallets = resp.data;
           deferred.resolve(resp);
         }, (error)=>deferred.reject(error));

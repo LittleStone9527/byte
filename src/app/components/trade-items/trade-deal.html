@@ -3,15 +3,15 @@
     <line-chart></line-chart>
     <hr>
     <div class="row">
-      <!--<div class="col-sm-6">-->
-        <!--<trade-block type="0"/>-->
-      <!--</div>-->
-      <!--<div class="col-sm-6">-->
-        <!--<trade-block type="1"/>-->
-      <!--</div>-->
+      <div class="col-sm-6">
+        <!--<trade-block type="0" data-trade="$ctrl.stockList[0]" wallets="$ctrl.wallets"/>-->
+      </div>
+      <div class="col-sm-6">
+        <!--<trade-block type="1" data-trade="$ctrl.stockList[1]" wallets="$ctrl.wallets"/>-->
+      </div>
 
       <div class="col-sm-6" ng-repeat="d in $ctrl.stockList">
-        <trade-block trade="d"/>
+        <trade-block trade="d" wallets="$ctrl.wallets"/>
       </div>
 
     </div>

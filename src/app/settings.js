@@ -56,6 +56,9 @@ const SETTINGS = {
   '': ''
 };
 
+// 为了避免浮点数精度，上传到服务器时,价格要乘以1000
+SETTINGS.TIMES = 1000;
+
 // 初始化
 SETTINGS.init('force');
 

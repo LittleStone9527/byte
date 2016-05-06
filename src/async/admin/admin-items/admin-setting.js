@@ -4,10 +4,12 @@
 
 let AdminSettingComponent = {
   template: require('./admin-setting.html'),
-  controller($q, lwApi, lwUtil, lwDialog, lwTrade){
+  controller($q, lwApi, lwUtil, lwDialog, lwTrade, SETTINGS){
     'ngInject';
 
     let $ctrl = this;
+
+    let moneyTimes = SETTINGS.TIMES;
 
     $ctrl.exchangeList = [];
     $ctrl.exchangeListMeta = lwUtil.initMeta();
@@ -60,7 +62,10 @@ let AdminSettingComponent = {
           $ctrl.stockList = resp.data;
           $ctrl.stockListMeta = resp.meta;
           deferred.resolve(resp);
-        }, (error)=>deferred.reject(error));
+        }, (error)=>{
+          deferred.reject(error);
+          debugger;
+        });
       return deferred.promise;
     }
 
@@ -79,11 +84,11 @@ let AdminSettingComponent = {
           type: data.type * 1,
           currency: data.currency,
           stocks: [
-            {amount: 10000, start: '201605051025'},
-            {amount: 20000, start: '201605051125'},
-            {amount: 30000, start: '201605051225'}
+            {amount: 10000 * moneyTimes, start: '201605061025'},
+            {amount: 20000 * moneyTimes, start: '201605061225'},
+            {amount: 30000 * moneyTimes, start: '201605061525'}
           ],
-          price: data.price * 1,
+          price: data.price * moneyTimes,
           // 'limit': 8000,
           // 'count': 10,
           // 'note': '',

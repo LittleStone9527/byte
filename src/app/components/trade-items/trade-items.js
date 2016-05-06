@@ -4,10 +4,12 @@ let TradeItemsComponent = {
     let tpl = $attrs.template || $stateParams.partial;
     return `app/components/trade-items/trade-${tpl}.html`;
   },
-  controller($scope, $state, $stateParams, $q, lwUtil, lwTrade) {
+  controller($scope, $state, $stateParams, $q, lwUtil, lwTrade, SETTINGS, lwUser) {
     'ngInject';
 
     let $ctrl = this;
+
+    const moneyTimes = SETTINGS.TIMES;
 
     $ctrl.stockList = [];
     $ctrl.stockListMeta = lwUtil.initMeta();
@@ -49,11 +51,24 @@ let TradeItemsComponent = {
       switch ($stateParams.partial) {
         case 'deal':
           lwTrade.getStockList()
-            .then((resp)=> {
-              $ctrl.stockList = resp.data;
-              $ctrl.stockListMeta = resp.meta;
+            .then(({data, meta})=> {
+              // 买出在前
+              data = data.sort((a, b)=> {
+                return a.type > b.type;
+              });
+              $ctrl.stockList = data;
+              $ctrl.stockListMeta = meta;
             });
           getDealList();
+
+          lwUser.getWallets()
+            .then(({data={}})=> {
+              $ctrl.wallets = {};
+              angular.forEach(data, (v)=> {
+                $ctrl.wallets[v.currency] = v;
+              });
+            });
+
           break;
         case 'record':
           getDealList();
