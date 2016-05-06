@@ -1,10 +1,10 @@
-<nav class="text-center" ng-cloak ng-if="$ctrl.meta">
+<nav ng-cloak ng-if="$ctrl.meta">
 
   <ul class="pagination" ng-show="$ctrl.pageInfo.last>1">
 
     <!-- 后退-->
     <li ng-class="{'disabled':$ctrl.pageInfo.preAble == false}" ng-click="$ctrl.callback('-')">
-      <a href="javascript:void(0)">&laquo;</a>
+      <a href="javascript:void(0)">上一页</a>
     </li>
 
     <!-- 第一页 -->
@@ -34,7 +34,7 @@
 
     <!-- 前进 -->
     <li ng-class="{'disabled':$ctrl.pageInfo.nextAble == false}" ng-click="$ctrl.callback('+')">
-      <a href="javascript:void(0)">&raquo;</a>
+      <a href="javascript:void(0)">下一页</a>
     </li>
 
   </ul>

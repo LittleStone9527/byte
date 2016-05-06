@@ -1,5 +1,11 @@
 <form name="sellForm" class="form-horizontal row" ng-submit="$ctrl.sell(sellForm)">
   <div class="form-group">
+    <label class="col-sm-3 control-label">可用余额</label>
+    <div class="col-sm-8">
+      <p class="form-control-static"><span>100.000</span> FBC</p>
+    </div>
+  </div>
+  <div class="form-group">
     <label class="col-sm-3 control-label">最佳卖价</label>
     <div class="col-sm-8">
       <p class="form-control-static"><span>{{$ctrl.data.price | number:3}}</span> USD/FBC</p>

@@ -37,8 +37,8 @@
       <tr ng-repeat="d in $ctrl.latest">
         <td>{{d.created | date:'yyyy:MM:dd HH:mm:ss'}}</td>
         <td ng-switch="d.type">
-          <span ng-switch-when="0">买入</span>
-          <span ng-switch-when="1">卖出</span>
+          <span ng-switch-when="0" class="col-r">买入</span>
+          <span ng-switch-when="1" class="col-g">卖出</span>
         </td>
         <td>${{d.price | number:3}}</td>
         <td>{{d.count}}</td>
