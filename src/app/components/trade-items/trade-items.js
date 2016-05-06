@@ -13,7 +13,6 @@ let TradeItemsComponent = {
     $ctrl.stockListMeta = lwUtil.initMeta();
     $ctrl.latest = [];
     $ctrl.latestMeta = lwUtil.initMeta();
-    console.log($ctrl.latestMeta);
 
     let query = [
       {
@@ -36,7 +35,6 @@ let TradeItemsComponent = {
     let getDealList = ()=> {
       lwTrade.dealList(query)
         .then((resp)=> {
-          console.log(resp.data);
           $scope.$apply(()=> {
             $ctrl.latest = resp.data;
             $ctrl.latestMeta = resp.meta;

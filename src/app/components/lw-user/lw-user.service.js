@@ -164,6 +164,7 @@ export class LwUserService {
       let deferred = $q.defer();
       lwApi.user.wallet.list.get().$promise
         .then((resp)=> {
+          user.wallets = resp.data;
           deferred.resolve(resp);
         }, (error)=>deferred.reject(error));
       return deferred.promise;
