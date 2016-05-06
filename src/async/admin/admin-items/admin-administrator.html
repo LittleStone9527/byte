@@ -9,7 +9,6 @@
       </button>
     </div>
   </div>
-
   <div class="box-body slide-box">
     <form class="form-horizontal">
       <div class="form-group">
@@ -35,118 +34,22 @@
         <div class="col-sm-8">
           <table class="table table-bordered mb0">
             <tbody>
-            <tr>
+            <tr ng-repeat="d in $ctrl.permissions">
               <td>
                 <label class="checkbox-inline">
-                  <input type="checkbox"> 信息中心
+                  <input ng-model="d.$$check" type="checkbox" ng-checked="!!d.$$check" ng-change="$ctrl.selectAll(d)">{{d.label}}<!-- ng-click="isChecked = !isChecked"  ng-model="$ctrl.checked"-->
                 </label>
               </td>
               <td>
-                <label class="checkbox-inline">
-                  <input type="checkbox"> 发信箱
-                </label>
-                <label class="checkbox-inline">
-                  <input type="checkbox"> 收信箱
-                </label>
-                <label class="checkbox-inline">
-                  <input type="checkbox"> 服务条款
-                </label>
-                <label class="checkbox-inline">
-                  <input type="checkbox"> 公告管理
-                </label>
-                <label class="checkbox-inline">
-                  <input type="checkbox"> 新手指南
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label class="checkbox-inline">
-                  <input type="checkbox"> 用户管理
-                </label>
-              </td>
-              <td>
-                <label class="checkbox-inline">
-                  <input type="checkbox"> 已激活用户
-                </label>
-                <label class="checkbox-inline">
-                  <input type="checkbox"> 未激活用户
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label class="checkbox-inline">
-                  <input type="checkbox"> 财务管理
-                </label>
-              </td>
-              <td>
-                <label class="checkbox-inline">
-                  <input type="checkbox"> 充值管理
-                </label>
-                <label class="checkbox-inline">
-                  <input type="checkbox"> 网银充值记录
-                </label>
-                <label class="checkbox-inline">
-                  <input type="checkbox"> 提现管理
-                </label>
-                <label class="checkbox-inline">
-                  <input type="checkbox"> 转帐管理
-                </label>
-                <label class="checkbox-inline">
-                  <input type="checkbox"> 流水明细
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label class="checkbox-inline">
-                  <input type="checkbox"> 交易管理
-                </label>
-              </td>
-              <td>
-                <label class="checkbox-inline">
-                  <input type="checkbox"> 正在买入的记录
-                </label>
-                <label class="checkbox-inline">
-                  <input type="checkbox"> 正在卖出的记录
-                </label>
-                <label class="checkbox-inline">
-                  <input type="checkbox"> 已完结的买入明细
-                </label>
-                <label class="checkbox-inline">
-                  <input type="checkbox"> 已完结的卖出明细
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label class="checkbox-inline">
-                  <input type="checkbox"> 系统管理
-                </label>
-              </td>
-              <td>
-                <label class="checkbox-inline">
-                  <input type="checkbox"> 管理员设置
-                </label>
-                <label class="checkbox-inline">
-                  <input type="checkbox"> 统计数据
-                </label>
-                <label class="checkbox-inline">
-                  <input type="checkbox"> 参数设置
-                </label>
-                <label class="checkbox-inline">
-                  <input type="checkbox"> 数据库操作
-                </label>
-                <label class="checkbox-inline">
-                  <input type="checkbox"> 系统登陆控制
+                <label class="checkbox-inline" ng-repeat="d2 in d.options">
+                  <input type="checkbox"  ng-model="d2.$$check" ng-checked="!!d2.$$check" ng-change="$ctrl.select(d,d2)">{{d2.selection}}
                 </label>
               </td>
             </tr>
             <tr>
               <td colspan="2">
                 <label class="checkbox-inline">
-                  <input type="checkbox"> 全选
+                  <input type="checkbox" ng-model="$ctrl.permissions.$$check" ng-checked="!!permissions.$$check" ng-change="$ctrl.selectAllPermission()"> 全选
                 </label>
               </td>
             </tr>
@@ -162,7 +65,6 @@
     </form>
   </div>
 </div>
-
 <div class="box">
   <div class="box-header with-border">
     <h3 class="box-title">管理员列表</h3>
@@ -196,7 +98,6 @@
       </tr>
       </tbody>
     </table>
-
     <!--翻页-->
     <div class="row">
       <div class="col-sm-5">
