@@ -1,5 +1,5 @@
 export class TradeController {
-  constructor($scope, $state) {
+  constructor($scope, $state, $q, lwApi, lwUtil) {
     'ngInject';
 
     let vm = this;

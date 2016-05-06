@@ -214,12 +214,13 @@ export class LwApiService {
            * 充值交易(管理员)
            * method:[post]
            *
+           * *type        2 or 5
            * *username
            * *currency
            * *money
            * [tag]
            */
-          recharge: $$('deal-man-recharge', '/api/v1/deal/manage/recharge'),
+          api: $$('deal-man-recharge', '/api/v1/deal/manage'),
           /**
            * 交易列表(管理员)
            * method:[get]
@@ -241,7 +242,45 @@ export class LwApiService {
          *
          * *status    3 or 4
          */
-        confirm: $$('deal-confirm', '/api/v1/deal/confirm?id=:id&status=:status')
+        confirm: $$('deal-confirm', '/api/v1/deal/confirm?id=:id&status=:status'),
+
+        draw: {
+          /**
+           * 提交提现申请
+           * method:[post]
+           *
+           * *currency
+           * *money
+           * *method
+           *
+           * // 以下为银行方式必填
+           * [card]           银行卡号
+           * [cardOwner]      银行主人
+           * [bankIndex]      银行序号
+           * [bankBranch]     银行分行
+           */
+          api: $$('deal-draw', '/api/v1/deal/draw'),
+          /**
+           * 提现申请列表
+           * method:[get]
+           *
+           * *MetaQuery       "method", "status", "currency", "created" // created: 例如20160427165810
+           * *MetaOrder       "created"，推荐"-created"
+           * *MetaLimit       limit <= 100
+           */
+          list: $$('draw-list', '/api/v1/deal/draw/list'),
+          manage: {
+            /**
+             * 提现申请列表(管理员)
+             * method:[get]
+             *
+             * *MetaQuery       "method", "status", "currency", "created" // created: 例如20160427165810
+             * *MetaOrder       "created"，推荐"-created"
+             * *MetaLimit       limit <= 100
+             */
+            list: $$('draw-list-admin', '/api/v1/deal/draw/manage/list?username=:username')
+          }
+        }
       },
       // 汇率
       exchange: {
@@ -324,8 +363,8 @@ export class LwApiService {
            * 撤销挂出的买卖交易(管理员)
            * method:[delete]
            */
-          one: $$('stock-man-one', '/api/v1/stock/manage/one?num=:num '),
-          confirm:$$('stock-man-confirm')
+          one: $$('stock-man-one', '/api/v1/stock/manage/one?num=:num'),
+          confirm: $$('stock-man-confirm')
         }
       }
     };

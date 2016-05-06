@@ -25,6 +25,7 @@ import AdminTermsComponent from './admin-items/admin-terms';
 import AdminTransferComponent from './admin-items/admin-transfer';
 import AdminUnactiveComponent from './admin-items/admin-unactive';
 import AdminWithdrawalsComponent from './admin-items/admin-withdrawals';
+import {UserListComponent} from './user-list/user-list.component';
 
 export {
   AdminDetailComponent,
@@ -49,5 +50,6 @@ export {
   AdminTermsComponent,
   AdminTransferComponent,
   AdminUnactiveComponent,
-  AdminWithdrawalsComponent
+  AdminWithdrawalsComponent,
+  UserListComponent
 };

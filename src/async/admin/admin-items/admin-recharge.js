@@ -4,7 +4,7 @@
 
 let AdminRechargeComponent = {
   template: require('./admin-recharge.html'),
-  controller(lwApi, lwDialog){
+  controller(lwApi, lwDialog, SETTINGS){
     'ngInject';
 
     let $ctrl = this;
@@ -19,9 +19,13 @@ let AdminRechargeComponent = {
         return false;
       }
 
-      lwApi.deal.manage.recharge.post({
-        username, money: money * 1, currency, tag
-      }).$promise
+      money = money * SETTINGS.TIMES;
+
+      let type = money > 0 ? 2 : 5;
+
+      money = Math.abs(money);
+
+      lwApi.deal.manage.api.post({type, username, money, currency, tag}).$promise
         .then(()=> {
           lwDialog.success();
           $ctrl.form = {currency: 'USD'};

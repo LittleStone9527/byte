@@ -1,0 +1,55 @@
+<form name="sellForm" class="form-horizontal row" ng-submit="$ctrl.sell(sellForm)">
+  <div class="form-group">
+    <label class="col-sm-3 control-label">可用余额</label>
+    <div class="col-sm-8">
+      <p class="form-control-static"><span>{{$ctrl.wallets.FBC.balance | number:3}}</span> FBC</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3 control-label">最佳卖价</label>
+    <div class="col-sm-8">
+      <p class="form-control-static"><span>{{$ctrl.data.price | number:3}}</span> USD/FBC</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3 control-label">卖出价</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" placeholder="此出价为1个币的价格" ng-model="$ctrl.sellItem.price" ng-change="$ctrl.maxSell()">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3 control-label">最大可卖</label>
+    <div class="col-sm-8">
+      <p class="form-control-static"><span>{{$ctrl.buyItem.maxSell}}</span> USD</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3 control-label">卖出比例</label>
+    <div class="col-sm-8">
+      <drag-pick data-percent-model="test"></drag-pick>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3 control-label">卖出数量</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" placeholder="FBC" ng-model="$ctrl.sellItem.count" ng-change="$ctrl.maxSell()">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3 control-label">交易额</label>
+    <div class="col-sm-8">
+      <p class="form-control-static">0.114 USD</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3 control-label">手续费</label>
+    <div class="col-sm-8">
+      <p class="form-control-static">0.114 USD</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-6 col-sm-offset-3">
+      <button type="submit" class="btn btn-success btn-block">卖 出</button>
+    </div>
+  </div>
+</form>

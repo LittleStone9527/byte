@@ -35,9 +35,9 @@ import telBindingDialogComponent from './components/tel-binding-dialog/tel-bindi
 import googleCaptchaBindingDialogComponent from './components/google-captcha-binding-dialog/google-captcha-binding-dialog';
 import DatePickComponent from './components/date-pick/date-pick.component';
 import ChangePwdComponent from './components/auth-change-pwd/change-pwd';
-import UserListComponent from './components/user-list/user-list.component';
 import Pagination from './components/pagination/pagination';
 import TradeDetailComponent from './components/trade-detail/trade-detail';
+import {TradeBlockComponent} from './components/trade-block/trade-block';
 
 // directive
 import {DragPickDirective} from './components/drag-pick/drag-pick.directive';
@@ -98,24 +98,30 @@ angular.module('lwTrade', [
   .controller('NewsController', NewsController)
   .controller('GuideController', GuideController)
 
+  // common
   .component('header', HeaderComponent)
   .component('footer', FooterComponent)
+  .component('pagination', Pagination)
+  .component('datePick', DatePickComponent)
+
+  // trade
   .component('tradeItems', TradeItemsComponent)
-  .component('loginForm', LoginFormComponent)
-  .component('registerForm', RegisterFormComponent)
+  .component('tradeDetail', TradeDetailComponent)
+  .component('tradeBlock', TradeBlockComponent)
+  // others items
   .component('financesItems', FinancesItemsComponent)
   .component('adminItems', AdminItemsComponent)
   .component('safeItems', SafeItemsComponent)
-  .component('lineChart', LineChartComponent)
-  .component('profile', ProfileComponent)
+  // auth
+  .component('loginForm', LoginFormComponent)
+  .component('registerForm', RegisterFormComponent)
   .component('authForget', AuthForgetComponent)
+  .component('changePassword', ChangePwdComponent)
+  .component('profile', ProfileComponent)
+  // widget
   .component('telBind', telBindingDialogComponent)
   .component('googleCaptchaBind', googleCaptchaBindingDialogComponent)
-  .component('datePick', DatePickComponent)
-  .component('changePassword', ChangePwdComponent)
-  .component('userList', UserListComponent)
-  .component('pagination', Pagination)
-  .component('tradeDetail', TradeDetailComponent)
+  .component('lineChart', LineChartComponent)
 
   .directive('dragPick', DragPickDirective)
   .directive('menuToggle', ToggleDirective)

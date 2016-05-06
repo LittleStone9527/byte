@@ -11,7 +11,7 @@
 
           <li ng-repeat="d in vm.sideBarData">
             <!--<a href="javascript:void(0);" class="active" ng-click="d.$$extend=!d.$$extend">-->
-            <a href="javascript:void(0);" class="active" ng-click="vm.toggle(d)">
+            <a href="javascript:void(0);" ng-click="vm.toggle(d)">
               <span>{{::d.title}}</span>
               <i class="ion ion-minus-round"
                  ng-class="{'ion-minus-round':!!d.$$extend,'ion-plus-round':!d.$$extend}"></i>

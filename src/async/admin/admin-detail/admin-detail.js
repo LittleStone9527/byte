@@ -1,11 +1,6 @@
-// import {sideBarData} from '../../admin/admin.controller';
-
 let AdminDetailComponent = {
-  templateUrl: ($stateParams)=> {
-    'ngInject';
-    return `app/components/admin-detail/admin-${$stateParams.partial}-${$stateParams.sub}.html`;
-  },
-  controller: function ($scope, $stateParams, lwApi) {
+  template: require('./admin-active-profile.html'),
+  controller($stateParams, lwUser){
     'ngInject';
 
     let $ctrl = this;
@@ -13,13 +8,13 @@ let AdminDetailComponent = {
     $ctrl.userProfile = {};
 
     let getUserInfo = (username)=> {
-      lwApi.user.manage.one.get({username}).$promise
+      lwUser.getDetail(username)
         .then((resp)=> {
-          $scope.$apply(()=>$ctrl.userProfile = resp.data);
+          $ctrl.userProfile = resp.data;
+        }, function (error) {
+          console.error(error);
         });
     };
-
-    console.log($stateParams);
 
     $ctrl.$onInit = ()=> {
       switch ($stateParams.sub) {
@@ -29,7 +24,6 @@ let AdminDetailComponent = {
         default:
       }
     };
-
   }
 };
 

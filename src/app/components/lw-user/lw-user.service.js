@@ -6,6 +6,8 @@ export class LwUserService {
   $get($rootScope, $q, $state, SETTINGS, ngStore, lwApi) {
     'ngInject';
 
+    const moneyTimes = SETTINGS.TIMES;
+
     let user = {};
 
     user.isAuth = false;          // 是否已登陆
@@ -133,21 +135,29 @@ export class LwUserService {
       return !!session ? $q.resolve(session) : $q.reject();
     };
 
-    user.getDetail = ()=> {
+    user.getDetail = (username)=> {
       let deferred = $q.defer();
-      user.getSession()
-        .then(() => {
-          return lwApi.user.detail.get().$promise;
-        })
-        .then((resp)=> {
-          user.loginTrigger(resp);
-          deferred.resolve(resp);
-        })
-        .catch((error) => {
-          console.info('fail get detail');
-          user.logoutTrigger(error);
-          deferred.reject(error);
-        });
+
+      if (!username) {
+        // 获取自己的资料
+        user.getSession()
+          .then(() => {
+            return lwApi.user.detail.get().$promise;
+          })
+          .then((resp)=> {
+            user.loginTrigger(resp);
+            deferred.resolve(resp);
+          })
+          .catch((error) => {
+            console.info('fail get detail');
+            user.logoutTrigger(error);
+            deferred.reject(error);
+          });
+      } else {
+        // 管理员获取他人的资料
+        lwApi.user.manage.one.get({username}).$promise
+          .then((resp)=>deferred.resolve(resp), (error)=>deferred.reject(error));
+      }
 
       return deferred.promise;
     };
@@ -156,6 +166,12 @@ export class LwUserService {
       let deferred = $q.defer();
       lwApi.user.wallet.list.get().$promise
         .then((resp)=> {
+          angular.forEach(resp.data, (v)=> {
+            v.balance = v.balance / moneyTimes;
+            v.total = v.total / moneyTimes;
+            v.frozen = v.frozen / moneyTimes;
+          });
+          user.wallets = resp.data;
           deferred.resolve(resp);
         }, (error)=>deferred.reject(error));
       return deferred.promise;

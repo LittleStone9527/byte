@@ -1,3 +1,93 @@
+<div class="box box-primary hand-setting">
+  <div class="box-header with-border">
+    <h3 class="box-title">手动设置</h3>
+    <div class="box-tools pull-right">
+      <button class="btn btn-box-tool" slide data-target=".hand-setting .slide-box" data-status="false"
+              data-extend-class="ion-minus-round"
+              data-hide-class="ion-plus-round">
+        <i class="ion"></i>
+      </button>
+    </div>
+  </div>
+  <div class="box-body slide-box">
+    <form name="handSetForm" class="form-horizontal" ng-submit="$ctrl.addTrade(handSetForm)">
+      <div class="form-group">
+        <label class="col-sm-2 control-label">交易类型</label>
+        <div class="col-sm-3 radio">
+          <label>
+            <input type="radio" name="type" ng-model="$ctrl.hand.type" value="0">买
+          </label>
+          <label>
+            <input type="radio" name="type" ng-model="$ctrl.hand.type" value="1">卖
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">交易币种</label>
+        <div class="col-sm-3">
+          <select class="form-control" ng-model="$ctrl.hand.currency">
+            <option value="">--请选择币种--</option>
+            <option value="USD">USD</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">单价</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" ng-model="$ctrl.hand.price">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">起始时间</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" ng-model="$ctrl.hand.start" placeholder="201605051025">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">终止时间</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" ng-model="$ctrl.hand.finish" placeholder="201605051025">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-primary">挂出买卖</button>
+        </div>
+      </div>
+    </form>
+
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>交易编号</th>
+        <th>交易类型</th>
+        <th>币种</th>
+        <th>单价</th>
+        <th>剩余</th>
+        <th>操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="d in $ctrl.stockList">
+        <td>{{d.num}}</td>
+        <td ng-switch="d.type">
+          <span ng-switch-when="0">买入</span>
+          <span ng-switch-when="1">卖出</span>
+        </td>
+        <td>{{d.currency}}</td>
+        <td>{{d.price}}</td>
+        <td>{{d.balance}}</td>
+        <td>
+          <a class="btn btn-default" href="javascript:void(0);" ng-click="$ctrl.removeStock(d.num)">撤销</a>
+          <a class="btn btn-default" href="javascript:void(0);">激活</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
 <div class="box">
   <div class="box-header with-border">
     <h3 class="box-title">参数设置</h3>
@@ -9,7 +99,7 @@
         <td><label>FBC比率</label></td>
         <td>
           <div class="form-inline">
-            当前 1FBC= <input type="text" class="form-control"> USD
+            当前 1FBC= <input type="text" class="form-control" ng-model="$ctrl.form.ex[0].rate"> USD
           </div>
         </td>
         <td>
@@ -74,7 +164,7 @@
       <tr>
         <td></td>
         <td colspan="2">
-          <button type="submit" class="btn btn-primary">确定</button>
+          <button type="submit" class="btn btn-primary" ng-click="$ctrl.submit($ctrl.form)">确定</button>
           <button type="submit" class="btn btn-default">重置参数</button>
         </td>
       </tr>
@@ -82,3 +172,4 @@
     </table>
   </div>
 </div>
+
