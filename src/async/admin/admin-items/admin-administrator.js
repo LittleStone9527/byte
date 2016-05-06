@@ -89,6 +89,7 @@ let AdminAdministratorComponent = {
         if(!v.$$check) parent = false;
       });
       d.$$check = parent;
+
       var total = true;
       // 总的
       angular.forEach($ctrl.permissions, function (v) {
@@ -96,6 +97,7 @@ let AdminAdministratorComponent = {
       });
       $ctrl.permissions.$$check = total;
     };
+    
   }
 };
 
